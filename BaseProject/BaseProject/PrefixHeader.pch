@@ -1,0 +1,57 @@
+//
+//  PrefixHeader.pch
+//  BaseProject
+//
+//  Created by 泡果 on 2018/5/28.
+//  Copyright © 2018年 com.general.*. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import "AppDelegate.h"
+
+#import "ACMacros.h"
+#import "AppMacro.h"
+#import "UtilsMacro.h"
+#import "VendorMarco.h"
+#import "APIMacro.h"
+#import "NotificationMacro.h"
+#import "ToolView.h"
+
+//HeaderFile
+#import "CategoriesHeader.h"
+#import "BaseHeader.h"
+
+#import "HomeSectionHeader.h"
+#import "NewsSectionHeader.h"
+#import "MarketSectionHeader.h"
+#import "MySectionHeader.h"
+
+//自定义类
+#import "CMRequest.h"//网络请求工具类
+#import "LSCoreToolCenter.h"//网络请求过程弹窗提示
+#import "Z_AvoidCrashTool.h"//容错处理工具类
+#import "HttpService.h"//网络请求工具类
+#import "InterfaceConfig.h"//自定义网络请求baseUrl
+#import "DataCache.h"//数据缓存
+
+#import <Reachability/Reachability.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
+#import "AvoidCrash.h"//对服务器数据的空值进行处理，防止数组，字典，字符串等空值引起的crash
+#import "HMSegmentedControl.h"
+
+#import <MJRefresh/MJRefresh.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#define MAS_SHORTHAND_GLOBALS
+#import <Masonry/Masonry.h>
+#import <MJExtension/MJExtension.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h>
+#import "ReactiveObjC.h"
+#import <Foundation/Foundation.h>
+#endif
+#endif /* PrefixHeader_pch */

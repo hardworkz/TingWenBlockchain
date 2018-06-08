@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+target 'BaseProject' do
+pod 'Reachability', '~> 3.2'
+pod 'AFNetworking', '~> 3.2.1'
+pod 'MJRefresh', '~> 3.1.15.3'
+pod 'SDWebImage', '~> 3.8.2'
+pod 'Masonry', '~> 1.1.0'
+pod 'IQKeyboardManager', '~> 6.0.3'
+pod 'SVProgressHUD', '~> 2.2.5'
+pod 'MJExtension', '~> 3.0.13'
+pod 'MWPhotoBrowser', '~> 2.1.2'
+pod 'FDFullscreenPopGesture', '~> 1.1'
+pod 'ReactiveObjC', '~> 3.1.0'
+pod 'AvoidCrash', '~> 2.5.2'
+pod 'RDVTabBarController', '~> 1.1.9'
+pod 'HMSegmentedControl', '~> 1.5.5'
+end
