@@ -84,12 +84,11 @@
 		6988F47D20C0F2B200414C5B /* ZMarketSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F47C20C0F2B200414C5B /* ZMarketSegmentController.m */; };
 		698FDEA720C8CBE6000384D2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEA620C8CBE6000384D2 /* User.m */; };
 		698FDEAA20C8CBF3000384D2 /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEA820C8CBF2000384D2 /* Identity.m */; };
-		698FDEAE20C8CC2E000384D2 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEAC20C8CC2D000384D2 /* UserManager.m */; };
-		698FDEB120C8CC38000384D2 /* IdentityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEAF20C8CC37000384D2 /* IdentityManager.m */; };
 		698FDEBE20CA1648000384D2 /* RotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEB720CA1647000384D2 /* RotationView.m */; };
 		698FDEBF20CA1648000384D2 /* SubmitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEB920CA1647000384D2 /* SubmitButton.m */; };
 		698FDEC020CA1648000384D2 /* SubmitLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEBB20CA1647000384D2 /* SubmitLabel.m */; };
 		698FDEC120CA1648000384D2 /* SubmitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEBD20CA1647000384D2 /* SubmitView.m */; };
+		698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEC520CA5564000384D2 /* UserLoginManager.m */; };
 		69A592CF20C659CD00F1CC4C /* ZMyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592CE20C659CD00F1CC4C /* ZMyView.m */; };
 		69A592D220C659DC00F1CC4C /* ZMyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D120C659DC00F1CC4C /* ZMyViewModel.m */; };
 		69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D420C65BC500F1CC4C /* ZMyTableViewCell.m */; };
@@ -292,10 +291,6 @@
 		698FDEA620C8CBE6000384D2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		698FDEA820C8CBF2000384D2 /* Identity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identity.m; sourceTree = "<group>"; };
 		698FDEA920C8CBF3000384D2 /* Identity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identity.h; sourceTree = "<group>"; };
-		698FDEAC20C8CC2D000384D2 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
-		698FDEAD20C8CC2E000384D2 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
-		698FDEAF20C8CC37000384D2 /* IdentityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentityManager.m; sourceTree = "<group>"; };
-		698FDEB020C8CC38000384D2 /* IdentityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityManager.h; sourceTree = "<group>"; };
 		698FDEB620CA1647000384D2 /* RotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationView.h; sourceTree = "<group>"; };
 		698FDEB720CA1647000384D2 /* RotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationView.m; sourceTree = "<group>"; };
 		698FDEB820CA1647000384D2 /* SubmitButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitButton.h; sourceTree = "<group>"; };
@@ -304,6 +299,9 @@
 		698FDEBB20CA1647000384D2 /* SubmitLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitLabel.m; sourceTree = "<group>"; };
 		698FDEBC20CA1647000384D2 /* SubmitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitView.h; sourceTree = "<group>"; };
 		698FDEBD20CA1647000384D2 /* SubmitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitView.m; sourceTree = "<group>"; };
+		698FDEC320CA52BE000384D2 /* Single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Single.h; sourceTree = "<group>"; };
+		698FDEC420CA5564000384D2 /* UserLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginManager.h; sourceTree = "<group>"; };
+		698FDEC520CA5564000384D2 /* UserLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginManager.m; sourceTree = "<group>"; };
 		69A592CD20C659CD00F1CC4C /* ZMyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyView.h; sourceTree = "<group>"; };
 		69A592CE20C659CD00F1CC4C /* ZMyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMyView.m; sourceTree = "<group>"; };
 		69A592D020C659DC00F1CC4C /* ZMyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyViewModel.h; sourceTree = "<group>"; };
@@ -566,6 +564,7 @@
 				6988F1E020BBE0D600414C5B /* ToolView.h */,
 				6988F1E120BBE0D600414C5B /* UtilsMacro.h */,
 				6988F1E220BBE0D600414C5B /* VendorMarco.h */,
+				698FDEC320CA52BE000384D2 /* Single.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -1123,9 +1122,9 @@
 		698FDEA220C8CAA0000384D2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				698FDEAB20C8CC12000384D2 /* IdentityManager */,
-				698FDEA420C8CAB4000384D2 /* UserManager */,
 				698FDEA320C8CAAC000384D2 /* Model */,
+				698FDEC420CA5564000384D2 /* UserLoginManager.h */,
+				698FDEC520CA5564000384D2 /* UserLoginManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1139,24 +1138,6 @@
 				698FDEA620C8CBE6000384D2 /* User.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		698FDEA420C8CAB4000384D2 /* UserManager */ = {
-			isa = PBXGroup;
-			children = (
-				698FDEAD20C8CC2E000384D2 /* UserManager.h */,
-				698FDEAC20C8CC2D000384D2 /* UserManager.m */,
-			);
-			path = UserManager;
-			sourceTree = "<group>";
-		};
-		698FDEAB20C8CC12000384D2 /* IdentityManager */ = {
-			isa = PBXGroup;
-			children = (
-				698FDEB020C8CC38000384D2 /* IdentityManager.h */,
-				698FDEAF20C8CC37000384D2 /* IdentityManager.m */,
-			);
-			path = IdentityManager;
 			sourceTree = "<group>";
 		};
 		698FDEB520CA1647000384D2 /* SubmitView */ = {
@@ -1397,7 +1378,6 @@
 			files = (
 				69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */,
 				6988F43D20BE54F400414C5B /* Z_StartLoadAPP.m in Sources */,
-				698FDEAE20C8CC2E000384D2 /* UserManager.m in Sources */,
 				6988F20B20BBF88B00414C5B /* ZNavigationController.m in Sources */,
 				6988F25C20BD245800414C5B /* InterfaceConfig.m in Sources */,
 				69A592F720C6741300F1CC4C /* EKAnimationTextField.m in Sources */,
@@ -1421,6 +1401,7 @@
 				6988F23320BC056E00414C5B /* UIButton+Extension.m in Sources */,
 				6988F47D20C0F2B200414C5B /* ZMarketSegmentController.m in Sources */,
 				6988F47120C0EE1800414C5B /* ZSegmentListView.m in Sources */,
+				698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */,
 				6988F43520BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m in Sources */,
 				6988F23D20BC094F00414C5B /* UIImage+Scale.m in Sources */,
 				698FDEA720C8CBE6000384D2 /* User.m in Sources */,
@@ -1461,7 +1442,6 @@
 				6988F41B20BD579300414C5B /* AutoImageTableViewCell.m in Sources */,
 				6988F23A20BC07A900414C5B /* UIColor+Extension.m in Sources */,
 				6988F3EE20BD376400414C5B /* UIViewController+Cloudox.m in Sources */,
-				698FDEB120C8CC38000384D2 /* IdentityManager.m in Sources */,
 				69A592FB20C6825700F1CC4C /* ACFloatingTextField.m in Sources */,
 				6988F24920BCE3E700414C5B /* UIView+Extension.m in Sources */,
 				6988F24020BC098100414C5B /* UIImage+Resize.m in Sources */,
