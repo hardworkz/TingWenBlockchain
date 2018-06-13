@@ -43,6 +43,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "AvoidCrash.h"//对服务器数据的空值进行处理，防止数组，字典，字符串等空值引起的crash
 #import "HMSegmentedControl.h"
+#import "RDVTabBarController.h"
 
 #import <MJRefresh/MJRefresh.h>
 #import <SVProgressHUD/SVProgressHUD.h>

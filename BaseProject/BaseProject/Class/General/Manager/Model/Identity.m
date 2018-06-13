@@ -5,8 +5,8 @@
 //  Created by haigui on 16/7/2.
 //  Copyright © 2016年 com.luohaifang. All rights reserved.
 //
-#import "UserManager.h"
 #import "Identity.h"
+#import "UserLoginManager.h"
 
 @implementation Identity
 
@@ -23,8 +23,8 @@ MJExtensionCodingImplementation
         _lastSoftVersion = currentVersion;
         
         //获取当前登录状态
-        UserManager *userManager = [UserManager manager];
-        if ([userManager.user.userNo intValue] != 0) {
+        UserLoginManager *userLoginManager = [UserLoginManager shareUserLoginManager];
+        if ([userLoginManager.user.userNo intValue] != 0) {
             _isLogin = NO;
         }else{
             _isLogin = YES;

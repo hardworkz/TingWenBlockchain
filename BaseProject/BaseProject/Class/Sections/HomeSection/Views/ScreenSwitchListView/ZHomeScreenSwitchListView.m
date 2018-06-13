@@ -147,6 +147,11 @@
         [self.viewModel.nextPageCommand execute:nil];
     }
     
+    WS(weakSelf)
+    //点击评论按钮
+    [[[cell.comment rac_signalForControlEvents:UIControlEventTouchUpInside] takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.viewModel.cellCommentClickSubject sendNext:nil];
+    }];
     return cell;
 }
 

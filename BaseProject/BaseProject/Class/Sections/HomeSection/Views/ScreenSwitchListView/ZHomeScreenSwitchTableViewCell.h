@@ -11,6 +11,14 @@
 
 @interface ZHomeScreenSwitchTableViewCell : ZTableViewCell
 
+@property (nonatomic, strong) UIButton *good;
+
+@property (nonatomic, strong) UIButton *bad;
+
+@property (nonatomic, strong) UIButton *comment;
+
+@property (nonatomic, strong) UIButton *share;
+
 @property (strong, nonatomic) ZHomeScreenSwitchTableViewCellViewModel *viewModel;
 
 @end

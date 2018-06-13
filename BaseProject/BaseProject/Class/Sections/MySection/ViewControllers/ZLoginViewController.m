@@ -229,7 +229,7 @@
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
         _loginButton.titleLabel.font = FONT(15);
         _loginButton.backgroundColor = purple_color;
-        _loginButton.layer.cornerRadius = 17.5;
+        _loginButton.layer.cornerRadius = 20;
         [_loginButton addTarget:self action:@selector(login:)];
     }
     return _loginButton;

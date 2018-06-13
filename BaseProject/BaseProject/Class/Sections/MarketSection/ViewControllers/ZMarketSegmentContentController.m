@@ -25,7 +25,7 @@
     
     WS(weakSelf)
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weakSelf.view);
+        make.edges.equalTo(weakSelf.view).insets(UIEdgeInsetsMake(kTopBarHeight, 0, 0, 0));
 //        make.top.equalTo(weakSelf.view);
 //        make.right.equalTo(weakSelf.view);
 //        make.left.equalTo(weakSelf.view);

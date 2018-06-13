@@ -11,6 +11,8 @@
 #import "ZHomeScreenSwitchListViewModel.h"
 #import "ZHomeListView.h"
 #import "ZHomeListViewModel.h"
+#import "ZHomeCommentListView.h"
+#import "ZHomeCommentListViewModel.h"
 
 @interface ZHomeViewController ()
 
@@ -20,10 +22,14 @@
 @property (nonatomic, strong) ZHomeScreenSwitchListViewModel *viewModel;
 @property (nonatomic, strong) ZHomeListViewModel *allListViewModel;
 
+@property (nonatomic, strong) ZHomeCommentListViewModel *commentViewModel;
+@property (nonatomic, strong) ZHomeCommentListView *commentListView;
+
 @property (nonatomic, strong) ZView *headerSwitchView;
 
 @property (nonatomic, strong) UIButton *selectedSwitchButton;
 
+@property (nonatomic, strong) MASConstraint *topConstant;
 @end
 
 @implementation ZHomeViewController
@@ -70,6 +76,8 @@
     [self.view insertSubview:self.allListView aboveSubview:self.mainView];
     
     [self.view insertSubview:self.headerSwitchView aboveSubview:self.allListView];
+    
+    [self.view insertSubview:self.commentListView aboveSubview:self.headerSwitchView];
 }
 
 - (void)z_bindViewModel {
@@ -78,9 +86,19 @@
     //cell点击方法实现代码
     [[self.viewModel.cellClickSubject takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
         
-//        @strongify(self);
+        @strongify(self);
 //        YDViewController *circleMainVC = [[YDViewController alloc] init];
 //        [self.navigationController pushViewController:circleMainVC animated:YES];
+    }];
+    [[self.viewModel.cellCommentClickSubject takeUntil:self.rac_willDeallocSignal]subscribeNext:^(id  _Nullable x) {
+        
+        @strongify(self);
+        [self.view insertSubview:self.commentListView.cover belowSubview:self.commentListView];
+        //添加评论view
+        //设置动画
+        [UIView animateWithDuration:0.25 animations:^{
+            self.commentListView.y = SCREEN_HEIGHT * 0.3;
+        }];
     }];
 }
 - (void)z_layoutNavigation {
@@ -122,6 +140,27 @@
     
     return _allListViewModel;
 }
+- (ZHomeCommentListView *)commentListView
+{
+    if (!_commentListView) {
+        _commentListView = [[ZHomeCommentListView alloc] initWithViewModel:self.commentViewModel];
+        _commentListView.backgroundColor = white_color;
+        _commentListView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.7);
+        _commentListView.layer.cornerRadius = 10;
+        _commentListView.layer.masksToBounds = YES;
+    }
+    return _commentListView;
+}
+- (ZHomeCommentListViewModel *)commentViewModel
+{
+    if (!_commentViewModel) {
+        
+        _commentViewModel = [[ZHomeCommentListViewModel alloc] init];
+    }
+    
+    return _commentViewModel;
+}
+
 - (ZView *)headerSwitchView
 {
     if (!_headerSwitchView) {
@@ -172,7 +211,7 @@
     }
     return _headerSwitchView;
 }
-
+#pragma mark - action
 /**
  切换推荐和全部的显示内容
  */
@@ -202,4 +241,5 @@
             break;
     }
 }
+
 @end

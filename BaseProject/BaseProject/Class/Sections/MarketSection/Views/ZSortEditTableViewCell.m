@@ -1,22 +1,31 @@
 //
-//  ZSegmentListTableViewCell.m
+//  ZSortEditTableViewCell.m
 //  BaseProject
 //
-//  Created by 泡果 on 2018/6/1.
+//  Created by 泡果 on 2018/6/12.
 //  Copyright © 2018年 com.general.*. All rights reserved.
 //
 
-#import "ZSegmentListTableViewCell.h"
+#import "ZSortEditTableViewCell.h"
 
-@interface ZSegmentListTableViewCell ()
+@interface ZSortEditTableViewCell ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @end
-@implementation ZSegmentListTableViewCell
+@implementation ZSortEditTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self z_setupViews];
+    }
+    return self;
+}
 - (void)z_setupViews {
     
     [self.contentView addSubview:self.titleLabel];
+    self.tintColor = red_color;
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
@@ -24,10 +33,7 @@
 - (void)updateConstraints {
     
     WS(weakSelf)
-    
     CGFloat paddingEdge = 10;
-//    CGFloat width = 40;
-//    CGFloat height = 40;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(paddingEdge);
         make.centerY.equalTo(weakSelf.contentView);
@@ -37,7 +43,7 @@
     [super updateConstraints];
     
 }
-- (void)setViewModel:(ZSegmentListTableViewCellViewModel *)viewModel {
+- (void)setViewModel:(ZSortEditTableViewCellViewModel *)viewModel {
     
     if (!viewModel) {
         return;
@@ -46,8 +52,6 @@
     _viewModel = viewModel;
     
     self.titleLabel.text = viewModel.title;
-    
-    self.contentView.backgroundColor = randomColor;
 }
 
 #pragma mark - lazyLoad
@@ -61,6 +65,8 @@
     }
     return _titleLabel;
 }
+
+
 -(void)layoutSubviews
 {
     for (UIControl *control in self.subviews){
@@ -101,6 +107,11 @@
         }
     }
     
+}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
 }
 
 @end

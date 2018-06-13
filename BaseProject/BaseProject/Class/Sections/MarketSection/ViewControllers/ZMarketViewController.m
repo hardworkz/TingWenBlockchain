@@ -8,6 +8,7 @@
 
 #import "ZMarketViewController.h"
 #import "PSSSegmentViewController.h"
+#import "ZMarketSortEditViewController.h"
 
 @interface ZMarketViewController ()<PSSSegmentVCDelegate>
 
@@ -32,10 +33,15 @@
     [self.view addSubview:self.segmentViewController.view];
 }
 - (void)z_layoutNavigation {
-//    [self hideNavigationBar:YES animated:NO];
+    [self hideNavigationBar:YES animated:NO];
     self.title = @"行情";
+    [self customNavigationBarWithTitle:@"行情" bgColor:white_color backBtn:nil sel:nil rightBtn:@"icon_edit" sel:@selector(editClicked)];
 }
 #pragma mark - action
+- (void)editClicked {
+    ZMarketSortEditViewController *sortEditVC = [ZMarketSortEditViewController new];
+    [self.navigationController pushViewController:sortEditVC animated:YES];
+}
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
     

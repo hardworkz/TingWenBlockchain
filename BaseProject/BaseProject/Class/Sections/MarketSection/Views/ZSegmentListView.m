@@ -42,7 +42,7 @@
     }];
     [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(weakSelf).offset(40);
+        make.top.equalTo(weakSelf.sortView).offset(40);
         make.left.equalTo(weakSelf);
         make.right.equalTo(weakSelf);
         make.bottom.equalTo(weakSelf);

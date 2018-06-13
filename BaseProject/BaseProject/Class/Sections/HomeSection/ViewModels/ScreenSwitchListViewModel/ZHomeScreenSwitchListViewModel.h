@@ -21,5 +21,6 @@
 @property (nonatomic, strong) NSArray *dataArray;
 
 @property (nonatomic, strong) RACSubject *cellClickSubject;
+@property (nonatomic, strong) RACSubject *cellCommentClickSubject;
 
 @end

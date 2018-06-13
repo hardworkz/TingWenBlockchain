@@ -12,17 +12,9 @@
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
-@property (nonatomic, strong) UIButton *good;
-
 @property (nonatomic, strong) UILabel *goodLabel;
 
-@property (nonatomic, strong) UIButton *bad;
-
 @property (nonatomic, strong) UILabel *badLabel;
-
-@property (nonatomic, strong) UIButton *comment;
-
-@property (nonatomic, strong) UIButton *share;
 
 @end
 @implementation ZHomeScreenSwitchTableViewCell

@@ -217,9 +217,9 @@
         [navigationBarView addSubview:rightBtn];
     }
     
-    UIView *seperatorLine = [[UIView alloc]initWithFrame:CGRectMake(0, kNavHeight - 0.5, SCREEN_WIDTH, 0.5)];
-    [seperatorLine setBackgroundColor:[UIColor lightGrayColor]];
-    [navigationBarView addSubview:seperatorLine];
+//    UIView *seperatorLine = [[UIView alloc]initWithFrame:CGRectMake(0, kNavHeight - 0.5, SCREEN_WIDTH, 0.5)];
+//    [seperatorLine setBackgroundColor:[UIColor lightGrayColor]];
+//    [navigationBarView addSubview:seperatorLine];
 }
 - (void)backClicked{
     [self.navigationController popViewControllerAnimated:YES];

@@ -89,6 +89,16 @@
 		698FDEC020CA1648000384D2 /* SubmitLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEBB20CA1647000384D2 /* SubmitLabel.m */; };
 		698FDEC120CA1648000384D2 /* SubmitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEBD20CA1647000384D2 /* SubmitView.m */; };
 		698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 698FDEC520CA5564000384D2 /* UserLoginManager.m */; };
+		69A2CF3220CE530D000CA771 /* ZHomeCommentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF3120CE530D000CA771 /* ZHomeCommentListView.m */; };
+		69A2CF3520CE532B000CA771 /* ZHomeCommentListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF3420CE532B000CA771 /* ZHomeCommentListViewModel.m */; };
+		69A2CF3820CE5460000CA771 /* ZHomeCommentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF3720CE5460000CA771 /* ZHomeCommentListTableViewCell.m */; };
+		69A2CF3B20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF3A20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m */; };
+		69A2CF4420CF5541000CA771 /* ZHomeCommentListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4320CF5541000CA771 /* ZHomeCommentListTableView.m */; };
+		69A2CF4720CFAF16000CA771 /* ZMarketSortEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4620CFAF16000CA771 /* ZMarketSortEditViewController.m */; };
+		69A2CF4A20CFAF3F000CA771 /* ZSortEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4920CFAF3F000CA771 /* ZSortEditView.m */; };
+		69A2CF4D20CFAF54000CA771 /* ZSortEditViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4C20CFAF54000CA771 /* ZSortEditViewModel.m */; };
+		69A2CF5020CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4F20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m */; };
+		69A2CF5320CFAFF9000CA771 /* ZSortEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF5220CFAFF9000CA771 /* ZSortEditTableViewCell.m */; };
 		69A592CF20C659CD00F1CC4C /* ZMyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592CE20C659CD00F1CC4C /* ZMyView.m */; };
 		69A592D220C659DC00F1CC4C /* ZMyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D120C659DC00F1CC4C /* ZMyViewModel.m */; };
 		69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D420C65BC500F1CC4C /* ZMyTableViewCell.m */; };
@@ -302,6 +312,26 @@
 		698FDEC320CA52BE000384D2 /* Single.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Single.h; sourceTree = "<group>"; };
 		698FDEC420CA5564000384D2 /* UserLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginManager.h; sourceTree = "<group>"; };
 		698FDEC520CA5564000384D2 /* UserLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginManager.m; sourceTree = "<group>"; };
+		69A2CF3020CE530D000CA771 /* ZHomeCommentListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHomeCommentListView.h; sourceTree = "<group>"; };
+		69A2CF3120CE530D000CA771 /* ZHomeCommentListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHomeCommentListView.m; sourceTree = "<group>"; };
+		69A2CF3320CE532B000CA771 /* ZHomeCommentListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHomeCommentListViewModel.h; sourceTree = "<group>"; };
+		69A2CF3420CE532B000CA771 /* ZHomeCommentListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHomeCommentListViewModel.m; sourceTree = "<group>"; };
+		69A2CF3620CE5460000CA771 /* ZHomeCommentListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHomeCommentListTableViewCell.h; sourceTree = "<group>"; };
+		69A2CF3720CE5460000CA771 /* ZHomeCommentListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHomeCommentListTableViewCell.m; sourceTree = "<group>"; };
+		69A2CF3920CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHomeCommentListTableViewCellViewModel.h; sourceTree = "<group>"; };
+		69A2CF3A20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHomeCommentListTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69A2CF4220CF5541000CA771 /* ZHomeCommentListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHomeCommentListTableView.h; sourceTree = "<group>"; };
+		69A2CF4320CF5541000CA771 /* ZHomeCommentListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHomeCommentListTableView.m; sourceTree = "<group>"; };
+		69A2CF4520CFAF16000CA771 /* ZMarketSortEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMarketSortEditViewController.h; sourceTree = "<group>"; };
+		69A2CF4620CFAF16000CA771 /* ZMarketSortEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMarketSortEditViewController.m; sourceTree = "<group>"; };
+		69A2CF4820CFAF3F000CA771 /* ZSortEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSortEditView.h; sourceTree = "<group>"; };
+		69A2CF4920CFAF3F000CA771 /* ZSortEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditView.m; sourceTree = "<group>"; };
+		69A2CF4B20CFAF54000CA771 /* ZSortEditViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSortEditViewModel.h; sourceTree = "<group>"; };
+		69A2CF4C20CFAF54000CA771 /* ZSortEditViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditViewModel.m; sourceTree = "<group>"; };
+		69A2CF4E20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSortEditTableViewCellViewModel.h; sourceTree = "<group>"; };
+		69A2CF4F20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69A2CF5120CFAFF9000CA771 /* ZSortEditTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSortEditTableViewCell.h; sourceTree = "<group>"; };
+		69A2CF5220CFAFF9000CA771 /* ZSortEditTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditTableViewCell.m; sourceTree = "<group>"; };
 		69A592CD20C659CD00F1CC4C /* ZMyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyView.h; sourceTree = "<group>"; };
 		69A592CE20C659CD00F1CC4C /* ZMyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMyView.m; sourceTree = "<group>"; };
 		69A592D020C659DC00F1CC4C /* ZMyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyViewModel.h; sourceTree = "<group>"; };
@@ -826,14 +856,9 @@
 		6988F3F120BD423D00414C5B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6988F45520BFD41600414C5B /* ZHomeListViewModel.h */,
-				6988F45620BFD41600414C5B /* ZHomeListViewModel.m */,
-				6988F45820BFD43400414C5B /* ZHomeListTableViewCellViewModel.h */,
-				6988F45920BFD43400414C5B /* ZHomeListTableViewCellViewModel.m */,
-				6988F43320BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.h */,
-				6988F43420BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m */,
-				6988F43020BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.h */,
-				6988F43120BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.m */,
+				69A2CF4120CE56B9000CA771 /* CommentListViewModel */,
+				69A2CF4020CE56A9000CA771 /* ScreenSwitchListViewModel */,
+				69A2CF3F20CE56A2000CA771 /* ListViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -848,14 +873,9 @@
 		6988F3F320BD424200414C5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6988F44F20BFD3A900414C5B /* ZHomeListView.h */,
-				6988F45020BFD3A900414C5B /* ZHomeListView.m */,
-				6988F45220BFD3E200414C5B /* ZHomeListTableViewCell.h */,
-				6988F45320BFD3E200414C5B /* ZHomeListTableViewCell.m */,
-				6988F42A20BE4B4F00414C5B /* ZHomeScreenSwitchListView.h */,
-				6988F42B20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m */,
-				6988F42D20BE4D5B00414C5B /* ZHomeScreenSwitchTableViewCell.h */,
-				6988F42E20BE4D5B00414C5B /* ZHomeScreenSwitchTableViewCell.m */,
+				69A2CF3E20CE5676000CA771 /* CommentListView */,
+				69A2CF3D20CE5665000CA771 /* ScreenSwitchListView */,
+				69A2CF3C20CE565A000CA771 /* ListView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -888,6 +908,8 @@
 				6988F44A20BFA01E00414C5B /* ZMarketViewController.m */,
 				6988F46C20C0EDF000414C5B /* ZMarketSegmentContentController.h */,
 				6988F46D20C0EDF000414C5B /* ZMarketSegmentContentController.m */,
+				69A2CF4520CFAF16000CA771 /* ZMarketSortEditViewController.h */,
+				69A2CF4620CFAF16000CA771 /* ZMarketSortEditViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -899,6 +921,10 @@
 				6988F47320C0EE3600414C5B /* ZSegmentListViewModel.m */,
 				6988F47820C0EE8B00414C5B /* ZSegmentListTableViewCellViewModel.h */,
 				6988F47920C0EE8B00414C5B /* ZSegmentListTableViewCellViewModel.m */,
+				69A2CF4B20CFAF54000CA771 /* ZSortEditViewModel.h */,
+				69A2CF4C20CFAF54000CA771 /* ZSortEditViewModel.m */,
+				69A2CF4E20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.h */,
+				69A2CF4F20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -910,6 +936,10 @@
 				6988F47020C0EE1800414C5B /* ZSegmentListView.m */,
 				6988F47520C0EE6900414C5B /* ZSegmentListTableViewCell.h */,
 				6988F47620C0EE6900414C5B /* ZSegmentListTableViewCell.m */,
+				69A2CF4820CFAF3F000CA771 /* ZSortEditView.h */,
+				69A2CF4920CFAF3F000CA771 /* ZSortEditView.m */,
+				69A2CF5120CFAFF9000CA771 /* ZSortEditTableViewCell.h */,
+				69A2CF5220CFAFF9000CA771 /* ZSortEditTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1155,6 +1185,74 @@
 			path = SubmitView;
 			sourceTree = "<group>";
 		};
+		69A2CF3C20CE565A000CA771 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				6988F44F20BFD3A900414C5B /* ZHomeListView.h */,
+				6988F45020BFD3A900414C5B /* ZHomeListView.m */,
+				6988F45220BFD3E200414C5B /* ZHomeListTableViewCell.h */,
+				6988F45320BFD3E200414C5B /* ZHomeListTableViewCell.m */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		69A2CF3D20CE5665000CA771 /* ScreenSwitchListView */ = {
+			isa = PBXGroup;
+			children = (
+				6988F42A20BE4B4F00414C5B /* ZHomeScreenSwitchListView.h */,
+				6988F42B20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m */,
+				6988F42D20BE4D5B00414C5B /* ZHomeScreenSwitchTableViewCell.h */,
+				6988F42E20BE4D5B00414C5B /* ZHomeScreenSwitchTableViewCell.m */,
+			);
+			path = ScreenSwitchListView;
+			sourceTree = "<group>";
+		};
+		69A2CF3E20CE5676000CA771 /* CommentListView */ = {
+			isa = PBXGroup;
+			children = (
+				69A2CF3020CE530D000CA771 /* ZHomeCommentListView.h */,
+				69A2CF3120CE530D000CA771 /* ZHomeCommentListView.m */,
+				69A2CF3620CE5460000CA771 /* ZHomeCommentListTableViewCell.h */,
+				69A2CF3720CE5460000CA771 /* ZHomeCommentListTableViewCell.m */,
+				69A2CF4220CF5541000CA771 /* ZHomeCommentListTableView.h */,
+				69A2CF4320CF5541000CA771 /* ZHomeCommentListTableView.m */,
+			);
+			path = CommentListView;
+			sourceTree = "<group>";
+		};
+		69A2CF3F20CE56A2000CA771 /* ListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6988F45520BFD41600414C5B /* ZHomeListViewModel.h */,
+				6988F45620BFD41600414C5B /* ZHomeListViewModel.m */,
+				6988F45820BFD43400414C5B /* ZHomeListTableViewCellViewModel.h */,
+				6988F45920BFD43400414C5B /* ZHomeListTableViewCellViewModel.m */,
+			);
+			path = ListViewModel;
+			sourceTree = "<group>";
+		};
+		69A2CF4020CE56A9000CA771 /* ScreenSwitchListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6988F43320BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.h */,
+				6988F43420BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m */,
+				6988F43020BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.h */,
+				6988F43120BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.m */,
+			);
+			path = ScreenSwitchListViewModel;
+			sourceTree = "<group>";
+		};
+		69A2CF4120CE56B9000CA771 /* CommentListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69A2CF3320CE532B000CA771 /* ZHomeCommentListViewModel.h */,
+				69A2CF3420CE532B000CA771 /* ZHomeCommentListViewModel.m */,
+				69A2CF3920CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.h */,
+				69A2CF3A20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m */,
+			);
+			path = CommentListViewModel;
+			sourceTree = "<group>";
+		};
 		69A592F420C6741300F1CC4C /* EKAnimationTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,17 +1481,21 @@
 				69A592F720C6741300F1CC4C /* EKAnimationTextField.m in Sources */,
 				6988F46E20C0EDF000414C5B /* ZMarketSegmentContentController.m in Sources */,
 				69A592D820C65BE500F1CC4C /* ZMyTableViewCellViewModel.m in Sources */,
+				69A2CF4D20CFAF54000CA771 /* ZSortEditViewModel.m in Sources */,
 				698FDEC120CA1648000384D2 /* SubmitView.m in Sources */,
 				6988F42C20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m in Sources */,
 				6988F25F20BD24B000414C5B /* Z_AvoidCrashTool.m in Sources */,
 				6988F41A20BD579300414C5B /* XWAlerLoginView.m in Sources */,
+				69A2CF4720CFAF16000CA771 /* ZMarketSortEditViewController.m in Sources */,
 				6988F44B20BFA01E00414C5B /* ZMarketViewController.m in Sources */,
+				69A2CF4A20CFAF3F000CA771 /* ZSortEditView.m in Sources */,
 				6988F3EB20BD371F00414C5B /* UINavigationController+Cloudox.m in Sources */,
 				69A592D220C659DC00F1CC4C /* ZMyViewModel.m in Sources */,
 				6988F21520BBFE6900414C5B /* NSData+MDEncry.m in Sources */,
 				6988F46920C0EDB200414C5B /* PSSWeakProxy.m in Sources */,
 				6988F23020BC049D00414C5B /* NSTimer+Initialize.m in Sources */,
 				6988F47420C0EE3600414C5B /* ZSegmentListViewModel.m in Sources */,
+				69A2CF4420CF5541000CA771 /* ZHomeCommentListTableView.m in Sources */,
 				6988F43220BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.m in Sources */,
 				6988F44820BFA00C00414C5B /* ZNewsViewController.m in Sources */,
 				6988F20E20BBF8C600414C5B /* ZCollectionViewCell.m in Sources */,
@@ -1404,8 +1506,10 @@
 				698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */,
 				6988F43520BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m in Sources */,
 				6988F23D20BC094F00414C5B /* UIImage+Scale.m in Sources */,
+				69A2CF3820CE5460000CA771 /* ZHomeCommentListTableViewCell.m in Sources */,
 				698FDEA720C8CBE6000384D2 /* User.m in Sources */,
 				6988F22720BC00E100414C5B /* NSDictionary+Convert.m in Sources */,
+				69A2CF5020CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m in Sources */,
 				6988F24F20BCF3BF00414C5B /* AppDelegate+RemoteNotification.m in Sources */,
 				6988F20420BBEDC800414C5B /* LSCoreToolCenter.m in Sources */,
 				6988F46820C0EDB200414C5B /* PSSSegmentViewController.m in Sources */,
@@ -1424,6 +1528,7 @@
 				6988F45420BFD3E200414C5B /* ZHomeListTableViewCell.m in Sources */,
 				6988F22420BBFFED00414C5B /* NSData+Initialize.m in Sources */,
 				6988F41C20BD579300414C5B /* AutoImageViewHeightFrameModel.m in Sources */,
+				69A2CF3520CE532B000CA771 /* ZHomeCommentListViewModel.m in Sources */,
 				6988F24C20BCE42200414C5B /* UIViewController+Extension.m in Sources */,
 				698FDEC020CA1648000384D2 /* SubmitLabel.m in Sources */,
 				698FDEAA20C8CBF3000384D2 /* Identity.m in Sources */,
@@ -1442,6 +1547,7 @@
 				6988F41B20BD579300414C5B /* AutoImageTableViewCell.m in Sources */,
 				6988F23A20BC07A900414C5B /* UIColor+Extension.m in Sources */,
 				6988F3EE20BD376400414C5B /* UIViewController+Cloudox.m in Sources */,
+				69A2CF3B20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m in Sources */,
 				69A592FB20C6825700F1CC4C /* ACFloatingTextField.m in Sources */,
 				6988F24920BCE3E700414C5B /* UIView+Extension.m in Sources */,
 				6988F24020BC098100414C5B /* UIImage+Resize.m in Sources */,
@@ -1452,11 +1558,13 @@
 				6988F25220BCF5E500414C5B /* AppDelegate+HandleOpenURL.m in Sources */,
 				6988F21120BBFC4100414C5B /* Foundation+Log.m in Sources */,
 				69A592F320C66FE300F1CC4C /* ZLoginViewController.m in Sources */,
+				69A2CF3220CE530D000CA771 /* ZHomeCommentListView.m in Sources */,
 				6988F26320BD26FC00414C5B /* HttpService.m in Sources */,
 				6988F19B20BBD9A700414C5B /* AppDelegate.m in Sources */,
 				6988F24320BCE2BE00414C5B /* UITextField+Extension.m in Sources */,
 				6988F22A20BC017400414C5B /* NSNotificationCenter+Initialize.m in Sources */,
 				6988F20020BBE7D300414C5B /* ZViewModel.m in Sources */,
+				69A2CF5320CFAFF9000CA771 /* ZSortEditTableViewCell.m in Sources */,
 				69A592CF20C659CD00F1CC4C /* ZMyView.m in Sources */,
 				6988F42020BD579300414C5B /* BJNoDataView.m in Sources */,
 				6988F47A20C0EE8B00414C5B /* ZSegmentListTableViewCellViewModel.m in Sources */,

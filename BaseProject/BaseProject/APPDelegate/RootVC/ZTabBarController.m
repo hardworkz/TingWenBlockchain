@@ -9,6 +9,7 @@
 #import "ZTabBarController.h"
 #import "RDVTabBar.h"
 #import "RDVTabBarItem.h"
+#import "ZNavigationController.h"
 
 @interface ZTabBarController ()
 
@@ -20,16 +21,16 @@
     [super viewDidLoad];
     
     ZViewController *Home = [[ZHomeViewController alloc]init];
-    UINavigationController *NAV1 = [[UINavigationController alloc] initWithRootViewController:Home];
+    ZNavigationController *NAV1 = [[ZNavigationController alloc] initWithRootViewController:Home];
     
     ZViewController *News = [[ZNewsViewController alloc]init];
-    UINavigationController *NAV2 = [[UINavigationController alloc] initWithRootViewController:News];
+    ZNavigationController *NAV2 = [[ZNavigationController alloc] initWithRootViewController:News];
     
     ZViewController *Market = [[ZMarketViewController alloc]init];
-    UINavigationController *NAV3 = [[UINavigationController alloc] initWithRootViewController:Market];
+    ZNavigationController *NAV3 = [[ZNavigationController alloc] initWithRootViewController:Market];
     
     ZViewController *My = [[ZMyViewController alloc]init];
-    UINavigationController *NAV4 = [[UINavigationController alloc] initWithRootViewController:My];
+    ZNavigationController *NAV4 = [[ZNavigationController alloc] initWithRootViewController:My];
     
     self.viewControllers = @[NAV2,NAV1,NAV3,NAV4];
     [self customizeTabBarForController:self];
