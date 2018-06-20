@@ -34,7 +34,7 @@
 #import "LSCoreToolCenter.h"//网络请求过程弹窗提示
 #import "Z_AvoidCrashTool.h"//容错处理工具类
 #import "HttpService.h"//网络请求工具类
-#import "InterfaceConfig.h"//自定义网络请求baseUrl
+#import "InterfaceConfigManager.h"//自定义网络请求baseUrl
 #import "DataCache.h"//数据缓存
 #import "Single.h"//创建单例宏文件
 

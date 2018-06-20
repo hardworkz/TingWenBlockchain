@@ -33,13 +33,13 @@
     WS(weakSelf)
     [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.edges.equalTo(weakSelf);
+        make.edges.equalTo(weakSelf).insets(UIEdgeInsetsMake(0, 0, kTabBarHeight, 0));
     }];
     
     [self.editingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(weakSelf);
         make.height.equalTo(@45);
-        make.bottom.equalTo(weakSelf).offset(45);
+        make.bottom.equalTo(weakSelf).offset(45 - kTabBarHeight);
     }];
     [super updateConstraints];
 }
@@ -49,7 +49,7 @@
     
     [self addSubview:self.mainTableView];
     [self addSubview:self.editingView];
-    [self showEitingView:YES];
+//    [self showEitingView:YES];
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
 }

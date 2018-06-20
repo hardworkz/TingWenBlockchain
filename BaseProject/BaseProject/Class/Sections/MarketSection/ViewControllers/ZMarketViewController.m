@@ -55,7 +55,7 @@
         // Segmented control with scrolling
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"自选", @"市值", @"基础链", @"金融服务", @"社交通讯", @"分叉币", @"平台币", @"体育娱乐", @"真实性验证", @"广告传媒", @"AI", @"数据存储", @"物联网/DAG", @"内容与版权", @"钱包/交易", @"匿名币", @"AR/VR", @"生物/医疗健康", @"开发者/智能合约"]];
         _segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-        _segmentedControl.frame = CGRectMake(0,0, SCREEN_WIDTH, 50);
+        _segmentedControl.frame = CGRectMake(0,kNavHeight, SCREEN_WIDTH, 50);
         _segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(10, 10, 0, 10);
         _segmentedControl.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
         _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;

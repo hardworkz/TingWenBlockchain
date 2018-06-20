@@ -43,7 +43,6 @@
 		6988F25220BCF5E500414C5B /* AppDelegate+HandleOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F25120BCF5E500414C5B /* AppDelegate+HandleOpenURL.m */; };
 		6988F25520BCFA8800414C5B /* AppDelegate+AppInitializeWindows.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F25420BCFA8800414C5B /* AppDelegate+AppInitializeWindows.m */; };
 		6988F25920BD23E700414C5B /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F25820BD23E600414C5B /* DataCache.m */; };
-		6988F25C20BD245800414C5B /* InterfaceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F25B20BD245800414C5B /* InterfaceConfig.m */; };
 		6988F25F20BD24B000414C5B /* Z_AvoidCrashTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F25E20BD24B000414C5B /* Z_AvoidCrashTool.m */; };
 		6988F26320BD26FC00414C5B /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F26220BD26FC00414C5B /* HttpService.m */; };
 		6988F3EB20BD371F00414C5B /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F3EA20BD371F00414C5B /* UINavigationController+Cloudox.m */; };
@@ -99,6 +98,7 @@
 		69A2CF4D20CFAF54000CA771 /* ZSortEditViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4C20CFAF54000CA771 /* ZSortEditViewModel.m */; };
 		69A2CF5020CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF4F20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m */; };
 		69A2CF5320CFAFF9000CA771 /* ZSortEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF5220CFAFF9000CA771 /* ZSortEditTableViewCell.m */; };
+		69A2CF6120D0F8AE000CA771 /* InterfaceConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A2CF6020D0F8AE000CA771 /* InterfaceConfigManager.m */; };
 		69A592CF20C659CD00F1CC4C /* ZMyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592CE20C659CD00F1CC4C /* ZMyView.m */; };
 		69A592D220C659DC00F1CC4C /* ZMyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D120C659DC00F1CC4C /* ZMyViewModel.m */; };
 		69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592D420C65BC500F1CC4C /* ZMyTableViewCell.m */; };
@@ -217,8 +217,6 @@
 		6988F25420BCFA8800414C5B /* AppDelegate+AppInitializeWindows.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+AppInitializeWindows.m"; sourceTree = "<group>"; };
 		6988F25720BD23E600414C5B /* DataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCache.h; sourceTree = "<group>"; };
 		6988F25820BD23E600414C5B /* DataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCache.m; sourceTree = "<group>"; };
-		6988F25A20BD245800414C5B /* InterfaceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfig.h; sourceTree = "<group>"; };
-		6988F25B20BD245800414C5B /* InterfaceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceConfig.m; sourceTree = "<group>"; };
 		6988F25D20BD24B000414C5B /* Z_AvoidCrashTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Z_AvoidCrashTool.h; sourceTree = "<group>"; };
 		6988F25E20BD24B000414C5B /* Z_AvoidCrashTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Z_AvoidCrashTool.m; sourceTree = "<group>"; };
 		6988F26120BD26FC00414C5B /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpService.h; sourceTree = "<group>"; };
@@ -332,6 +330,8 @@
 		69A2CF4F20CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditTableViewCellViewModel.m; sourceTree = "<group>"; };
 		69A2CF5120CFAFF9000CA771 /* ZSortEditTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSortEditTableViewCell.h; sourceTree = "<group>"; };
 		69A2CF5220CFAFF9000CA771 /* ZSortEditTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSortEditTableViewCell.m; sourceTree = "<group>"; };
+		69A2CF5F20D0F8AD000CA771 /* InterfaceConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfigManager.h; sourceTree = "<group>"; };
+		69A2CF6020D0F8AE000CA771 /* InterfaceConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceConfigManager.m; sourceTree = "<group>"; };
 		69A592CD20C659CD00F1CC4C /* ZMyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyView.h; sourceTree = "<group>"; };
 		69A592CE20C659CD00F1CC4C /* ZMyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMyView.m; sourceTree = "<group>"; };
 		69A592D020C659DC00F1CC4C /* ZMyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMyViewModel.h; sourceTree = "<group>"; };
@@ -570,8 +570,6 @@
 			isa = PBXGroup;
 			children = (
 				6988F26020BD26FC00414C5B /* HttpService */,
-				6988F25A20BD245800414C5B /* InterfaceConfig.h */,
-				6988F25B20BD245800414C5B /* InterfaceConfig.m */,
 				6988F25720BD23E600414C5B /* DataCache.h */,
 				6988F25820BD23E600414C5B /* DataCache.m */,
 				6988F1D720BBE0D600414C5B /* CMRequest.h */,
@@ -580,6 +578,8 @@
 				6988F1DA20BBE0D600414C5B /* LSCoreToolCenter.m */,
 				6988F25D20BD24B000414C5B /* Z_AvoidCrashTool.h */,
 				6988F25E20BD24B000414C5B /* Z_AvoidCrashTool.m */,
+				69A2CF5F20D0F8AD000CA771 /* InterfaceConfigManager.h */,
+				69A2CF6020D0F8AE000CA771 /* InterfaceConfigManager.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1477,7 +1477,6 @@
 				69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */,
 				6988F43D20BE54F400414C5B /* Z_StartLoadAPP.m in Sources */,
 				6988F20B20BBF88B00414C5B /* ZNavigationController.m in Sources */,
-				6988F25C20BD245800414C5B /* InterfaceConfig.m in Sources */,
 				69A592F720C6741300F1CC4C /* EKAnimationTextField.m in Sources */,
 				6988F46E20C0EDF000414C5B /* ZMarketSegmentContentController.m in Sources */,
 				69A592D820C65BE500F1CC4C /* ZMyTableViewCellViewModel.m in Sources */,
@@ -1536,6 +1535,7 @@
 				6988F45120BFD3A900414C5B /* ZHomeListView.m in Sources */,
 				6988F41F20BD579300414C5B /* CustomPageView.m in Sources */,
 				6988F45A20BFD43400414C5B /* ZHomeListTableViewCellViewModel.m in Sources */,
+				69A2CF6120D0F8AE000CA771 /* InterfaceConfigManager.m in Sources */,
 				6988F1F820BBE6BB00414C5B /* ZViewController.m in Sources */,
 				6988F25920BD23E700414C5B /* DataCache.m in Sources */,
 				6988F42820BD58DB00414C5B /* ZHomeViewController.m in Sources */,

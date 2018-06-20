@@ -202,7 +202,7 @@
     if (title) {
         UILabel *topLab = [[UILabel alloc]initWithFrame:CGRectMake(kTopBarHeight, kStatusBarHeight, SCREEN_WIDTH - 2 * kTopBarHeight, kTopBarHeight)];
         topLab.textColor = [UIColor blackColor];
-        topLab.font = [UIFont boldSystemFontOfSize:17.0f];
+        topLab.font = [UIFont boldSystemFontOfSize:20.0f];
         topLab.text = title;
         topLab.textAlignment = NSTextAlignmentCenter;
         [navigationBarView addSubview:topLab];

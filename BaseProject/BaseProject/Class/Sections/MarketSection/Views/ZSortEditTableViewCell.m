@@ -15,13 +15,13 @@
 @end
 @implementation ZSortEditTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self z_setupViews];
-    }
-    return self;
-}
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        [self z_setupViews];
+//    }
+//    return self;
+//}
 - (void)z_setupViews {
     
     [self.contentView addSubview:self.titleLabel];

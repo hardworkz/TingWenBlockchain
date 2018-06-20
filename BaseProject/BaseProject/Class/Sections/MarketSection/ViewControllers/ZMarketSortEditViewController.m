@@ -24,7 +24,7 @@
 - (void)updateViewConstraints {
     WS(weakSelf)
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weakSelf.view);
+        make.edges.equalTo(weakSelf.view).insets(UIEdgeInsetsMake(kNavHeight, 0, 0, 0));
     }];
     [super updateViewConstraints];
 }
@@ -40,6 +40,11 @@
         @strongify(self);
         //点击cell操作
     }];
+}
+- (void)z_layoutNavigation
+{
+    [self hideNavigationBar:YES animated:NO];
+    [self customNavigationBarWithTitle:@"编辑自选" bgColor:white_color backBtn:@"icon_back_black" sel:nil rightBtn:nil sel:nil];
 }
 #pragma mark - lazyload
 - (ZSortEditView *)mainView

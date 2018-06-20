@@ -158,6 +158,8 @@
     self.selectionIndicatorBoxLayer.opacity = self.selectionIndicatorBoxOpacity;
     self.selectionIndicatorBoxLayer.borderWidth = 1.0f;
     self.selectionIndicatorBoxOpacity = 0.2;
+    //设置标题下方指示线的圆角
+    self.selectionIndicatorStripLayer.cornerRadius = 1.5;
     
     self.contentMode = UIViewContentModeRedraw;
 }
