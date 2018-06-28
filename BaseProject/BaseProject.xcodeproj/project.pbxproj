@@ -108,6 +108,20 @@
 		69A592FB20C6825700F1CC4C /* ACFloatingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592FA20C6823E00F1CC4C /* ACFloatingTextField.m */; };
 		69A592FF20C77AB000F1CC4C /* Xzb_CountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A592FE20C77AB000F1CC4C /* Xzb_CountDownButton.m */; };
 		69A5930220C77AE000F1CC4C /* ZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A5930120C77AE000F1CC4C /* ZRegisterViewController.m */; };
+		69AD537520E2478600B3624E /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD536E20E2478600B3624E /* NSDate+Category.m */; };
+		69AD537620E2478600B3624E /* NSDate+TimeFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD537020E2478600B3624E /* NSDate+TimeFormat.m */; };
+		69AD537720E2478600B3624E /* NSDate+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD537220E2478600B3624E /* NSDate+TKCategory.m */; };
+		69AD537820E2478600B3624E /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD537420E2478600B3624E /* NSDateFormatter+Category.m */; };
+		69AD539920E363E600B3624E /* ZPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD539620E363E500B3624E /* ZPlayerView.m */; };
+		69AD539A20E363E600B3624E /* ZPlayerViewContentTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD539820E363E500B3624E /* ZPlayerViewContentTextTableViewCell.m */; };
+		69AD53A020E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD539D20E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m */; };
+		69AD53A120E363EC00B3624E /* ZPlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD539F20E363EC00B3624E /* ZPlayerViewModel.m */; };
+		69AD53A720E363F400B3624E /* ZPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53A420E363F400B3624E /* ZPlayerViewController.m */; };
+		69AD53A820E363F400B3624E /* ZRT_PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53A620E363F400B3624E /* ZRT_PlayerManager.m */; };
+		69D97ADF20DB945E004EBC33 /* ZNewsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97ADE20DB945E004EBC33 /* ZNewsListView.m */; };
+		69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */; };
+		69D97AE520DB954E004EBC33 /* ZNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */; };
+		69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */; };
 		9C8407230ED2F153B342999D /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78981CD69131A35472C1677 /* libPods-BaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -350,6 +364,34 @@
 		69A592FE20C77AB000F1CC4C /* Xzb_CountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Xzb_CountDownButton.m; sourceTree = "<group>"; };
 		69A5930020C77AE000F1CC4C /* ZRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZRegisterViewController.h; sourceTree = "<group>"; };
 		69A5930120C77AE000F1CC4C /* ZRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZRegisterViewController.m; sourceTree = "<group>"; };
+		69AD536D20E2478600B3624E /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		69AD536E20E2478600B3624E /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		69AD536F20E2478600B3624E /* NSDate+TimeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeFormat.h"; sourceTree = "<group>"; };
+		69AD537020E2478600B3624E /* NSDate+TimeFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeFormat.m"; sourceTree = "<group>"; };
+		69AD537120E2478600B3624E /* NSDate+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TKCategory.h"; sourceTree = "<group>"; };
+		69AD537220E2478600B3624E /* NSDate+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TKCategory.m"; sourceTree = "<group>"; };
+		69AD537320E2478600B3624E /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		69AD537420E2478600B3624E /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		69AD539520E363E500B3624E /* ZPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPlayerView.h; sourceTree = "<group>"; };
+		69AD539620E363E500B3624E /* ZPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerView.m; sourceTree = "<group>"; };
+		69AD539720E363E500B3624E /* ZPlayerViewContentTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPlayerViewContentTextTableViewCell.h; sourceTree = "<group>"; };
+		69AD539820E363E500B3624E /* ZPlayerViewContentTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerViewContentTextTableViewCell.m; sourceTree = "<group>"; };
+		69AD539C20E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPlayerViewContentTextTableViewCellViewModel.h; sourceTree = "<group>"; };
+		69AD539D20E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerViewContentTextTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69AD539E20E363EC00B3624E /* ZPlayerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPlayerViewModel.h; sourceTree = "<group>"; };
+		69AD539F20E363EC00B3624E /* ZPlayerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerViewModel.m; sourceTree = "<group>"; };
+		69AD53A320E363F400B3624E /* ZPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPlayerViewController.h; sourceTree = "<group>"; };
+		69AD53A420E363F400B3624E /* ZPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerViewController.m; sourceTree = "<group>"; };
+		69AD53A520E363F400B3624E /* ZRT_PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRT_PlayerManager.h; sourceTree = "<group>"; };
+		69AD53A620E363F400B3624E /* ZRT_PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRT_PlayerManager.m; sourceTree = "<group>"; };
+		69D97ADD20DB945E004EBC33 /* ZNewsListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsListView.h; sourceTree = "<group>"; };
+		69D97ADE20DB945E004EBC33 /* ZNewsListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsListView.m; sourceTree = "<group>"; };
+		69D97AE020DB9505004EBC33 /* ZNewsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsListViewModel.h; sourceTree = "<group>"; };
+		69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsListViewModel.m; sourceTree = "<group>"; };
+		69D97AE320DB954E004EBC33 /* ZNewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsTableViewCell.h; sourceTree = "<group>"; };
+		69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCell.m; sourceTree = "<group>"; };
+		69D97AE620DB9561004EBC33 /* ZNewsTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsTableViewCellViewModel.h; sourceTree = "<group>"; };
+		69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCellViewModel.m; sourceTree = "<group>"; };
 		B6819A1FA9B15357E498A328 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		E78981CD69131A35472C1677 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -509,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				6988F21020BBFC4100414C5B /* Foundation+Log.m */,
+				69AD536C20E2478600B3624E /* NSDate+ */,
 				6988F3E820BD362800414C5B /* UINavigationController+ */,
 				6988F23720BC077700414C5B /* UIColor+ */,
 				6988F22120BBFF3800414C5B /* UIViewController+ */,
@@ -522,7 +565,6 @@
 				6988F21920BBFED900414C5B /* NSObject+ */,
 				6988F21820BBFECB00414C5B /* NSNotificationCenter+ */,
 				6988F21720BBFEC000414C5B /* NSDictionary+ */,
-				6988F21620BBFEAE00414C5B /* NSDateFormatter+ */,
 				6988F21220BBFC6B00414C5B /* NSData+ */,
 				6988F40320BD559100414C5B /* CategoriesHeader.h */,
 			);
@@ -674,19 +716,12 @@
 		6988F21220BBFC6B00414C5B /* NSData+ */ = {
 			isa = PBXGroup;
 			children = (
+				6988F22220BBFFED00414C5B /* NSData+Initialize.h */,
+				6988F22320BBFFED00414C5B /* NSData+Initialize.m */,
 				6988F21320BBFE6900414C5B /* NSData+MDEncry.h */,
 				6988F21420BBFE6900414C5B /* NSData+MDEncry.m */,
 			);
 			path = "NSData+";
-			sourceTree = "<group>";
-		};
-		6988F21620BBFEAE00414C5B /* NSDateFormatter+ */ = {
-			isa = PBXGroup;
-			children = (
-				6988F22220BBFFED00414C5B /* NSData+Initialize.h */,
-				6988F22320BBFFED00414C5B /* NSData+Initialize.m */,
-			);
-			path = "NSDateFormatter+";
 			sourceTree = "<group>";
 		};
 		6988F21720BBFEC000414C5B /* NSDictionary+ */ = {
@@ -1001,6 +1036,7 @@
 		6988F3FE20BD435E00414C5B /* NewsSection */ = {
 			isa = PBXGroup;
 			children = (
+				69AD53A220E363F400B3624E /* Player */,
 				6988F3FF20BD435E00414C5B /* Models */,
 				6988F40020BD435E00414C5B /* ViewControllers */,
 				6988F40120BD435E00414C5B /* ViewModels */,
@@ -1029,6 +1065,11 @@
 		6988F40120BD435E00414C5B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				69AD539B20E363EC00B3624E /* PlayerViewModel */,
+				69D97AE020DB9505004EBC33 /* ZNewsListViewModel.h */,
+				69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */,
+				69D97AE620DB9561004EBC33 /* ZNewsTableViewCellViewModel.h */,
+				69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1036,6 +1077,11 @@
 		6988F40220BD435E00414C5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69AD539420E363E500B3624E /* PlayerView */,
+				69D97ADD20DB945E004EBC33 /* ZNewsListView.h */,
+				69D97ADE20DB945E004EBC33 /* ZNewsListView.m */,
+				69D97AE320DB954E004EBC33 /* ZNewsTableViewCell.h */,
+				69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1280,6 +1326,54 @@
 			path = verifyCodeCountDown;
 			sourceTree = "<group>";
 		};
+		69AD536C20E2478600B3624E /* NSDate+ */ = {
+			isa = PBXGroup;
+			children = (
+				69AD536D20E2478600B3624E /* NSDate+Category.h */,
+				69AD536E20E2478600B3624E /* NSDate+Category.m */,
+				69AD536F20E2478600B3624E /* NSDate+TimeFormat.h */,
+				69AD537020E2478600B3624E /* NSDate+TimeFormat.m */,
+				69AD537120E2478600B3624E /* NSDate+TKCategory.h */,
+				69AD537220E2478600B3624E /* NSDate+TKCategory.m */,
+				69AD537320E2478600B3624E /* NSDateFormatter+Category.h */,
+				69AD537420E2478600B3624E /* NSDateFormatter+Category.m */,
+			);
+			path = "NSDate+";
+			sourceTree = "<group>";
+		};
+		69AD539420E363E500B3624E /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				69AD539520E363E500B3624E /* ZPlayerView.h */,
+				69AD539620E363E500B3624E /* ZPlayerView.m */,
+				69AD539720E363E500B3624E /* ZPlayerViewContentTextTableViewCell.h */,
+				69AD539820E363E500B3624E /* ZPlayerViewContentTextTableViewCell.m */,
+			);
+			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		69AD539B20E363EC00B3624E /* PlayerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69AD539E20E363EC00B3624E /* ZPlayerViewModel.h */,
+				69AD539F20E363EC00B3624E /* ZPlayerViewModel.m */,
+				69AD539C20E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.h */,
+				69AD539D20E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m */,
+			);
+			path = PlayerViewModel;
+			sourceTree = "<group>";
+		};
+		69AD53A220E363F400B3624E /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				69AD53A320E363F400B3624E /* ZPlayerViewController.h */,
+				69AD53A420E363F400B3624E /* ZPlayerViewController.m */,
+				69AD53A520E363F400B3624E /* ZRT_PlayerManager.h */,
+				69AD53A620E363F400B3624E /* ZRT_PlayerManager.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		95406202EC33A947676D6A63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1478,10 +1572,13 @@
 				6988F43D20BE54F400414C5B /* Z_StartLoadAPP.m in Sources */,
 				6988F20B20BBF88B00414C5B /* ZNavigationController.m in Sources */,
 				69A592F720C6741300F1CC4C /* EKAnimationTextField.m in Sources */,
+				69AD537620E2478600B3624E /* NSDate+TimeFormat.m in Sources */,
 				6988F46E20C0EDF000414C5B /* ZMarketSegmentContentController.m in Sources */,
 				69A592D820C65BE500F1CC4C /* ZMyTableViewCellViewModel.m in Sources */,
 				69A2CF4D20CFAF54000CA771 /* ZSortEditViewModel.m in Sources */,
 				698FDEC120CA1648000384D2 /* SubmitView.m in Sources */,
+				69AD537520E2478600B3624E /* NSDate+Category.m in Sources */,
+				69AD537720E2478600B3624E /* NSDate+TKCategory.m in Sources */,
 				6988F42C20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m in Sources */,
 				6988F25F20BD24B000414C5B /* Z_AvoidCrashTool.m in Sources */,
 				6988F41A20BD579300414C5B /* XWAlerLoginView.m in Sources */,
@@ -1500,6 +1597,7 @@
 				6988F20E20BBF8C600414C5B /* ZCollectionViewCell.m in Sources */,
 				6988F20320BBEDC800414C5B /* CMRequest.m in Sources */,
 				6988F23320BC056E00414C5B /* UIButton+Extension.m in Sources */,
+				69AD539A20E363E600B3624E /* ZPlayerViewContentTextTableViewCell.m in Sources */,
 				6988F47D20C0F2B200414C5B /* ZMarketSegmentController.m in Sources */,
 				6988F47120C0EE1800414C5B /* ZSegmentListView.m in Sources */,
 				698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */,
@@ -1508,10 +1606,13 @@
 				69A2CF3820CE5460000CA771 /* ZHomeCommentListTableViewCell.m in Sources */,
 				698FDEA720C8CBE6000384D2 /* User.m in Sources */,
 				6988F22720BC00E100414C5B /* NSDictionary+Convert.m in Sources */,
+				69D97ADF20DB945E004EBC33 /* ZNewsListView.m in Sources */,
 				69A2CF5020CFAFDC000CA771 /* ZSortEditTableViewCellViewModel.m in Sources */,
 				6988F24F20BCF3BF00414C5B /* AppDelegate+RemoteNotification.m in Sources */,
+				69AD53A820E363F400B3624E /* ZRT_PlayerManager.m in Sources */,
 				6988F20420BBEDC800414C5B /* LSCoreToolCenter.m in Sources */,
 				6988F46820C0EDB200414C5B /* PSSSegmentViewController.m in Sources */,
+				69D97AE520DB954E004EBC33 /* ZNewsTableViewCell.m in Sources */,
 				6988F25520BCFA8800414C5B /* AppDelegate+AppInitializeWindows.m in Sources */,
 				6988F41D20BD579300414C5B /* ContentOffsetYDataModel.m in Sources */,
 				6988F20720BBF7D500414C5B /* ZTableViewCell.m in Sources */,
@@ -1519,6 +1620,7 @@
 				6988F22D20BC039D00414C5B /* NSString+Extension.m in Sources */,
 				6988F45720BFD41600414C5B /* ZHomeListViewModel.m in Sources */,
 				6988F41E20BD579300414C5B /* CustomPageScrollView.m in Sources */,
+				69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */,
 				6988F20220BBEDBC00414C5B /* Z_ThirdPartLoadService.m in Sources */,
 				6988F19E20BBD9A800414C5B /* ViewController.m in Sources */,
 				6988F46A20C0EDB200414C5B /* PSSSegmentVCConst.m in Sources */,
@@ -1531,13 +1633,16 @@
 				6988F24C20BCE42200414C5B /* UIViewController+Extension.m in Sources */,
 				698FDEC020CA1648000384D2 /* SubmitLabel.m in Sources */,
 				698FDEAA20C8CBF3000384D2 /* Identity.m in Sources */,
+				69AD53A120E363EC00B3624E /* ZPlayerViewModel.m in Sources */,
 				69A5930220C77AE000F1CC4C /* ZRegisterViewController.m in Sources */,
 				6988F45120BFD3A900414C5B /* ZHomeListView.m in Sources */,
 				6988F41F20BD579300414C5B /* CustomPageView.m in Sources */,
 				6988F45A20BFD43400414C5B /* ZHomeListTableViewCellViewModel.m in Sources */,
 				69A2CF6120D0F8AE000CA771 /* InterfaceConfigManager.m in Sources */,
+				69AD539920E363E600B3624E /* ZPlayerView.m in Sources */,
 				6988F1F820BBE6BB00414C5B /* ZViewController.m in Sources */,
 				6988F25920BD23E700414C5B /* DataCache.m in Sources */,
+				69AD53A720E363F400B3624E /* ZPlayerViewController.m in Sources */,
 				6988F42820BD58DB00414C5B /* ZHomeViewController.m in Sources */,
 				698FDEBF20CA1648000384D2 /* SubmitButton.m in Sources */,
 				6988F46B20C0EDB200414C5B /* PSSViewControllerModel.m in Sources */,
@@ -1547,6 +1652,7 @@
 				6988F41B20BD579300414C5B /* AutoImageTableViewCell.m in Sources */,
 				6988F23A20BC07A900414C5B /* UIColor+Extension.m in Sources */,
 				6988F3EE20BD376400414C5B /* UIViewController+Cloudox.m in Sources */,
+				69AD537820E2478600B3624E /* NSDateFormatter+Category.m in Sources */,
 				69A2CF3B20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m in Sources */,
 				69A592FB20C6825700F1CC4C /* ACFloatingTextField.m in Sources */,
 				6988F24920BCE3E700414C5B /* UIView+Extension.m in Sources */,
@@ -1557,6 +1663,8 @@
 				69A592FF20C77AB000F1CC4C /* Xzb_CountDownButton.m in Sources */,
 				6988F25220BCF5E500414C5B /* AppDelegate+HandleOpenURL.m in Sources */,
 				6988F21120BBFC4100414C5B /* Foundation+Log.m in Sources */,
+				69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */,
+				69AD53A020E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m in Sources */,
 				69A592F320C66FE300F1CC4C /* ZLoginViewController.m in Sources */,
 				69A2CF3220CE530D000CA771 /* ZHomeCommentListView.m in Sources */,
 				6988F26320BD26FC00414C5B /* HttpService.m in Sources */,

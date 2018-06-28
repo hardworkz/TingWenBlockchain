@@ -9,6 +9,8 @@
 #ifndef CategoriesHeader_h
 #define CategoriesHeader_h
 
+#import "NSDate+TimeFormat.h"
+#import "NSDate+Category.h"
 #import "NSData+MDEncry.h"
 #import "NSData+Initialize.h"
 #import "NSDictionary+Convert.h"

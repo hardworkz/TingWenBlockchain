@@ -10,5 +10,8 @@
 #import "ZTableViewCellProtocol.h"
 
 @interface ZTableViewCell : UITableViewCell <ZTableViewCellProtocol>
-
+/**
+ 根绝数据计算cell的高度
+ */
+- (CGFloat)cellHeight;
 @end

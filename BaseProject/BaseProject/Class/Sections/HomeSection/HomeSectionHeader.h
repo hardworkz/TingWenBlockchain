@@ -11,4 +11,6 @@
 
 #import "ZHomeViewController.h"
 
+#import "ZRT_PlayerManager.h"
+
 #endif /* HomeSectionHeader_h */

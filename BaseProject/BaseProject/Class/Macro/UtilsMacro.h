@@ -39,6 +39,8 @@
 //定义UIImage对象
 #define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
 #define ImageNamed(name) [UIImage imageNamed:name]
+//性能优化方法：使用[UIImage imageNamed:]方式时系统会缓存该图片，而释放缓存的时机很微妙。所以使用比较大、调用频率低的图片时，尽量使用读取文件的方式做
+#define ImageNamedForResource(name) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:name ofType:@"png"]]
 
 // 每次请求列表 数据量
 #define LS_REQUEST_LIST_COUNT @"10"

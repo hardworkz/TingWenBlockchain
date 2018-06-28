@@ -10,5 +10,6 @@
 #define NewsSectionHeader_h
 
 #import "ZNewsViewController.h"
+#import "ZPlayerViewController.h"
 
 #endif /* NewsSectionHeader_h */

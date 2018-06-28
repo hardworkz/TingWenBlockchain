@@ -7,36 +7,64 @@
 //
 
 #import "ZNewsViewController.h"
+#import "ZNewsListView.h"
+#import "ZNewsListViewModel.h"
+#import "ZNewsTableViewCellViewModel.h"
 
 @interface ZNewsViewController ()
+
+@property (nonatomic, strong) ZNewsListView *mainView;
+
+@property (nonatomic, strong) ZNewsListViewModel *viewModel;
 
 @end
 
 @implementation ZNewsViewController
 
+#pragma mark - system
+- (void)updateViewConstraints {
+    WS(weakSelf)
+    [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf.view);
+    }];
+    [super updateViewConstraints];
+}
+#pragma mark - private
+- (void)z_addSubviews
+{
+    [self.view addSubview:self.mainView];
+}
+- (void)z_bindViewModel
+{
+    @weakify(self)
+    [self.viewModel.cellClickSubject subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        //点击cell操作
+        ZPlayerViewController *playerVC = [[ZPlayerViewController alloc] init];
+        ZNewsTableViewCellViewModel *viewModel = self.viewModel.dataArray[[x integerValue]];
+        playerVC.post_id = viewModel.Id;
+        [self.navigationController pushViewController:playerVC animated:YES];
+    }];
+}
 - (void)z_layoutNavigation
 {
     self.title = @"听闻区块链";
+}
+#pragma mark - lazyload
+- (ZNewsListView *)mainView
+{
+    if (!_mainView) {
+        _mainView = [[ZNewsListView alloc] initWithViewModel:self.viewModel];
+    }
+    return _mainView;
+}
+- (ZNewsListViewModel *)viewModel {
     
+    if (!_viewModel) {
+        
+        _viewModel = [[ZNewsListViewModel alloc] init];
+    }
+    
+    return _viewModel;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

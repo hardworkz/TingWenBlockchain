@@ -63,7 +63,8 @@
         
         NSString* responseJson = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"[CMRequest]: %@",responseJson);
-        success(self,responseJson);
+        
+        success(self,[CMRequest convertjsonStringToDict:responseJson]);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -108,4 +109,15 @@
     [self.operationQueue cancelAllOperations];
 }
 
++ (NSDictionary *)convertjsonStringToDict:(NSString *)jsonString{
+    
+    NSDictionary *retDict = nil;
+    if ([jsonString isKindOfClass:[NSString class]]) {
+        NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+        retDict = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:NULL];
+        return  retDict;
+    }else{
+        return retDict;
+    }
+}
 @end

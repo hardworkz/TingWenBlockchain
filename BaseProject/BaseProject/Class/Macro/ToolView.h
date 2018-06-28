@@ -29,7 +29,7 @@
 #define GA_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
 #pragma mark - 方正黑体简体字体定义
-#define FONT(F)                [UIFont fontWithName:@"FZHTJW--GB1-0" size:F]
+#define FONT(F)                [UIFont systemFontOfSize:F]
 #define FONT_SDGothicNeo(F)    [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:F]
 #define FONTMic(F)                 [UIFont fontWithName:@"MicrosoftYaHei" size:F]
 #pragma mark - 字体加粗

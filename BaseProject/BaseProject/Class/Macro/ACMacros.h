@@ -113,6 +113,12 @@
 #define kNavHeight (iPhoneX?IPHONEX_TOP_H:kStatusBarHeight+kTopBarHeight)
 #define kTabBarHeight (iPhoneX?IPHONEX_BOTTOM_H:kBottomBarHeight)
 
+
+//间距常量
+#define MARGIN_5 5
+#define MARGIN_10 10
+#define MARGIN_15 15
+#define MARGIN_20 20
 /* ****************************************************************************************************************** */
 #pragma mark - Funtion Method (宏 方法)
 
