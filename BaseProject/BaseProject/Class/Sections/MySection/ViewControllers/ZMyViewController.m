@@ -49,6 +49,7 @@
 }
 - (void)z_layoutNavigation
 {
+    self.title = @"我";
     [self hideNavigationBar:YES animated:NO];
 }
 #pragma mark - lazyload

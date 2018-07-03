@@ -11,27 +11,27 @@
 
 #define SONGPLAYSTATUSCHANGE @"SongPlayStatusChange"
 
-typedef NS_ENUM(NSInteger, ChannelType) {
-    ChannelTypeChannelNone = 0,//不是频道列表播放
-    ChannelTypeHomeChannelOne,//播放首页频道1(快讯)
-    ChannelTypeHomeChannelTwo,//播放首页频道2（专栏）
-    ChannelTypeHomeChannelClassify,//播放首页6大分类模块
-    ChannelTypeSubscriptionChannel,//播放订阅列表
-    ChannelTypeDiscoverAnchor,//播放发现模块主播详情新闻列表(课堂详情课程播放列表)
-    ChannelTypeDiscoverSearchNewsResult,//播放发现模块搜索新闻列表结果播放
-    ChannelTypeMineDownload,//播放我的模块下载列表
-    ChannelTypeMineCollection,//播放我的模块收藏列表
-    ChannelTypeMineCircleListen,//播放我的模块听友圈点击新闻单条播放
-    ChannelTypeMinePersonCenter,//播放我的模块个人主页单条播放
-    ChannelTypeMineUnreadMessage,//播放我的模块未读消息页面新闻单条播放
-    ChannelTypeClassroomTryList,//播放课堂试听列表播放
-};
-typedef NS_ENUM(NSInteger, ZRTPlayType) {
-    ZRTPlayTypeNews = 0,//播放新闻
-    ZRTPlayTypeDownload,//播放下载新闻
-    ZRTPlayTypeClassroomTry,//播放课堂试听
-    ZRTPlayTypeClassroom,//播放课堂
-};
+//typedef NS_ENUM(NSInteger, ChannelType) {
+//    ChannelTypeChannelNone = 0,//不是频道列表播放
+//    ChannelTypeHomeChannelOne,//播放首页频道1(快讯)
+//    ChannelTypeHomeChannelTwo,//播放首页频道2（专栏）
+//    ChannelTypeHomeChannelClassify,//播放首页6大分类模块
+//    ChannelTypeSubscriptionChannel,//播放订阅列表
+//    ChannelTypeDiscoverAnchor,//播放发现模块主播详情新闻列表(课堂详情课程播放列表)
+//    ChannelTypeDiscoverSearchNewsResult,//播放发现模块搜索新闻列表结果播放
+//    ChannelTypeMineDownload,//播放我的模块下载列表
+//    ChannelTypeMineCollection,//播放我的模块收藏列表
+//    ChannelTypeMineCircleListen,//播放我的模块听友圈点击新闻单条播放
+//    ChannelTypeMinePersonCenter,//播放我的模块个人主页单条播放
+//    ChannelTypeMineUnreadMessage,//播放我的模块未读消息页面新闻单条播放
+//    ChannelTypeClassroomTryList,//播放课堂试听列表播放
+//};
+//typedef NS_ENUM(NSInteger, ZRTPlayType) {
+//    ZRTPlayTypeNews = 0,//播放新闻
+//    ZRTPlayTypeDownload,//播放下载新闻
+//    ZRTPlayTypeClassroomTry,//播放课堂试听
+//    ZRTPlayTypeClassroom,//播放课堂
+//};
 typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
     ZRTPlayStatusNone = 0,//播放界面：未知状态
     ZRTPlayStatusLoadSongInfo,//播放界面：加载信息
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
 /**
  播放完成设置界面状态
  */
-@property (copy, nonatomic) void (^playDidEndReload)(NSInteger currentSongIndex);
+//@property (copy, nonatomic) void (^playDidEndReload)(NSInteger currentSongIndex);
 /**
  播放完成回调
  */
@@ -78,12 +78,12 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
 /*
  * 播放类型
  */
-@property (nonatomic, assign) ZRTPlayType playType;
+//@property (nonatomic, assign) ZRTPlayType playType;
 #pragma mark - 播放频道列表
 /**
  播放频道列表
  */
-@property (assign, nonatomic) ChannelType channelType;
+//@property (assign, nonatomic) ChannelType channelType;
 #pragma mark - 列表
 /*
  * 歌曲列表
@@ -116,7 +116,7 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
 /**
  播放属性
  */
-@property (nonatomic, strong) AVPlayerItem           *playerItem;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
 /**
  课堂播放历史记录数据
  */
@@ -207,4 +207,8 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
  @return 返回颜色
  */
 - (UIColor *)textColorFormID:(NSString *)post_id;
+/**
+ 转换秒数为时间格式字符串
+ */
+- (NSString *)convertStringWithTime:(float)time;
 @end

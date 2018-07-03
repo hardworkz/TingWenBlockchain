@@ -47,7 +47,6 @@
 		6988F26320BD26FC00414C5B /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F26220BD26FC00414C5B /* HttpService.m */; };
 		6988F3EB20BD371F00414C5B /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F3EA20BD371F00414C5B /* UINavigationController+Cloudox.m */; };
 		6988F3EE20BD376400414C5B /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F3ED20BD376400414C5B /* UIViewController+Cloudox.m */; };
-		6988F41A20BD579300414C5B /* XWAlerLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F40620BD579100414C5B /* XWAlerLoginView.m */; };
 		6988F41B20BD579300414C5B /* AutoImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F40920BD579200414C5B /* AutoImageTableViewCell.m */; };
 		6988F41C20BD579300414C5B /* AutoImageViewHeightFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F40B20BD579200414C5B /* AutoImageViewHeightFrameModel.m */; };
 		6988F41D20BD579300414C5B /* ContentOffsetYDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F40E20BD579200414C5B /* ContentOffsetYDataModel.m */; };
@@ -63,7 +62,6 @@
 		6988F43220BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F43120BE4EFA00414C5B /* ZHomeScreenSwitchTableViewCellViewModel.m */; };
 		6988F43520BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F43420BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m */; };
 		6988F43D20BE54F400414C5B /* Z_StartLoadAPP.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F1EE20BBE0D600414C5B /* Z_StartLoadAPP.m */; };
-		6988F44520BF9F6B00414C5B /* ZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F44420BF9F6B00414C5B /* ZTabBarController.m */; };
 		6988F44820BFA00C00414C5B /* ZNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F44720BFA00C00414C5B /* ZNewsViewController.m */; };
 		6988F44B20BFA01E00414C5B /* ZMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F44A20BFA01E00414C5B /* ZMarketViewController.m */; };
 		6988F44E20BFA02E00414C5B /* ZMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F44D20BFA02E00414C5B /* ZMyViewController.m */; };
@@ -118,6 +116,8 @@
 		69AD53A120E363EC00B3624E /* ZPlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD539F20E363EC00B3624E /* ZPlayerViewModel.m */; };
 		69AD53A720E363F400B3624E /* ZPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53A420E363F400B3624E /* ZPlayerViewController.m */; };
 		69AD53A820E363F400B3624E /* ZRT_PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53A620E363F400B3624E /* ZRT_PlayerManager.m */; };
+		69AD53D520E4B4BF00B3624E /* XWAlerLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53D420E4B4BF00B3624E /* XWAlerLoginView.m */; };
+		69AD53DB20E62E1B00B3624E /* ZRootTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD53DA20E62E1B00B3624E /* ZRootTabbarController.m */; };
 		69D97ADF20DB945E004EBC33 /* ZNewsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97ADE20DB945E004EBC33 /* ZNewsListView.m */; };
 		69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */; };
 		69D97AE520DB954E004EBC33 /* ZNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */; };
@@ -240,8 +240,6 @@
 		6988F3EC20BD376400414C5B /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
 		6988F3ED20BD376400414C5B /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
 		6988F40320BD559100414C5B /* CategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoriesHeader.h; sourceTree = "<group>"; };
-		6988F40520BD579100414C5B /* XWAlerLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAlerLoginView.h; sourceTree = "<group>"; };
-		6988F40620BD579100414C5B /* XWAlerLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlerLoginView.m; sourceTree = "<group>"; };
 		6988F40820BD579200414C5B /* AutoImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoImageTableViewCell.h; sourceTree = "<group>"; };
 		6988F40920BD579200414C5B /* AutoImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoImageTableViewCell.m; sourceTree = "<group>"; };
 		6988F40A20BD579200414C5B /* AutoImageViewHeightFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoImageViewHeightFrameModel.h; sourceTree = "<group>"; };
@@ -273,8 +271,6 @@
 		6988F43F20BE6ECA00414C5B /* MarketSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarketSectionHeader.h; sourceTree = "<group>"; };
 		6988F44020BE6EDC00414C5B /* MySectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySectionHeader.h; sourceTree = "<group>"; };
 		6988F44120BE866300414C5B /* BaseProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BaseProject.entitlements; sourceTree = "<group>"; };
-		6988F44320BF9F6B00414C5B /* ZTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZTabBarController.h; sourceTree = "<group>"; };
-		6988F44420BF9F6B00414C5B /* ZTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZTabBarController.m; sourceTree = "<group>"; };
 		6988F44620BFA00C00414C5B /* ZNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsViewController.h; sourceTree = "<group>"; };
 		6988F44720BFA00C00414C5B /* ZNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsViewController.m; sourceTree = "<group>"; };
 		6988F44920BFA01E00414C5B /* ZMarketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMarketViewController.h; sourceTree = "<group>"; };
@@ -384,6 +380,11 @@
 		69AD53A420E363F400B3624E /* ZPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPlayerViewController.m; sourceTree = "<group>"; };
 		69AD53A520E363F400B3624E /* ZRT_PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRT_PlayerManager.h; sourceTree = "<group>"; };
 		69AD53A620E363F400B3624E /* ZRT_PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRT_PlayerManager.m; sourceTree = "<group>"; };
+		69AD53D320E4B4BF00B3624E /* XWAlerLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAlerLoginView.h; sourceTree = "<group>"; };
+		69AD53D420E4B4BF00B3624E /* XWAlerLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlerLoginView.m; sourceTree = "<group>"; };
+		69AD53D620E4B4DF00B3624E /* ViewsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewsHeader.h; sourceTree = "<group>"; };
+		69AD53D920E62E1B00B3624E /* ZRootTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZRootTabbarController.h; sourceTree = "<group>"; };
+		69AD53DA20E62E1B00B3624E /* ZRootTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZRootTabbarController.m; sourceTree = "<group>"; };
 		69D97ADD20DB945E004EBC33 /* ZNewsListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsListView.h; sourceTree = "<group>"; };
 		69D97ADE20DB945E004EBC33 /* ZNewsListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsListView.m; sourceTree = "<group>"; };
 		69D97AE020DB9505004EBC33 /* ZNewsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsListViewModel.h; sourceTree = "<group>"; };
@@ -595,6 +596,7 @@
 		6988F1D520BBE0D600414C5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69AD53D220E4B4BF00B3624E /* XWAlerLoginView */,
 				698FDEB520CA1647000384D2 /* SubmitView */,
 				69A592FC20C77AB000F1CC4C /* verifyCodeCountDown */,
 				69A592F820C6823E00F1CC4C /* ACFloatingTextField */,
@@ -602,8 +604,8 @@
 				6988F45B20C0EDB200414C5B /* PSSSegmentViewController */,
 				6988F40720BD579200414C5B /* AutoImageHeightCell */,
 				6988F41320BD579300414C5B /* BJNoDataView */,
-				6988F40420BD579100414C5B /* XWBottomAlertTip */,
 				6988F40C20BD579200414C5B /* ZRTHorizontalPagingView */,
+				69AD53D620E4B4DF00B3624E /* ViewsHeader.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1086,15 +1088,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		6988F40420BD579100414C5B /* XWBottomAlertTip */ = {
-			isa = PBXGroup;
-			children = (
-				6988F40520BD579100414C5B /* XWAlerLoginView.h */,
-				6988F40620BD579100414C5B /* XWAlerLoginView.m */,
-			);
-			path = XWBottomAlertTip;
-			sourceTree = "<group>";
-		};
 		6988F40720BD579200414C5B /* AutoImageHeightCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1142,8 +1135,8 @@
 		6988F44220BF9E8300414C5B /* RootVC */ = {
 			isa = PBXGroup;
 			children = (
-				6988F44320BF9F6B00414C5B /* ZTabBarController.h */,
-				6988F44420BF9F6B00414C5B /* ZTabBarController.m */,
+				69AD53D920E62E1B00B3624E /* ZRootTabbarController.h */,
+				69AD53DA20E62E1B00B3624E /* ZRootTabbarController.m */,
 			);
 			path = RootVC;
 			sourceTree = "<group>";
@@ -1374,6 +1367,15 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		69AD53D220E4B4BF00B3624E /* XWAlerLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				69AD53D320E4B4BF00B3624E /* XWAlerLoginView.h */,
+				69AD53D420E4B4BF00B3624E /* XWAlerLoginView.m */,
+			);
+			path = XWAlerLoginView;
+			sourceTree = "<group>";
+		};
 		95406202EC33A947676D6A63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1527,6 +1529,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/LCTabBarController/LCTabBarController/LCTabBarController.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
@@ -1534,6 +1537,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LCTabBarController.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
@@ -1581,7 +1585,6 @@
 				69AD537720E2478600B3624E /* NSDate+TKCategory.m in Sources */,
 				6988F42C20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m in Sources */,
 				6988F25F20BD24B000414C5B /* Z_AvoidCrashTool.m in Sources */,
-				6988F41A20BD579300414C5B /* XWAlerLoginView.m in Sources */,
 				69A2CF4720CFAF16000CA771 /* ZMarketSortEditViewController.m in Sources */,
 				6988F44B20BFA01E00414C5B /* ZMarketViewController.m in Sources */,
 				69A2CF4A20CFAF3F000CA771 /* ZSortEditView.m in Sources */,
@@ -1621,6 +1624,7 @@
 				6988F45720BFD41600414C5B /* ZHomeListViewModel.m in Sources */,
 				6988F41E20BD579300414C5B /* CustomPageScrollView.m in Sources */,
 				69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */,
+				69AD53DB20E62E1B00B3624E /* ZRootTabbarController.m in Sources */,
 				6988F20220BBEDBC00414C5B /* Z_ThirdPartLoadService.m in Sources */,
 				6988F19E20BBD9A800414C5B /* ViewController.m in Sources */,
 				6988F46A20C0EDB200414C5B /* PSSSegmentVCConst.m in Sources */,
@@ -1631,6 +1635,7 @@
 				6988F41C20BD579300414C5B /* AutoImageViewHeightFrameModel.m in Sources */,
 				69A2CF3520CE532B000CA771 /* ZHomeCommentListViewModel.m in Sources */,
 				6988F24C20BCE42200414C5B /* UIViewController+Extension.m in Sources */,
+				69AD53D520E4B4BF00B3624E /* XWAlerLoginView.m in Sources */,
 				698FDEC020CA1648000384D2 /* SubmitLabel.m in Sources */,
 				698FDEAA20C8CBF3000384D2 /* Identity.m in Sources */,
 				69AD53A120E363EC00B3624E /* ZPlayerViewModel.m in Sources */,
@@ -1646,7 +1651,6 @@
 				6988F42820BD58DB00414C5B /* ZHomeViewController.m in Sources */,
 				698FDEBF20CA1648000384D2 /* SubmitButton.m in Sources */,
 				6988F46B20C0EDB200414C5B /* PSSViewControllerModel.m in Sources */,
-				6988F44520BF9F6B00414C5B /* ZTabBarController.m in Sources */,
 				698FDEBE20CA1648000384D2 /* RotationView.m in Sources */,
 				6988F44E20BFA02E00414C5B /* ZMyViewController.m in Sources */,
 				6988F41B20BD579300414C5B /* AutoImageTableViewCell.m in Sources */,

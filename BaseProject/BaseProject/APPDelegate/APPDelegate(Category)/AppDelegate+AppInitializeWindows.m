@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate+AppInitializeWindows.h"
-#import "RDVTabBarController.h"
-#import "ZTabBarController.h"
+#import "ZRootTabbarController.h"
 
 @implementation AppDelegate (AppInitializeWindows)
 - (void)setAppWindows
@@ -51,33 +50,9 @@
 }
 - (void)setRoot
 {
-    [[[UIApplication sharedApplication].delegate window] setRootViewController:[[ZTabBarController alloc] init]/*需要切换的控制器*/];
-    
-    //切换根控制器动画方案一
-//    [UIView transitionWithView:[[UIApplication sharedApplication].delegate window]
-//                      duration:0.4
-//                       options:UIViewAnimationOptionTransitionCrossDissolve|UIViewAnimationOptionCurveEaseInOut
-//    animations:^{
-//
-//        BOOL oldState = [UIView areAnimationsEnabled];
-//
-//        [UIView setAnimationsEnabled:NO];
-//
-//        [[[UIApplication sharedApplication].delegate window] setRootViewController:tabBarController/*需要切换的控制器*/];
-//
-//        [UIView setAnimationsEnabled:oldState];
-//
-//    }completion:nil];
-    
-    //切换根控制器动画方案二
-//    CATransition *animation = [CATransition animation];
-//
-//    [animation setDuration:0.6];//设置动画时间
-//
-//    animation.type = kCATransitionFade;//设置动画类型
-//
-//    [[UIApplication sharedApplication].keyWindow.layer addAnimation:animation forKey:nil];
+    [[[UIApplication sharedApplication].delegate window] setRootViewController:[[ZRootTabbarController alloc] init]/*需要切换的控制器*/];
 }
+
 #pragma mark - 引导页
 /**
  *  首次启动轮播图

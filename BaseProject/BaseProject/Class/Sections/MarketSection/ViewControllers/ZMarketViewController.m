@@ -83,7 +83,7 @@
             [vcModelArr addObject:vcModel];
         }
         _segmentViewController = [[PSSSegmentViewController alloc] initWithViewControllers:vcModelArr];
-        _segmentViewController.view.frame = CGRectMake(0, CGRectGetMaxY(self.segmentedControl.frame), SCREEN_WIDTH, SCREEN_HEIGHT - CGRectGetMaxY(self.segmentedControl.frame) - (iPhoneX?IPHONEX_BOTTOM_BACK_BAR_H:0));
+        _segmentViewController.view.frame = CGRectMake(0, CGRectGetMaxY(self.segmentedControl.frame), SCREEN_WIDTH, SCREEN_HEIGHT - CGRectGetMaxY(self.segmentedControl.frame));
         [self.view addSubview:_segmentViewController.view];
         [self addChildViewController:_segmentViewController];
         

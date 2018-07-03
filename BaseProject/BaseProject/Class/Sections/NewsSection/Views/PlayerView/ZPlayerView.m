@@ -12,7 +12,10 @@
 #import "ZPlayerViewContentTextTableViewCellViewModel.h"
 
 @interface ZPlayerView () <UITableViewDataSource, UITableViewDelegate>
-
+{
+    //view的显示时间默认5s
+    NSInteger showTime;
+}
 @property (strong, nonatomic) UITableView *mainTableView;
 
 @property (strong, nonatomic) ZPlayerViewModel *viewModel;
@@ -25,6 +28,7 @@
 
 @property (nonatomic, strong) ZPlayerViewContentTextTableViewCell *tempCell;
 
+@property (nonatomic, strong) UIView *forwardBackView;
 
 /**
  播放/暂停按钮
@@ -60,6 +64,15 @@
 @property(strong,nonatomic)UILabel *currenTime;
 
 @property (assign, nonatomic) CGFloat lastContenOffsetY;
+/**
+ 是否显示快进后退
+ */
+@property (assign, nonatomic) BOOL isShowfastBackView;
+
+/**
+ 自动消失定时器
+ */
+@property (strong, nonatomic) NSTimer *showForwardBackViewTimer;
 @end
 @implementation ZPlayerView
 
@@ -92,6 +105,24 @@
     [self addSubview:self.mainTableView];
     [self addSubview:self.playControlView];
     self.mainTableView.tableHeaderView = self.headView;
+    
+    WS(weakSelf)
+    [ZRT_PlayerManager manager].playTimeObserve = ^(float progress,float currentTime,float totalDuration) {
+        
+        weakSelf.currenTime.text = [[ZRT_PlayerManager manager] convertStringWithTime:currentTime];
+        weakSelf.totalTime.text =  [[ZRT_PlayerManager manager] convertStringWithTime:totalDuration];
+        weakSelf.sliderProgress.value = currentTime;
+        weakSelf.sliderProgress.maximumValue = totalDuration;
+    };
+    [ZRT_PlayerManager manager].reloadBufferProgress = ^(float bufferProgress,float totalDuration) {
+        if (bufferProgress > 0) {
+            [[ZRT_PlayerManager manager] startPlay];
+            //更新播放条进度
+            [weakSelf.prgBufferProgress setProgress:bufferProgress animated:YES];
+        }else{
+            [weakSelf.prgBufferProgress setProgress:0. animated:YES];
+        }
+    };
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
@@ -294,7 +325,7 @@
     if (!_prgBufferProgress)
     {
         _prgBufferProgress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _prgBufferProgress.progressTintColor = MAINCOLOR;
+        _prgBufferProgress.progressTintColor = blue_color;
     }
     return _prgBufferProgress;
 }
@@ -441,6 +472,122 @@
         [UIView animateWithDuration:0.5 animations:^{
             self.playControlView.y = SCREEN_HEIGHT;
         }];
+    }
+}
+#pragma mark - 快进 后退 15秒控件
+- (UIView *)forwardBackView
+{
+    if (_forwardBackView == nil) {
+        CGFloat height = 70;
+        _forwardBackView = [[UIView alloc] init];
+        _forwardBackView.frame = CGRectMake(0, SCREEN_HEIGHT - 160 - height, SCREEN_WIDTH, height);
+        _forwardBackView.backgroundColor = COLOR(0, 0, 0, 0.5);
+        
+        UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.5, height)];
+        [back setImage:[UIImage imageNamed:@"fast_back_2"] forState:UIControlStateNormal];
+        [back setImage:[UIImage imageNamed:@"fast_back_blue_2"] forState:UIControlStateHighlighted];
+        [back addTarget:self action:@selector(back15)];
+        [_forwardBackView addSubview:back];
+        
+        UIButton *go = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.5, 0, SCREEN_WIDTH * 0.5, height)];
+        [go setImage:[UIImage imageNamed:@"fast_go_2"] forState:UIControlStateNormal];
+        [go setImage:[UIImage imageNamed:@"fast_go_blue_2"] forState:UIControlStateHighlighted];
+        [go addTarget:self action:@selector(go15)];
+        [_forwardBackView addSubview:go];
+    }
+    return _forwardBackView;
+}
+
+/**
+ 后退15s
+ */
+- (void)back15
+{
+    [self attAction];
+    if ([ZRT_PlayerManager manager].isPlaying) {
+        [[ZRT_PlayerManager manager] pausePlay];
+    }
+    //调到指定时间去播放
+    [[ZRT_PlayerManager manager].player seekToTime:CMTimeMake(self.sliderProgress.value > 15?self.sliderProgress.value - 15:0, 1) completionHandler:^(BOOL finished) {
+        ZLog(@"拖拽结果：%d",finished);
+        if (finished == YES){
+            [[ZRT_PlayerManager manager] startPlay];
+        }
+    }];
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:[[NSUserDefaults standardUserDefaults] boolForKey:@"shoushi"]];
+}
+/**
+ 快进15s
+ */
+- (void)go15
+{
+    [self attAction];
+    if ([ZRT_PlayerManager manager].isPlaying) {
+        [[ZRT_PlayerManager manager] pausePlay];
+    }
+    //调到指定时间去播放
+    [[ZRT_PlayerManager manager].player seekToTime:CMTimeMake(self.sliderProgress.value + 15, 1) completionHandler:^(BOOL finished) {
+        ZLog(@"拖拽结果：%d",finished);
+        if (finished == YES){
+            [[ZRT_PlayerManager manager] startPlay];
+        }
+    }];
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:[[NSUserDefaults standardUserDefaults] boolForKey:@"shoushi"]];
+}
+
+/**
+ 显示快进/后退控件
+ */
+- (void)showForwardBackView
+{
+    WS(weakSelf)
+    self.forwardBackView.alpha = 0.;
+    [self addSubview:self.forwardBackView];
+    [UIView animateWithDuration:1.0 animations:^{
+        weakSelf.forwardBackView.alpha = 1.;
+    }];
+}
+/**
+ 隐藏快进/后退控件
+ */
+- (void)hideForwardBackView
+{
+    WS(weakSelf)
+    [UIView animateWithDuration:1.0 animations:^{
+        weakSelf.forwardBackView.alpha = 0.;
+    } completion:^(BOOL finished) {
+        [weakSelf.forwardBackView removeFromSuperview];
+        weakSelf.isShowfastBackView = NO;
+    }];
+}
+/**
+ 快进，后退15sView隐藏定时器
+ */
+- (void)attAction
+{
+    showTime = 5;
+    [_showForwardBackViewTimer invalidate];
+    _showForwardBackViewTimer = nil;
+    //启动定时器
+    _showForwardBackViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                                 target:self
+                                                               selector:@selector(timeAction)
+                                                               userInfo:nil
+                                                                repeats:YES];
+    [_showForwardBackViewTimer fire];//
+    [[NSRunLoop currentRunLoop] addTimer:_showForwardBackViewTimer forMode:NSDefaultRunLoopMode];
+    
+}
+
+/**
+ 定时器调用方法
+ */
+- (void)timeAction
+{
+    showTime --;
+    if (showTime == 0) {
+        //隐藏快进，后退view
+        [self hideForwardBackView];
     }
 }
 @end

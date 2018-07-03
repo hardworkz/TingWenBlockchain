@@ -26,14 +26,6 @@
     WS(weakSelf)
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakSelf.view).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-//        make.top.equalTo(weakSelf.view);
-//        make.right.equalTo(weakSelf.view);
-//        make.left.equalTo(weakSelf.view);
-//        if (iPhoneX) {
-//            make.bottom.equalTo(weakSelf.view).offset(- IPHONEX_BOTTOM_BACK_BAR_H);
-//        }else{
-//            make.bottom.equalTo(weakSelf.view);
-//        }
     }];
     [super updateViewConstraints];
 }

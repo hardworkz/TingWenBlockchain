@@ -42,13 +42,13 @@
         //点击cell操作
         ZPlayerViewController *playerVC = [[ZPlayerViewController alloc] init];
         ZNewsTableViewCellViewModel *viewModel = self.viewModel.dataArray[[x integerValue]];
+        playerVC.index = [x integerValue];
         playerVC.post_id = viewModel.Id;
         [self.navigationController pushViewController:playerVC animated:YES];
     }];
 }
 - (void)z_layoutNavigation
 {
-    self.title = @"听闻区块链";
 }
 #pragma mark - lazyload
 - (ZNewsListView *)mainView

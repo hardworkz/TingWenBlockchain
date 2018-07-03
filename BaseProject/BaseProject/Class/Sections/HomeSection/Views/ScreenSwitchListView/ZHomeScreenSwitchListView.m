@@ -117,6 +117,11 @@
         //tableView页面无导航栏时，顶部出现44高度的空白解决方法
         if (@available(iOS 11.0, *)) {
             _mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+            
+            //适配pagingEnabled = yes 状态下，刷新导致cell位置错乱的问题
+            _mainTableView.estimatedRowHeight = 0;
+            _mainTableView.estimatedSectionHeaderHeight = 0;
+            _mainTableView.estimatedSectionFooterHeight = 0;
         }
         [_mainTableView registerClass:[ZHomeScreenSwitchTableViewCell class] forCellReuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZHomeScreenSwitchTableViewCell class])]];
         

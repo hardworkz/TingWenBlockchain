@@ -10,7 +10,11 @@
 
 @interface ZHomeScreenSwitchTableViewCell ()
 
+@property (nonatomic, strong) UIImageView *bgImage;
+
 @property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) UILabel *content;
 
 @property (nonatomic, strong) UILabel *goodLabel;
 
@@ -20,13 +24,15 @@
 @implementation ZHomeScreenSwitchTableViewCell
 - (void)z_setupViews {
     
-    [self.contentView addSubview:self.titleLabel];
-    [self.contentView addSubview:self.good];
-    [self.contentView addSubview:self.goodLabel];
-    [self.contentView addSubview:self.bad];
-    [self.contentView addSubview:self.badLabel];
-    [self.contentView addSubview:self.comment];
-    [self.contentView addSubview:self.share];
+    [self.contentView addSubview:self.bgImage];
+    [self.bgImage addSubview:self.titleLabel];
+    [self.bgImage addSubview:self.content];
+    [self.bgImage addSubview:self.good];
+    [self.bgImage addSubview:self.goodLabel];
+    [self.bgImage addSubview:self.bad];
+    [self.bgImage addSubview:self.badLabel];
+    [self.bgImage addSubview:self.comment];
+    [self.bgImage addSubview:self.share];
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
@@ -38,14 +44,23 @@
     CGFloat paddingEdge = 10;
     CGFloat width = 40;
     CGFloat height = 40;
+    
+    [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf.contentView);
+    }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(paddingEdge);
-        make.centerY.equalTo(weakSelf.contentView);
-        make.size.equalTo(CGSizeMake(80, 80));
+        make.top.equalTo(weakSelf.bgImage).offset(kNavHeight + 30);
+        make.leading.equalTo(MARGIN_15 * 2);
+        make.trailing.equalTo(-MARGIN_15 * 2);
+    }];
+    [self.content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(30);
+        make.leading.equalTo(MARGIN_15);
+        make.trailing.equalTo(-width-MARGIN_10);
     }];
     [self.share mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(- paddingEdge);
-        make.bottom.equalTo(weakSelf.contentView).offset(-100);
+        make.bottom.equalTo(weakSelf.bgImage).offset(-100);
         make.size.equalTo(CGSizeMake(width, height));
     }];
     [self.comment mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,21 +100,42 @@
     
     _viewModel = viewModel;
     
-    self.titleLabel.text = viewModel.title;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@-------%@",viewModel.Id,viewModel.title];
     
-    self.contentView.backgroundColor = randomColor;
+    self.content.text = viewModel.content;
 }
 
 #pragma mark - lazyLoad
+- (UIImageView *)bgImage
+{
+    if (!_bgImage) {
+        _bgImage = [[UIImageView alloc] initWithImage:ImageNamed(@"icon_background")];
+        _bgImage.contentMode = UIViewContentModeScaleAspectFill;
+        _bgImage.userInteractionEnabled = YES;
+    }
+    return _bgImage;
+}
 - (UILabel *)titleLabel {
     
     if (!_titleLabel) {
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = MAIN_BLACK_TEXT_COLOR;
-        _titleLabel.font = SYSTEMFONT(14);
+        _titleLabel.font = BOLDSYSTEMFONT(20);
+        _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
+}
+- (UILabel *)content {
+    
+    if (!_content) {
+        
+        _content = [[UILabel alloc] init];
+        _content.textColor = MAIN_BLACK_TEXT_COLOR;
+        _content.font = SYSTEMFONT(15);
+        _content.numberOfLines = 0;
+    }
+    return _content;
 }
 - (UILabel *)goodLabel
 {

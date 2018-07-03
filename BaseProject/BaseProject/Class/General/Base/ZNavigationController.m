@@ -45,18 +45,9 @@
 }
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    RDVTabBarController *VC = (RDVTabBarController *)self.parentViewController;
     if (self.childViewControllers.count > 0) {
-        [VC setTabBarHidden:YES animated:NO];
+        viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
-}
-- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    
-    RDVTabBarController *VC = (RDVTabBarController *)self.parentViewController;
-    if (self.childViewControllers.count <= 2) {
-        [VC setTabBarHidden:NO animated:NO];
-    }
-    return [super popViewControllerAnimated:animated];
 }
 @end

@@ -62,7 +62,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSString* responseJson = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"[CMRequest]: %@",responseJson);
+//        NSLog(@"[CMRequest]: %@",responseJson);
         
         success(self,[CMRequest convertjsonStringToDict:responseJson]);
         

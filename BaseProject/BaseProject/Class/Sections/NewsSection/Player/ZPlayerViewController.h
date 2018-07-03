@@ -12,4 +12,9 @@
 
 @property (nonatomic, strong) NSString *post_id;
 
+@property (nonatomic, strong) NSArray *playList;
+
+@property (nonatomic, assign) NSInteger index;
+
++ (instancetype)shareManager;
 @end

@@ -41,11 +41,11 @@
         make.top.equalTo(weakSelf.view);
         make.right.equalTo(weakSelf.view);
         make.left.equalTo(weakSelf.view);
-        if (iPhoneX) {
-            make.bottom.equalTo(weakSelf.view).offset(- IPHONEX_BOTTOM_BACK_BAR_H);
-        }else{
+//        if (iPhoneX) {
+//            make.bottom.equalTo(weakSelf.view).offset(- IPHONEX_BOTTOM_BACK_BAR_H);
+//        }else{
             make.bottom.equalTo(weakSelf.view);
-        }
+//        }
     }];
     self.allListView.hidden = YES;
     [self.allListView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -102,6 +102,7 @@
     }];
 }
 - (void)z_layoutNavigation {
+    
     [self hideNavigationBar:YES animated:NO];
 }
 #pragma mark - layzLoad
@@ -172,6 +173,7 @@
         recommendBtn.backgroundColor = clear_color;
         recommendBtn.tag = 10000;
         recommendBtn.selected = YES;
+        [recommendBtn setTitleColor:MAIN_TEXT_COLOR forState:UIControlStateNormal];
         [recommendBtn addTarget:self action:@selector(switch_Clicked:)];
         [_headerSwitchView addSubview:recommendBtn];
         self.selectedSwitchButton = recommendBtn;
@@ -181,12 +183,13 @@
         allBtn.titleLabel.font = BOLDSYSTEMFONT(14);
         allBtn.backgroundColor = clear_color;
         allBtn.tag = 20000;
+        [allBtn setTitleColor:MAIN_TEXT_COLOR forState:UIControlStateNormal];
         [allBtn addTarget:self action:@selector(switch_Clicked:)];
         [_headerSwitchView addSubview:allBtn];
         
         UIView *deviderView = [[UIView alloc] init];
         deviderView.layer.cornerRadius = 2;
-        deviderView.backgroundColor = white_color;
+        deviderView.backgroundColor = MAIN_TEXT_COLOR;
         [_headerSwitchView addSubview:deviderView];
         
         WS(weakSelf);

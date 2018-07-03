@@ -39,11 +39,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 
 - (id)init {
     if (self = [super init]) {
-//        if ([[CommonCode readFromUserD:NewPlayVC_PLAYLIST] isKindOfClass:[NSArray class]]) {
-//            self.songList = [CommonCode readFromUserD:NewPlayVC_PLAYLIST];
-//        }else{
-//            self.songList = [NSMutableArray array];
-//        }
+        
         _isUpdateStudyRecordLock = NO;
         self.playRate = 1.0;
         timeCount = 5;
@@ -97,11 +93,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     _currentSongIndex = currentSongIndex;
     
 }
-- (void)setChannelType:(ChannelType)channelType
-{
-    _channelType = channelType;
-    
-}
+
 /**
  播放速率
  */
@@ -118,13 +110,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 - (void)setPlayDuration:(float)playDuration {
     _playDuration = playDuration;
 }
-/*
- * 播放器播放数据类型
- */
-- (void)setPlayType:(ZRTPlayType)playType
-{
-    _playType = playType;
-}
+
 /*
  * 课堂ID
  */
@@ -225,8 +211,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 - (BOOL)previousSong
 {
     if (self.currentSongIndex == 0){
-//        XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"这已经是第一条了"];
-//        [alert show];
+        XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"这已经是第一条了"];
+        [alert show];
         return YES;
     }
 
@@ -250,8 +236,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
         }
         //防止越界
         if (self.currentSongIndex >= self.songList.count - 1){
-//            XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"请稍等，列表正在加载中~"];
-//            [alert show];
+            XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"请稍等，列表正在加载中~"];
+            [alert show];
         }
         return YES;
     }
@@ -271,43 +257,14 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     
     //回调列表，刷新界面
     if (self.playReloadList) {
-        switch (self.playType) {
-            case ZRTPlayTypeNews:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-            case ZRTPlayTypeClassroom:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-            case ZRTPlayTypeDownload:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-                
-            default:
-                break;
-        }
+        self.playReloadList(self.currentSongIndex);
     }
     
     //更新当前歌曲信息
     self.currentSong = self.songList[self.currentSongIndex];
     
     //刷新封面图片
-    switch (self.playType) {
-        case ZRTPlayTypeNews:
-            self.currentCoverImage = self.currentSong[@"smeta"];
-            break;
-        case ZRTPlayTypeClassroom:
-            self.currentCoverImage = self.currentSong[@"smeta"];
-            break;
-        case ZRTPlayTypeClassroomTry:
-            self.currentCoverImage = self.currentSong[@"smeta"];
-            break;
-            
-        default:
-            break;
-    }
+    self.currentCoverImage = self.currentSong[@"smeta"];
     
     //获取播放器播放对象
     self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[@"post_mp"]]];
@@ -352,16 +309,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     
     //回调列表，刷新界面
     if (self.playReloadList) {
-        switch (self.playType) {
-            case ZRTPlayTypeNews:
-                self.playReloadList(self.currentSongIndex);
-                break;
-            case ZRTPlayTypeClassroom:
-                self.playReloadList(self.currentSongIndex);
-                break;
-            default:
-                break;
-        }
+        self.playReloadList(self.currentSongIndex);
     }
     //刷新封面图片
     self.currentCoverImage = self.currentSong[@"smeta"];
@@ -459,9 +407,6 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
  */
 - (void)playbackFinished:(NSNotification *)notice
 {
-    if (self.playDidEndReload) {
-        self.playDidEndReload(self.currentSongIndex);
-    }
     //当前播放的是单个音频文件，不是列表
     if (self.currentSongIndex < 0) return;
     
@@ -471,8 +416,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
             self.loadMoreList(self.currentSongIndex);
         }
         if (self.currentSongIndex >= self.songList.count - 1){
-//            XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"这已经是最后一条了"];
-//            [alert show];
+            XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"这已经是最后一条了"];
+            [alert show];
         }
         //防止越界
         if (self.currentSongIndex >= self.songList.count - 1) return;
@@ -545,7 +490,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
         
     }else if ([_playerItem isEqual:object]&&[keyPath isEqualToString:kvo_playbackBufferEmpty])
     {
-        if (songItem.playbackBufferEmpty&& self.playType == ZRTPlayStatusPlay) {
+        if (songItem.playbackBufferEmpty&& self.status == ZRTPlayStatusPlay) {
             //缓冲区域为空，暂停播放
             [self.player pause];
         }
@@ -554,7 +499,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     else if ([_playerItem isEqual:object]&&[keyPath isEqualToString:kvo_playbackLikelyToKeepUp])
     {
             //缓存可用，继续播放
-        if (songItem.playbackLikelyToKeepUp && self.playType == ZRTPlayStatusPlay) {
+        if (songItem.playbackLikelyToKeepUp && self.status == ZRTPlayStatusPlay) {
             [self.player play];
         }
     }
@@ -591,8 +536,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
  @param post_id 新闻ID
  @return 返回颜色
  */
-//- (UIColor *)textColorFormID:(NSString *)post_id
-//{
+- (UIColor *)textColorFormID:(NSString *)post_id
+{
 ////    RTLog(@"cell-ID:%@---------pushID:%@",post_id,[CommonCode readFromUserD:dangqianbofangxinwenID]);
 //    UIColor *returnColor = [UIColor blackColor];
 //    if ([[NewPlayVC shareInstance].listenedNewsIDArray isKindOfClass:[NSArray class]]){
@@ -613,8 +558,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 //            }
 //        }
 //    }
-//    return returnColor;
-//}
+    return nil;
+}
 
 
 #pragma mark - 播放器缓冲不完整重置播放器--定时器
@@ -636,23 +581,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 {
     //回调列表，刷新界面
     if (self.playReloadList) {
-        switch (self.playType) {
-            case ZRTPlayTypeNews:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-            case ZRTPlayTypeClassroom:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-            case ZRTPlayTypeDownload:
-                self.playReloadList(self.currentSongIndex);
-                
-                break;
-                
-            default:
-                break;
-        }
+        self.playReloadList(self.currentSongIndex);
     }
     
     //更新当前歌曲信息

@@ -19,7 +19,15 @@
 @end
 
 @implementation ZPlayerViewController
-
++ (instancetype)shareManager {
+    
+    static ZPlayerViewController * vc;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        vc = [[ZPlayerViewController alloc]init];
+    });
+    return vc;
+}
 #pragma mark - system
 - (void)updateViewConstraints {
     WS(weakSelf)
@@ -46,6 +54,33 @@
     [self hideNavigationBar:YES animated:NO];
 //    [self setFd_interactivePopDisabled:YES];
 }
+- (void)setPlayList:(NSArray *)playList
+{
+    _playList = playList;
+    //设置播放器播放列表数据
+   
+    //设置播放器播放完成自动加载更多block
+    WS(weakSelf)
+    [ZRT_PlayerManager manager].loadMoreList = ^(NSInteger currentSongIndex) {
+        
+    };
+    //播放内容切换后刷新对应的播放列表
+    [ZRT_PlayerManager manager].playReloadList = ^(NSInteger currentSongIndex) {
+        
+    };
+    NSMutableArray *dictArray = [NSMutableArray array];
+    //判断是否是点击当前正在播放的新闻，如果是则直接跳转
+    
+    //设置播放器播放数组
+    [ZRT_PlayerManager manager].songList = dictArray;
+    //设置新闻ID
+    [ZPlayerViewController shareManager].post_id = dictArray[self.index][@"id"];
+    //调用播放对应Index方法
+//    [[NewPlayVC shareInstance] playFromIndex:self.index];
+    //跳转播放界面
+    [self.navigationController.navigationBar setHidden:YES];
+    [self.navigationController pushViewController:[ZPlayerViewController shareManager] animated:YES];
+}
 #pragma mark - lazyload
 - (ZPlayerView *)mainView
 {
@@ -64,4 +99,5 @@
     
     return _viewModel;
 }
+
 @end

@@ -9,5 +9,9 @@
 #import "ZHomeScreenSwitchTableViewCellViewModel.h"
 
 @implementation ZHomeScreenSwitchTableViewCellViewModel
-
++ (void)load {
+    [ZHomeScreenSwitchTableViewCellViewModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"Id":@"id"};
+    }];
+}
 @end
