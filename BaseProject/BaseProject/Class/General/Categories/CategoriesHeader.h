@@ -24,6 +24,7 @@
 #import "UITextField+Extension.h"
 #import "UIView+Gesture.h"
 #import "UIView+Extension.h"
+#import "UIView+FYAnimations.h"
 #import "UIViewController+Cloudox.h"
 #import "UIViewController+Extension.h"
 #import "UIColor+Extension.h"

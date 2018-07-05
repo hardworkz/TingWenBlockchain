@@ -20,6 +20,11 @@
 
 @property (nonatomic, strong) NSArray *dataArray;
 
+@property (nonatomic, strong) NSArray *programDataArray;
+
+@property (nonatomic, strong) NSArray *dictDataArray;
+
 @property (nonatomic, strong) RACSubject *cellClickSubject;
 
+@property (nonatomic, strong) RACSubject *programCellClickSubject;
 @end

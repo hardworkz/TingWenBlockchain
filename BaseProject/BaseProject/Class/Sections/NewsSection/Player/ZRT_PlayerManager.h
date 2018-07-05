@@ -11,27 +11,10 @@
 
 #define SONGPLAYSTATUSCHANGE @"SongPlayStatusChange"
 
-//typedef NS_ENUM(NSInteger, ChannelType) {
-//    ChannelTypeChannelNone = 0,//不是频道列表播放
-//    ChannelTypeHomeChannelOne,//播放首页频道1(快讯)
-//    ChannelTypeHomeChannelTwo,//播放首页频道2（专栏）
-//    ChannelTypeHomeChannelClassify,//播放首页6大分类模块
-//    ChannelTypeSubscriptionChannel,//播放订阅列表
-//    ChannelTypeDiscoverAnchor,//播放发现模块主播详情新闻列表(课堂详情课程播放列表)
-//    ChannelTypeDiscoverSearchNewsResult,//播放发现模块搜索新闻列表结果播放
-//    ChannelTypeMineDownload,//播放我的模块下载列表
-//    ChannelTypeMineCollection,//播放我的模块收藏列表
-//    ChannelTypeMineCircleListen,//播放我的模块听友圈点击新闻单条播放
-//    ChannelTypeMinePersonCenter,//播放我的模块个人主页单条播放
-//    ChannelTypeMineUnreadMessage,//播放我的模块未读消息页面新闻单条播放
-//    ChannelTypeClassroomTryList,//播放课堂试听列表播放
-//};
-//typedef NS_ENUM(NSInteger, ZRTPlayType) {
-//    ZRTPlayTypeNews = 0,//播放新闻
-//    ZRTPlayTypeDownload,//播放下载新闻
-//    ZRTPlayTypeClassroomTry,//播放课堂试听
-//    ZRTPlayTypeClassroom,//播放课堂
-//};
+static NSString *const currenPlayID = @"currenPlayID";
+static NSString *const currenPlayDict = @"currenPlayDict";
+static NSString *const currenPlayList = @"currenPlayList";
+
 typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
     ZRTPlayStatusNone = 0,//播放界面：未知状态
     ZRTPlayStatusLoadSongInfo,//播放界面：加载信息
@@ -50,10 +33,6 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
  */
 @property (copy, nonatomic) void (^loadMoreList)(NSInteger currentSongIndex);
 /**
- 播放完成设置界面状态
- */
-//@property (copy, nonatomic) void (^playDidEndReload)(NSInteger currentSongIndex);
-/**
  播放完成回调
  */
 @property (copy, nonatomic) void (^playDidEnd)(NSInteger currentSongIndex);
@@ -61,6 +40,10 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
  播放，刷新列表
  */
 @property (copy, nonatomic) void (^playReloadList)(NSInteger currentSongIndex);
+/**
+ 清空缓冲进度
+ */
+@property (copy, nonatomic) void (^resetUIStatus)(float bufferProgress);
 /**
  刷新缓冲进度
  */
@@ -74,16 +57,6 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
  * 播放状态
  */
 @property (nonatomic, assign, readonly) ZRTPlayStatus status;
-#pragma mark - 播放类型
-/*
- * 播放类型
- */
-//@property (nonatomic, assign) ZRTPlayType playType;
-#pragma mark - 播放频道列表
-/**
- 播放频道列表
- */
-//@property (assign, nonatomic) ChannelType channelType;
 #pragma mark - 列表
 /*
  * 歌曲列表
@@ -194,12 +167,6 @@ typedef NS_ENUM(NSInteger, ZRTPlayStatus) {
  @param index 对应index
  */
 - (void)loadSongInfoFromIndex:(NSInteger)index;
-/**
- 播放单独url的音频
- 
- @param urlString 音频url字符串
- */
-- (void)loadSongInfoWithUrl:(NSString *)urlString;
 /**
  判断当前的列表标题的颜色（正在播放为主题色，已经播放过为灰色，没有播放过为黑色）
 

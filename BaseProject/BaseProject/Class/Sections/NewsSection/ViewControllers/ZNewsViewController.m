@@ -36,16 +36,7 @@
 }
 - (void)z_bindViewModel
 {
-    @weakify(self)
-    [self.viewModel.cellClickSubject subscribeNext:^(id  _Nullable x) {
-        @strongify(self);
-        //点击cell操作
-        ZPlayerViewController *playerVC = [[ZPlayerViewController alloc] init];
-        ZNewsTableViewCellViewModel *viewModel = self.viewModel.dataArray[[x integerValue]];
-        playerVC.index = [x integerValue];
-        playerVC.post_id = viewModel.Id;
-        [self.navigationController pushViewController:playerVC animated:YES];
-    }];
+    
 }
 - (void)z_layoutNavigation
 {

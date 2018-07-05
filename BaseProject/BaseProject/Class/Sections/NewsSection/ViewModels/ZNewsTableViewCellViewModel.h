@@ -20,10 +20,12 @@
 
 @property (nonatomic, strong) NSString *Id;
 @property (nonatomic, strong) NSString *post_title;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *post_mp;
 @property (nonatomic, strong) NSString *post_modified;
 @property (nonatomic, strong) NSString *post_size;
 @property (nonatomic, strong) NSString *smeta;
 @property (nonatomic, strong) NSString *post_time;
+@property (nonatomic, strong) NSString *type;
 
 @end

@@ -10,19 +10,18 @@
 #import "ZPlayerViewContentTextTableViewCellViewModel.h"
 
 @implementation ZPlayerViewModel
+- (void)setPost_id:(NSString *)post_id
+{
+    _post_id = post_id;
+    
+    [self.refreshDataCommand execute:nil];
+}
 - (void)z_initialize {
     
     @weakify(self);
     [self.refreshDataCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
         
         @strongify(self);
-//        NSMutableArray *reArray = [[NSMutableArray alloc] init];
-//        for (int i = 0; i < 16; i++) {
-        
-//            ZHomeCommentListTableViewCellViewModel *viewModel = [[ZHomeCommentListTableViewCellViewModel alloc] init];
-//            viewModel.title = [NSString stringWithFormat:@"index:%d",i];
-//            [reArray addObject:viewModel];
-//        }
         self.viewModel = [ZPlayerViewContentTextTableViewCellViewModel mj_objectWithKeyValues:dict[results]];
         
         [self.refreshUI sendNext:nil];

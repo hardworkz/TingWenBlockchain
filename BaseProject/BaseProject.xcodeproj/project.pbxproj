@@ -122,6 +122,11 @@
 		69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */; };
 		69D97AE520DB954E004EBC33 /* ZNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */; };
 		69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */; };
+		69EE855F20EDF33600803AC0 /* UIView+FYAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE855E20EDF33600803AC0 /* UIView+FYAnimations.m */; };
+		69EE856220EDF50E00803AC0 /* ZNewsProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856120EDF50D00803AC0 /* ZNewsProgramTableViewCell.m */; };
+		69EE856520EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856420EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m */; };
+		69EE856820EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856720EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m */; };
+		69EE856B20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856A20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m */; };
 		9C8407230ED2F153B342999D /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78981CD69131A35472C1677 /* libPods-BaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -393,6 +398,16 @@
 		69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCell.m; sourceTree = "<group>"; };
 		69D97AE620DB9561004EBC33 /* ZNewsTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsTableViewCellViewModel.h; sourceTree = "<group>"; };
 		69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69EE855D20EDF33500803AC0 /* UIView+FYAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FYAnimations.h"; sourceTree = "<group>"; };
+		69EE855E20EDF33600803AC0 /* UIView+FYAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FYAnimations.m"; sourceTree = "<group>"; };
+		69EE856020EDF50D00803AC0 /* ZNewsProgramTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramTableViewCell.h; sourceTree = "<group>"; };
+		69EE856120EDF50D00803AC0 /* ZNewsProgramTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramTableViewCell.m; sourceTree = "<group>"; };
+		69EE856320EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramTableViewCellViewModel.h; sourceTree = "<group>"; };
+		69EE856420EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69EE856620EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramCollectionViewCell.h; sourceTree = "<group>"; };
+		69EE856720EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramCollectionViewCell.m; sourceTree = "<group>"; };
+		69EE856920EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramCollectionViewCellViewModel.h; sourceTree = "<group>"; };
+		69EE856A20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramCollectionViewCellViewModel.m; sourceTree = "<group>"; };
 		B6819A1FA9B15357E498A328 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		E78981CD69131A35472C1677 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -810,6 +825,8 @@
 		6988F22020BBFF2C00414C5B /* UIView+ */ = {
 			isa = PBXGroup;
 			children = (
+				69EE855D20EDF33500803AC0 /* UIView+FYAnimations.h */,
+				69EE855E20EDF33600803AC0 /* UIView+FYAnimations.m */,
 				6988F24420BCE30C00414C5B /* UIView+Gesture.h */,
 				6988F24520BCE30C00414C5B /* UIView+Gesture.m */,
 				6988F24720BCE3E700414C5B /* UIView+Extension.h */,
@@ -1072,6 +1089,10 @@
 				69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */,
 				69D97AE620DB9561004EBC33 /* ZNewsTableViewCellViewModel.h */,
 				69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */,
+				69EE856320EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.h */,
+				69EE856420EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m */,
+				69EE856920EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.h */,
+				69EE856A20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1084,6 +1105,10 @@
 				69D97ADE20DB945E004EBC33 /* ZNewsListView.m */,
 				69D97AE320DB954E004EBC33 /* ZNewsTableViewCell.h */,
 				69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */,
+				69EE856020EDF50D00803AC0 /* ZNewsProgramTableViewCell.h */,
+				69EE856120EDF50D00803AC0 /* ZNewsProgramTableViewCell.m */,
+				69EE856620EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.h */,
+				69EE856720EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1456,6 +1481,9 @@
 					6988F19520BBD9A700414C5B = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1573,11 +1601,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A592D520C65BC500F1CC4C /* ZMyTableViewCell.m in Sources */,
+				69EE855F20EDF33600803AC0 /* UIView+FYAnimations.m in Sources */,
 				6988F43D20BE54F400414C5B /* Z_StartLoadAPP.m in Sources */,
 				6988F20B20BBF88B00414C5B /* ZNavigationController.m in Sources */,
 				69A592F720C6741300F1CC4C /* EKAnimationTextField.m in Sources */,
 				69AD537620E2478600B3624E /* NSDate+TimeFormat.m in Sources */,
 				6988F46E20C0EDF000414C5B /* ZMarketSegmentContentController.m in Sources */,
+				69EE856B20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m in Sources */,
 				69A592D820C65BE500F1CC4C /* ZMyTableViewCellViewModel.m in Sources */,
 				69A2CF4D20CFAF54000CA771 /* ZSortEditViewModel.m in Sources */,
 				698FDEC120CA1648000384D2 /* SubmitView.m in Sources */,
@@ -1662,13 +1692,16 @@
 				6988F24920BCE3E700414C5B /* UIView+Extension.m in Sources */,
 				6988F24020BC098100414C5B /* UIImage+Resize.m in Sources */,
 				6988F1FC20BBE79100414C5B /* ZView.m in Sources */,
+				69EE856520EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m in Sources */,
 				6988F42F20BE4D5B00414C5B /* ZHomeScreenSwitchTableViewCell.m in Sources */,
 				6988F23620BC062900414C5B /* UIButton+Action.m in Sources */,
 				69A592FF20C77AB000F1CC4C /* Xzb_CountDownButton.m in Sources */,
 				6988F25220BCF5E500414C5B /* AppDelegate+HandleOpenURL.m in Sources */,
 				6988F21120BBFC4100414C5B /* Foundation+Log.m in Sources */,
 				69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */,
+				69EE856820EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m in Sources */,
 				69AD53A020E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m in Sources */,
+				69EE856220EDF50E00803AC0 /* ZNewsProgramTableViewCell.m in Sources */,
 				69A592F320C66FE300F1CC4C /* ZLoginViewController.m in Sources */,
 				69A2CF3220CE530D000CA771 /* ZHomeCommentListView.m in Sources */,
 				6988F26320BD26FC00414C5B /* HttpService.m in Sources */,

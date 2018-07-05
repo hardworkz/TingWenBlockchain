@@ -17,4 +17,5 @@
 @property (nonatomic, assign) NSInteger index;
 
 + (instancetype)shareManager;
+
 @end

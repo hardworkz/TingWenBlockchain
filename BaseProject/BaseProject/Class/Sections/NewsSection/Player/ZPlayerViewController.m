@@ -40,6 +40,7 @@
 - (void)z_addSubviews
 {
     [self.view addSubview:self.mainView];
+    
 }
 - (void)z_bindViewModel
 {
@@ -57,29 +58,14 @@
 - (void)setPlayList:(NSArray *)playList
 {
     _playList = playList;
-    //设置播放器播放列表数据
-   
-    //设置播放器播放完成自动加载更多block
-    WS(weakSelf)
-    [ZRT_PlayerManager manager].loadMoreList = ^(NSInteger currentSongIndex) {
-        
-    };
-    //播放内容切换后刷新对应的播放列表
-    [ZRT_PlayerManager manager].playReloadList = ^(NSInteger currentSongIndex) {
-        
-    };
-    NSMutableArray *dictArray = [NSMutableArray array];
-    //判断是否是点击当前正在播放的新闻，如果是则直接跳转
+}
+- (void)setPost_id:(NSString *)post_id
+{
+    _post_id = post_id;
     
-    //设置播放器播放数组
-    [ZRT_PlayerManager manager].songList = dictArray;
-    //设置新闻ID
-    [ZPlayerViewController shareManager].post_id = dictArray[self.index][@"id"];
-    //调用播放对应Index方法
-//    [[NewPlayVC shareInstance] playFromIndex:self.index];
-    //跳转播放界面
-    [self.navigationController.navigationBar setHidden:YES];
-    [self.navigationController pushViewController:[ZPlayerViewController shareManager] animated:YES];
+    self.viewModel.post_id = _post_id;
+    
+    [DataCache setCache:post_id forKey:currenPlayID];
 }
 #pragma mark - lazyload
 - (ZPlayerView *)mainView
@@ -94,7 +80,6 @@
     if (!_viewModel) {
         
         _viewModel = [[ZPlayerViewModel alloc] init];
-        _viewModel.post_id = _post_id;
     }
     
     return _viewModel;

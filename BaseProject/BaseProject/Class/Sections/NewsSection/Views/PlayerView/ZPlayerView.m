@@ -106,7 +106,17 @@
     [self addSubview:self.playControlView];
     self.mainTableView.tableHeaderView = self.headView;
     
+    // 远程控制事件 Remote Control Event
+    // 加速计事件 Motion Event
+    // 触摸事件 Touch Event
+    // 开始监听远程控制事件
+    // 成为第一响应者（必备条件）
+    [self becomeFirstResponder];
+    
     WS(weakSelf)
+    [ZRT_PlayerManager manager].resetUIStatus = ^(float bufferProgress) {
+        [weakSelf.prgBufferProgress setProgress:0. animated:NO];
+    };
     [ZRT_PlayerManager manager].playTimeObserve = ^(float progress,float currentTime,float totalDuration) {
         
         weakSelf.currenTime.text = [[ZRT_PlayerManager manager] convertStringWithTime:currentTime];
@@ -115,12 +125,11 @@
         weakSelf.sliderProgress.maximumValue = totalDuration;
     };
     [ZRT_PlayerManager manager].reloadBufferProgress = ^(float bufferProgress,float totalDuration) {
+        //更新播放条进度
         if (bufferProgress > 0) {
-            [[ZRT_PlayerManager manager] startPlay];
-            //更新播放条进度
             [weakSelf.prgBufferProgress setProgress:bufferProgress animated:YES];
         }else{
-            [weakSelf.prgBufferProgress setProgress:0. animated:YES];
+            [weakSelf.prgBufferProgress setProgress:0. animated:NO];
         }
     };
     
@@ -129,7 +138,9 @@
 }
 - (void)z_bindViewModel
 {
-    [self.viewModel.refreshDataCommand execute:nil];
+//    if (self.viewModel.post_id) {
+//        [self.viewModel.refreshDataCommand execute:nil];
+//    }
     
     @weakify(self);
     
@@ -138,6 +149,7 @@
         @strongify(self);
         
         [self.newsImage sd_setImageWithURL:[NSURL URLWithString:self.viewModel.viewModel.smeta]];
+        [self.newsImage startTransitionAnimation];//设置图片切换动画
         [self.mainTableView reloadData];
     }];
     
@@ -252,24 +264,24 @@
         
         //底部播放左按钮
         _bofangLeftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_bofangLeftBtn setImage:[UIImage imageNamed:@"home_news_ic_before"] forState:UIControlStateNormal];
-        [_bofangLeftBtn setImage:[UIImage imageNamed:@"home_news_ic_before"] forState:UIControlStateDisabled];
+        [_bofangLeftBtn setImage:[UIImage imageNamed:@"icon_player_previous"] forState:UIControlStateNormal];
+        [_bofangLeftBtn setImage:[UIImage imageNamed:@"icon_player_previous"] forState:UIControlStateDisabled];
         [_bofangLeftBtn addTarget:self action:@selector(bofangLeftAction:) forControlEvents:UIControlEventTouchUpInside];
         _bofangLeftBtn.contentMode = UIViewContentModeScaleToFill;
         [_playControlView addSubview:_bofangLeftBtn];
         
         //底部播放右按钮
         _bofangRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_bofangRightBtn setImage:[UIImage imageNamed:@"home_news_ic_next"] forState:UIControlStateNormal];
-        [_bofangRightBtn setImage:[UIImage imageNamed:@"home_news_ic_next"] forState:UIControlStateDisabled];
+        [_bofangRightBtn setImage:[UIImage imageNamed:@"icon_player_next"] forState:UIControlStateNormal];
+        [_bofangRightBtn setImage:[UIImage imageNamed:@"icon_player_next"] forState:UIControlStateDisabled];
         [_bofangRightBtn addTarget:self action:@selector(bofangRightAction:) forControlEvents:UIControlEventTouchUpInside];
         _bofangRightBtn.contentMode = UIViewContentModeScaleToFill;
         [_playControlView addSubview:_bofangRightBtn];
         
         //底部播放暂停按钮
         _bofangCenterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_bofangCenterBtn setImage:[UIImage imageNamed:@"home_news_ic_play"] forState:UIControlStateNormal];
-        [_bofangCenterBtn setImage:[UIImage imageNamed:@"home_news_ic_pause"] forState:UIControlStateSelected];
+        [_bofangCenterBtn setImage:[UIImage imageNamed:@"iocn_player_play"] forState:UIControlStateNormal];
+        [_bofangCenterBtn setImage:[UIImage imageNamed:@"icon_player_pause"] forState:UIControlStateSelected];
         [_bofangCenterBtn addTarget:self action:@selector(playPauseClicked:) forControlEvents:UIControlEventTouchUpInside];
         _bofangCenterBtn.contentMode = UIViewContentModeScaleToFill;
         _bofangCenterBtn.selected = YES;
@@ -294,28 +306,28 @@
             make.height.equalTo(3);
         }];
         [_totalTime mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(weakSelf.sliderProgress.mas_leading);
+            make.trailing.equalTo(weakSelf.sliderProgress.mas_trailing);
             make.top.equalTo(weakSelf.sliderProgress.mas_bottom).offset(MARGIN_10);
         }];
         [_currenTime mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.trailing.equalTo(weakSelf.sliderProgress.mas_trailing);
+            make.leading.equalTo(weakSelf.sliderProgress.mas_leading);
             make.top.equalTo(weakSelf.sliderProgress.mas_bottom).offset(MARGIN_10);
         }];
         [_bofangCenterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(weakSelf.playControlView);
             make.top.equalTo(weakSelf.totalTime.mas_bottom).offset(MARGIN_10);
-            make.size.equalTo(CGSizeMake(50, 30));
+            make.size.equalTo(CGSizeMake(50, 50));
         }];
         
         [_bofangLeftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.trailing.equalTo(weakSelf.bofangCenterBtn.mas_leading).offset(-MARGIN_10);
             make.top.equalTo(weakSelf.totalTime.mas_bottom).offset(MARGIN_10);
-            make.size.equalTo(CGSizeMake(50, 30));
+            make.size.equalTo(CGSizeMake(50, 50));
         }];
         [_bofangRightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(weakSelf.bofangCenterBtn.mas_trailing).offset(MARGIN_10);
             make.top.equalTo(weakSelf.totalTime.mas_bottom).offset(MARGIN_10);
-            make.size.equalTo(CGSizeMake(50, 30));
+            make.size.equalTo(CGSizeMake(50, 50));
         }];
     }
     return _playControlView;
@@ -325,7 +337,7 @@
     if (!_prgBufferProgress)
     {
         _prgBufferProgress = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _prgBufferProgress.progressTintColor = blue_color;
+        _prgBufferProgress.progressTintColor = MAINCOLOR;
     }
     return _prgBufferProgress;
 }
@@ -342,7 +354,7 @@
         
         [_sliderProgress addTarget:self action:@selector(doChangeProgress:) forControlEvents:UIControlEventValueChanged];
         [_sliderProgress addTarget:self action:@selector(sliderTouchDown:) forControlEvents:UIControlEventTouchDown];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(sliderTap:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
         [tap setNumberOfTouchesRequired:1];
     }
     return _sliderProgress;
@@ -353,36 +365,111 @@
  */
 - (void)playPauseClicked:(UIButton *)sender
 {
+    if ([ZRT_PlayerManager manager].isPlaying) {//点击暂停
+        [[ZRT_PlayerManager manager] pausePlay];
+        sender.selected = NO;
+    }else{//点击播放
+        [[ZRT_PlayerManager manager] startPlay];
+        sender.selected = YES;
+    }
 }
 /**
  上一首
  */
 - (void)bofangLeftAction:(UIButton *)sender
 {
+    //播放上一首
+    BOOL isfirst = [[ZRT_PlayerManager manager] previousSong];
+    ZLog(@"现在播放index：%ld",[ZRT_PlayerManager manager].currentSongIndex);
+    //已经是第一首，则不往下执行
+    if (isfirst) {
+        return;
+    }
+    //切换界面
+    self.viewModel.post_id = [ZRT_PlayerManager manager].currentSong[@"id"];
+    //刷新界面数据
+    [self.viewModel.refreshDataCommand execute:nil];
 }
 /**
  下一首
  */
 - (void)bofangRightAction:(UIButton *)sender
 {
+    //播放下一首
+    BOOL isLast = [[ZRT_PlayerManager manager] nextSong];
+    ZLog(@"现在播放index：%ld",[ZRT_PlayerManager manager].currentSongIndex);
+    //已经是最后一首，则不往下执行
+    if (isLast) {
+        return;
+    }
+    //切换界面
+    self.viewModel.post_id = [ZRT_PlayerManager manager].currentSong[@"id"];
+    //刷新界面数据
+    [self.viewModel.refreshDataCommand execute:nil];
 }
 /**
  拖拽播放进度
  */
 - (void)doChangeProgress:(UISlider *)slider
 {
+    //调到指定时间去播放
+    if ([ZRT_PlayerManager manager].player.status == AVPlayerStatusReadyToPlay) {//防止未缓冲完成进行拖拽报错：AVPlayerItem cannot service a seek request with a completion handler until its status is AVPlayerItemStatusReadyToPlay
+        
+        //显示快进后退按钮
+        if (!_isShowfastBackView) {
+            [self showForwardBackView];
+            
+            _isShowfastBackView = YES;
+            [self attAction];
+        }
+        [[ZRT_PlayerManager manager].player seekToTime:CMTimeMake(self.sliderProgress.value * [ZRT_PlayerManager manager].playRate, [ZRT_PlayerManager manager].playRate) completionHandler:^(BOOL finished) {
+            ZLog(@"拖拽结果：%d",finished);
+            if (finished == YES){
+                [[ZRT_PlayerManager manager] startPlay];
+            }
+        }];
+    }else{
+        XWAlerLoginView *alert = [XWAlerLoginView alertWithTitle:@"请等待音频缓冲完成"];
+        [alert show];
+    }
 }
 /**
  开始拖拽进度条调用
  */
 - (void)sliderTouchDown:(UISlider *)sender
 {
+    //显示快进后退按钮
+    if (!_isShowfastBackView) {
+        [self showForwardBackView];
+        
+        _isShowfastBackView = YES;
+        [self attAction];
+    }
+    //暂停播放
+    if ([ZRT_PlayerManager manager].isPlaying) {
+        [[ZRT_PlayerManager manager] pausePlay];
+    }
 }
 /**
  点击进度条调用
  */
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
+    CGPoint touchPoint = [recognizer locationInView:self.sliderProgress];
+    CGFloat value = touchPoint.x / CGRectGetWidth(self.sliderProgress.frame);
+    
+    //显示快进后退按钮
+    if (!_isShowfastBackView) {
+        [self showForwardBackView];
+        
+        _isShowfastBackView = YES;
+        [self attAction];
+    }
+    [[ZRT_PlayerManager manager].player seekToTime:CMTimeMake((value * [ZRT_PlayerManager manager].duration) * [ZRT_PlayerManager manager].playRate, [ZRT_PlayerManager manager].playRate) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero completionHandler:^(BOOL finished) {
+        if (finished == YES){
+            [[ZRT_PlayerManager manager] startPlay];
+        }
+    }];
 }
 #pragma mark - table datasource
 
@@ -588,6 +675,123 @@
     if (showTime == 0) {
         //隐藏快进，后退view
         [self hideForwardBackView];
+    }
+}
+#pragma mark - 远程控制事件监听
+
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+#pragma mark - 蓝牙线控方法
+- (void)systemMusicPlayerControl:(NSNotification *)notification
+{
+    NSData *data = [notification.object objectForKey:@"musicControlData"];  //蓝牙设备传来的控制信息
+    Byte *bytes = (Byte *)[data bytes];
+    if (bytes[1] == 0x01) {  //验证
+        if (bytes[2] == 0x01) { // 播放/停止
+            
+            if ([ZRT_PlayerManager manager].isPlaying) {
+                [[ZRT_PlayerManager manager] pausePlay]; //暂停
+            }
+            if (![ZRT_PlayerManager manager].isPlaying) {
+                [[ZRT_PlayerManager manager] startPlay]; //播放
+            }
+        } else if (bytes[2] == 0x02) { // 切换上一曲
+            //上一首
+            [self bofangLeftAction:_bofangLeftBtn];
+        } else if (bytes[2] == 0x03) { // 切换下一曲
+            //下一首
+            [self bofangRightAction:_bofangRightBtn];
+        } else {
+            NSLog(@"Music Control Error Data!");
+        }
+    }
+}
+#pragma mark - 耳机线控方法
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event{
+    
+    //    event.type; // 事件类型
+    //    event.subtype; // 事件的子类型
+    //    UIEventSubtypeRemoteControlPlay                 = 100,
+    //    UIEventSubtypeRemoteControlPause                = 101,
+    //    UIEventSubtypeRemoteControlStop                 = 102,
+    //    UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+    //    UIEventSubtypeRemoteControlNextTrack            = 104,
+    //    UIEventSubtypeRemoteControlPreviousTrack        = 105,
+    //    UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+    //    UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+    //    UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+    //    UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            //开始播放
+            [[ZRT_PlayerManager manager] startPlay];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            //暂停播放
+            [[ZRT_PlayerManager manager] pausePlay];
+            break;
+            
+        case UIEventSubtypeRemoteControlNextTrack:
+            //下一首
+            [self bofangRightAction:_bofangRightBtn];
+            break;
+            
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            //上一首
+            [self bofangLeftAction:_bofangLeftBtn];
+            
+        default:
+            break;
+    }
+}
+#pragma mark -通知- 拔插耳机线方法
+/**
+ *  一旦输出改变则执行此方法
+ *
+ *  @param notification 输出改变通知对象
+ */
+-(void)routeChange:(NSNotification *)notification{
+    NSDictionary *interuptionDict = notification.userInfo;
+    
+    NSInteger routeChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
+    
+    switch (routeChangeReason) {
+            
+        case AVAudioSessionRouteChangeReasonNewDeviceAvailable:
+            // 耳机插入
+            break;
+            
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
+        {
+            // 耳机拔掉
+            // 拔掉耳机继续播放
+            [[ZRT_PlayerManager manager] startPlay];
+        }
+            break;
+            
+        case AVAudioSessionRouteChangeReasonCategoryChange:
+            // called at start - also when other audio wants to play
+            NSLog(@"AVAudioSessionRouteChangeReasonCategoryChange");
+            break;
+    }
+}
+#pragma mark -通知- 播放状态改变
+- (void)playStatusChange:(NSNotification *)note
+{
+    switch ([ZRT_PlayerManager manager].status) {
+        case ZRTPlayStatusPlay:
+            _bofangCenterBtn.selected = YES;
+            break;
+            
+        case ZRTPlayStatusPause:
+            _bofangCenterBtn.selected = NO;
+            break;
+        case ZRTPlayStatusStop:
+            _bofangCenterBtn.selected = NO;
+            break;
+        default:
+            break;
     }
 }
 @end

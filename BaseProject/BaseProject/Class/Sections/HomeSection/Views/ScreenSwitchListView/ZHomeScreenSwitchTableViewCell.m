@@ -100,7 +100,7 @@
     
     _viewModel = viewModel;
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%@-------%@",viewModel.Id,viewModel.title];
+    self.titleLabel.text = viewModel.title;
     
     self.content.text = viewModel.content;
 }
@@ -109,7 +109,7 @@
 - (UIImageView *)bgImage
 {
     if (!_bgImage) {
-        _bgImage = [[UIImageView alloc] initWithImage:ImageNamed(@"icon_background")];
+        _bgImage = [[UIImageView alloc] init];//WithImage:ImageNamed(@"icon_background")
         _bgImage.contentMode = UIViewContentModeScaleAspectFill;
         _bgImage.userInteractionEnabled = YES;
     }
@@ -132,7 +132,7 @@
         
         _content = [[UILabel alloc] init];
         _content.textColor = MAIN_BLACK_TEXT_COLOR;
-        _content.font = SYSTEMFONT(15);
+        _content.font = SYSTEMFONT(16);
         _content.numberOfLines = 0;
     }
     return _content;
@@ -167,7 +167,8 @@
 {
     if (!_good) {
         _good = [[UIButton alloc] init];
-        [_good setImage:ImageNamed(@"icon_good") forState:UIControlStateNormal];
+        [_good setImage:ImageNamed(@"LH") forState:UIControlStateNormal];
+        [_good setImage:ImageNamed(@"LH0") forState:UIControlStateSelected];
     }
     return _good;
 }
@@ -175,7 +176,8 @@
 {
     if (!_bad) {
         _bad = [[UIButton alloc] init];
-        [_bad setImage:ImageNamed(@"icon_bad") forState:UIControlStateNormal];
+        [_bad setImage:ImageNamed(@"LK") forState:UIControlStateNormal];
+        [_bad setImage:ImageNamed(@"LK0") forState:UIControlStateSelected];
     }
     return _bad;
 }
@@ -183,7 +185,7 @@
 {
     if (!_comment) {
         _comment = [[UIButton alloc] init];
-        [_comment setImage:ImageNamed(@"icon_comment") forState:UIControlStateNormal];
+        [_comment setImage:ImageNamed(@"pl") forState:UIControlStateNormal];
     }
     return _comment;
 }
@@ -191,7 +193,7 @@
 {
     if (!_share) {
         _share = [[UIButton alloc] init];
-        [_share setImage:ImageNamed(@"icon_share") forState:UIControlStateNormal];
+        [_share setImage:ImageNamed(@"zf") forState:UIControlStateNormal];
     }
     return _share;
 }

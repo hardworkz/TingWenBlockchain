@@ -8,6 +8,8 @@
 
 #import "ZNewsListViewModel.h"
 #import "ZNewsTableViewCellViewModel.h"
+#import "ZNewsProgramTableViewCellViewModel.h"
+#import "ZNewsProgramCollectionViewCellViewModel.h"
 
 @interface ZNewsListViewModel()
 
@@ -22,15 +24,32 @@
     @weakify(self);
     [self.refreshDataCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
         
+        NSMutableArray *filtrateArray = [[NSMutableArray alloc] init];
+        NSMutableArray *playerArray = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *dic in dict[results]) {
+            if ([dic[@"type"] intValue] == 0) {
+                [filtrateArray addObject:[ZNewsTableViewCellViewModel mj_objectWithKeyValues:dic]];
+                [playerArray addObject:dic];
+            }else{
+                [filtrateArray addObject:[ZNewsProgramTableViewCellViewModel mj_objectWithKeyValues:dic]];
+            }
+        }
+        
         @strongify(self);
-        if (self.dataArray.count == 0) {
-            NSMutableArray *reArray = [[NSMutableArray alloc] init];
-            reArray = [ZNewsTableViewCellViewModel mj_objectArrayWithKeyValuesArray:dict[results]];
-            self.dataArray = reArray;
-        }else{
+        if (self.dataArray.count == 0) {//无数据刷新
+            self.dictDataArray = playerArray;
+            
+            self.dataArray = filtrateArray;
+        }else{//有数据刷新
             if ([dict[status] intValue] == 1) {
+                NSMutableArray *dictArray = [[NSMutableArray alloc] init];
+                [dictArray addObjectsFromArray:playerArray];
+                [dictArray addObjectsFromArray:self.dictDataArray];
+                self.dictDataArray = dictArray;
+                
                 NSMutableArray *reArray = [[NSMutableArray alloc] init];
-                reArray = [ZNewsTableViewCellViewModel mj_objectArrayWithKeyValuesArray:dict[results]];
+                [reArray addObjectsFromArray:filtrateArray];
                 [reArray addObjectsFromArray:self.dataArray];
                 self.dataArray = reArray;
             }
@@ -47,6 +66,10 @@
     [self.nextPageCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
         
         @strongify(self);
+        NSMutableArray *dictArray = [[NSMutableArray alloc] initWithArray:self.dictDataArray];
+        [dictArray addObjectsFromArray:dict[results]];
+        self.dictDataArray = dictArray;
+        
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.dataArray];
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
         tempArray = [ZNewsTableViewCellViewModel mj_objectArrayWithKeyValuesArray:dict[results]];
@@ -160,7 +183,24 @@
     
     return _dataArray;
 }
-
+- (NSArray *)programDataArray {
+    
+    if (!_programDataArray) {
+        
+        _programDataArray = [[NSArray alloc] init];
+    }
+    
+    return _programDataArray;
+}
+- (NSArray *)dictDataArray {
+    
+    if (!_dictDataArray) {
+        
+        _dictDataArray = [[NSArray alloc] init];
+    }
+    
+    return _dictDataArray;
+}
 - (RACSubject *)cellClickSubject {
     
     if (!_cellClickSubject) {
@@ -169,5 +209,14 @@
     }
     
     return _cellClickSubject;
+}
+- (RACSubject *)programCellClickSubject {
+    
+    if (!_programCellClickSubject) {
+        
+        _programCellClickSubject = [RACSubject subject];
+    }
+    
+    return _programCellClickSubject;
 }
 @end

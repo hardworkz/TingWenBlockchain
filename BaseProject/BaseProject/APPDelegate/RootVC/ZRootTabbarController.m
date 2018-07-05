@@ -36,6 +36,7 @@
     self.itemTitleFont          = [UIFont boldSystemFontOfSize:13];
     self.itemTitleColor         = MAIN_TEXT_COLOR;
     self.selectedItemTitleColor = MAINCOLOR;
+    self.tabBar.backgroundColor = white_color;
     
     self.viewControllers        = @[NAV2, NAV1, NAV3, NAV4];
 }

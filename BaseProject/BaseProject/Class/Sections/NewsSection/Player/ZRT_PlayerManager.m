@@ -7,12 +7,16 @@
 //
 
 #import "ZRT_PlayerManager.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #if DEBUG
 #define BASE_INFO_FUN(info)    BASE_INFO_LOG([self class],_cmd,info)
 #else
 #define BASE_INFO_FUN(info)
 #endif
+
+static NSString *const smeta = @"smeta";
+static NSString *const post_mp = @"post_mp";
 
 static NSString *const kvo_status = @"status";
 static NSString *const kvo_loadedTimeRanges = @"loadedTimeRanges";
@@ -44,8 +48,31 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
         self.playRate = 1.0;
         timeCount = 5;
         
+        //判断当前系统是否支持多任务处理
+        UIDevice* device = [UIDevice currentDevice];
+        if ([device respondsToSelector:@selector(isMultitaskingSupported)]) {
+            if(device.multitaskingSupported) {
+                NSLog(@"background supported");
+                
+                AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+                NSError *aError = nil;
+                [audioSession setCategory:AVAudioSessionCategoryPlayback error:&aError];
+                if(aError){
+                    NSLog(@"set Category error:%@", [aError description]);
+                }
+                aError = nil;
+                [audioSession setActive:YES error:&aError];
+                if(aError){
+                    NSLog(@"active Category error:%@", [aError description]);
+                }
+            }
+        }
+        
+        // 开始监控
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        
         //初始化播放器的播放URL，防止首条播放缓冲不完整
-//        self.player = [AVPlayer playerWithPlayerItem:[[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:@"http://tingwen-1254240285.file.myqcloud.com/mp3/5abb9bcf28dca.mp3"]]];
+        self.player = [AVPlayer playerWithPlayerItem:[[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:@"http://tingwen-1254240285.file.myqcloud.com/mp3/5abb9bcf28dca.mp3"]]];
     }
     return self;
 }
@@ -59,7 +86,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     if (@available(iOS 10.0, *)) {
         return self.player.timeControlStatus == AVPlayerTimeControlStatusPlaying;
     } else {
-        return self.player.rate>0&&self.player.error == nil;
+        return self.player.rate>0 && self.player.error == nil;
     }
 }
 
@@ -72,7 +99,11 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 {
     _songList = songList;
     
-    [DataCache setCache:songList forKey:@"playList"];
+    for (NSDictionary *dict in songList) {
+        ZLog(@"%@",dict[@"id"]);
+    }
+    
+    [DataCache setCache:songList forKey:currenPlayList];
 }
 /**
  拦截set方法保存当前播放新闻数据
@@ -83,6 +114,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 {
     _currentSong = currentSong;
     
+    [DataCache setCache:currentSong forKey:currenPlayDict];
 }
 
 /**
@@ -91,7 +123,6 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
 - (void)setCurrentSongIndex:(NSInteger)currentSongIndex
 {
     _currentSongIndex = currentSongIndex;
-    
 }
 
 /**
@@ -108,6 +139,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
  * 总时长(秒)
  */
 - (void)setPlayDuration:(float)playDuration {
+    
     _playDuration = playDuration;
 }
 
@@ -164,6 +196,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
  */
 - (void)startPlay
 {
+    if (self.player == nil) return;
+    
     _status = ZRTPlayStatusPlay;
     SendNotify(SONGPLAYSTATUSCHANGE, nil)
     [self.player play];
@@ -264,10 +298,10 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     self.currentSong = self.songList[self.currentSongIndex];
     
     //刷新封面图片
-    self.currentCoverImage = self.currentSong[@"smeta"];
+    self.currentCoverImage = self.currentSong[smeta];
     
     //获取播放器播放对象
-    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[@"post_mp"]]];
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[post_mp]]];
     
     // 每次都重新创建Player，替换replaceCurrentItemWithPlayerItem:，该方法阻塞线程
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
@@ -307,13 +341,19 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     //刷新index
     self.currentSongIndex = index;
     
+    //更新播放界面回调
+    if (self.resetUIStatus) {
+        self.resetUIStatus(0);
+    }
     //回调列表，刷新界面
     if (self.playReloadList) {
         self.playReloadList(self.currentSongIndex);
     }
     //刷新封面图片
-    self.currentCoverImage = self.currentSong[@"smeta"];
+    self.currentCoverImage = self.currentSong[smeta];
     
+    //获取播放器播放对象
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[post_mp]]];
     
     // 每次都重新创建Player，替换replaceCurrentItemWithPlayerItem:，该方法阻塞线程
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
@@ -333,41 +373,7 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     //开始播放
     [self startPlay];
 }
-/**
- 播放url的音频
- 
- @param urlString 音频url字符串
- */
-- (void)loadSongInfoWithUrl:(NSString *)urlString
-{
-    [self endPlay];
-    
-    //刷新index
-    self.currentSongIndex = -1;
-    
-    //加载playerItem
-    NSURL * url = [NSURL URLWithString:urlString];
-    self.playerItem = [[AVPlayerItem alloc]initWithURL:url];
-    
-    //重置播放器
-    // 每次都重新创建Player，替换replaceCurrentItemWithPlayerItem:该方法阻塞线程
-    self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
-    
-    //      增加下面这行可以解决iOS10兼容性问题了
-    if (@available(iOS 10.0, *)) {
-        self.player.automaticallyWaitsToMinimizeStalling = NO;
-    } else {
-        // Fallback on earlier versions
-    }
-    //给当前歌曲添加监控
-    [self addObserver];
-    
-    _status = ZRTPlayStatusLoadSongInfo;
-    SendNotify(SONGPLAYSTATUSCHANGE, nil)
-    
-    //开始播放
-    [self startPlay];
-}
+
 #pragma mark - KVO
 - (void)addObserver
 {
@@ -378,6 +384,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     {
         float currentTime = CMTimeGetSeconds(time);
         float total = CMTimeGetSeconds(songItem.duration);
+        
+        [weakSelf updateLockedScreenMusic];//控制中心
         
         //判断是否是NaN如果是则返回
         if (isnan(total)) {
@@ -401,6 +409,49 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     }
     
     [self.player replaceCurrentItemWithPlayerItem:nil];
+}
+#pragma mark - 锁屏时候的设置，效果需要在真机上才可以看到
+- (void)updateLockedScreenMusic{
+    
+    // 播放信息中心
+    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
+    
+    // 初始化播放信息
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    // 专辑名称
+//    info[MPMediaItemPropertyAlbumTitle] = self.currentSong[@"post_title"];
+    // 歌手
+    info[MPMediaItemPropertyArtist] = self.currentSong[@"name"];
+    // 歌曲名称
+    info[MPMediaItemPropertyTitle] = self.currentSong[@"post_title"];
+    // 设置图片
+    WS(weakSelf)
+    if (@available(iOS 10.0, *)) {
+        info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithBoundsSize:CGSizeMake(100, 100) requestHandler:^UIImage * _Nonnull(CGSize size) {
+            return [weakSelf playCoverImage];
+        }];
+    } else {
+        // Fallback on earlier versions
+        info[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:[self playCoverImage]];
+    }
+    // 设置持续时间（歌曲的总时间）
+    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds([self.player.currentItem duration])] forKey:MPMediaItemPropertyPlaybackDuration];
+    // 设置当前播放进度
+    [info setObject:[NSNumber numberWithFloat:CMTimeGetSeconds([self.player.currentItem currentTime])] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+    
+    // 切换播放信息
+    center.nowPlayingInfo = info;
+}
+
+/**
+ 锁屏界面图片
+ */
+- (UIImage *)playCoverImage{
+    
+    UIImageView *imageCoverView = [[UIImageView alloc] init];
+    [imageCoverView sd_setImageWithURL:self.currentSong[smeta]];
+    
+    return [imageCoverView.image copy];
 }
 /**
  播放完成通知调用方法
@@ -454,7 +505,6 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
                 _duration = CMTimeGetSeconds(songItem.duration);
 //                [APPDELEGATE configNowPlayingCenter];
                 
-                
                 ZLog(@"KVO：准备完毕");}
                 break;
             case AVPlayerStatusFailed:
@@ -473,8 +523,8 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
         NSTimeInterval totalDuration = CMTimeGetSeconds(songItem.duration);
         if (totalDuration<=0 || isinf(totalDuration)) return;
         self.duration = totalDuration;
-        ZLog(@"共缓冲:%.2f秒",totalBufferDuration);
-        ZLog(@"总时长:%.2f秒",totalDuration);
+//        ZLog(@"共缓冲:%.2f秒",totalBufferDuration);
+//        ZLog(@"总时长:%.2f秒",totalDuration);
         if (self.reloadBufferProgress) {
             self.reloadBufferProgress(totalBufferDuration/totalDuration,totalDuration);
         }
@@ -596,10 +646,10 @@ static NSString *const kvo_playbackLikelyToKeepUp = @"playbackLikelyToKeepUp";
     }
     
     //刷新封面图片
-    self.currentCoverImage = self.currentSong[@"smeta"];
+    self.currentCoverImage = self.currentSong[smeta];
     
     //获取播放器播放对象
-    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[@"post_mp"]]];
+    self.playerItem = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:self.currentSong[post_mp]]];
     
     // 每次都重新创建Player，替换replaceCurrentItemWithPlayerItem:，该方法阻塞线程
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];

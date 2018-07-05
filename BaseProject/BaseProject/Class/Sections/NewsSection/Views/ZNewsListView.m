@@ -10,6 +10,8 @@
 #import "ZNewsListViewModel.h"
 #import "ZNewsTableViewCell.h"
 #import "ZNewsTableViewCellViewModel.h"
+#import "ZNewsProgramTableViewCell.h"
+#import "ZNewsProgramTableViewCellViewModel.h"
 
 @interface ZNewsListView () <UITableViewDelegate,UITableViewDataSource>
 
@@ -17,7 +19,7 @@
 
 @property (nonatomic, strong) ZNewsListViewModel *viewModel;
 
-//@property (nonatomic, strong) ZNewsTableViewCell *tempCell;
+@property (nonatomic, strong) ZNewsProgramTableViewCell *tempCell;
 
 @end
 @implementation ZNewsListView
@@ -108,6 +110,64 @@
                 break;
         }
     }];
+
+    [self.viewModel.cellClickSubject subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        //点击cell操作
+        NSInteger index = [x integerValue];
+        
+        //设置播放器播放列表数据
+        NSArray *dictArray = self.viewModel.dictDataArray;
+        NSArray *listArray = self.viewModel.dataArray;
+        
+        //设置播放器播放完成自动加载更多block
+        WS(weakSelf)
+        [ZRT_PlayerManager manager].loadMoreList = ^(NSInteger currentSongIndex) {
+            [weakSelf.viewModel.nextPageCommand execute:nil];
+        };
+        //播放内容切换后刷新对应的播放列表
+        [ZRT_PlayerManager manager].playReloadList = ^(NSInteger currentSongIndex) {
+            [weakSelf.mainTableView reloadData];
+        };
+        
+        id object = [self nextResponder];
+        
+        while (![object isKindOfClass:[UINavigationController class]] &&
+               object != nil) {
+            object = [object nextResponder];
+        }
+        UINavigationController *vc = (UINavigationController *)object;
+        
+        
+        int j = 0;
+        for (int i = 0; i<index+1; i++) {
+            NSDictionary *dict = listArray[i];
+            if ([dict isKindOfClass:[ZNewsProgramTableViewCellViewModel class]]) {
+                j++;
+            }
+        }
+        index = index - j;
+        
+        //判断是否是点击当前正在播放的新闻，如果是则直接跳转
+        NSString *post_id = dictArray[index][@"id"];
+        
+        ZLog(@"现在播放index：%ld",index);
+        
+//        if ([[DataCache loadCache:currenPlayID] isEqualToString:viewModel.Id]) {
+//            [vc pushViewController:[ZPlayerViewController shareManager] animated:YES];
+//        }else{
+            //设置播放器播放数组
+            [ZRT_PlayerManager manager].songList = dictArray;
+            //设置新闻ID
+            [ZPlayerViewController shareManager].post_id = post_id;
+            //调用播放对应Index方法
+            [[ZRT_PlayerManager manager] loadSongInfoFromIndex:index];
+            //跳转播放界面
+            [vc pushViewController:[ZPlayerViewController shareManager] animated:YES];
+            [self.mainTableView reloadData];
+        
+//        }
+    }];
 }
 #pragma mark - action
 
@@ -136,6 +196,8 @@
             _mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
         [_mainTableView registerClass:[ZNewsTableViewCell class] forCellReuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsTableViewCell class])]];
+        [_mainTableView registerClass:[ZNewsProgramTableViewCell class] forCellReuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsProgramTableViewCell class])]];
+        
         
         WS(weakSelf)
         _mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -147,7 +209,7 @@
             [weakSelf.viewModel.nextPageCommand execute:nil];
         }];
         
-//        self.tempCell = [[ZNewsTableViewCell alloc] initWithStyle:0 reuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsTableViewCell class])]];
+        self.tempCell = [[ZNewsProgramTableViewCell alloc] initWithStyle:0 reuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsTableViewCell class])]];
      }
     
     return _mainTableView;
@@ -160,25 +222,55 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    ZNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsTableViewCell class])] forIndexPath:indexPath];
-    
-    if (self.viewModel.dataArray.count > indexPath.row) {
+    ZViewModel *viewModel = self.viewModel.dataArray[indexPath.row];
+    if ([viewModel isKindOfClass:[ZNewsTableViewCellViewModel class]]) {
+        ZNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsTableViewCell class])] forIndexPath:indexPath];
         
-        cell.viewModel = self.viewModel.dataArray[indexPath.row];
+        if (self.viewModel.dataArray.count > indexPath.row) {
+            
+            cell.viewModel = self.viewModel.dataArray[indexPath.row];
+        }
+        
+        return cell;
+    }else{
+        ZNewsProgramTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithUTF8String:object_getClassName([ZNewsProgramTableViewCell class])] forIndexPath:indexPath];
+        
+        if (self.viewModel.dataArray.count > indexPath.row) {
+            
+            cell.viewModel = self.viewModel.dataArray[indexPath.row];
+        }
+        
+        return cell;
     }
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 110;
+    ZViewModel *viewModel = self.viewModel.dataArray[indexPath.row];
+    if ([viewModel isKindOfClass:[ZNewsTableViewCellViewModel class]]) {
+        return 110;
+    }else{
+        ZNewsProgramTableViewCellViewModel *programViewModel = (ZNewsProgramTableViewCellViewModel *)viewModel;
+        if (programViewModel.cellHeight == 0) {
+            CGFloat cellHeight = [self.tempCell cellHeightForViewModel:programViewModel];
+            
+            // 缓存给model
+            programViewModel.cellHeight = cellHeight;
+            
+            return cellHeight;
+        } else {
+            return programViewModel.cellHeight;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.viewModel.cellClickSubject sendNext:[NSNumber numberWithInteger:indexPath.row]];
+    ZViewModel *viewModel = self.viewModel.dataArray[indexPath.row];
+    if ([viewModel isKindOfClass:[ZNewsTableViewCellViewModel class]]) {
+        [self.viewModel.cellClickSubject sendNext:[NSNumber numberWithInteger:indexPath.row]];
+    }else{
+        
+    }
 }
 @end
