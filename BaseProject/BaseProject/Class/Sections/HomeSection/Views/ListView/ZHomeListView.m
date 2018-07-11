@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) ZHomeListViewModel *viewModel;
 
+@property (nonatomic, strong) ZHomeListTableViewCell *tempCell;
+
 @end
 @implementation ZHomeListView
 
@@ -33,7 +35,7 @@
     WS(weakSelf)
     [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.edges.equalTo(weakSelf);
+        make.edges.equalTo(weakSelf).insets(UIEdgeInsetsMake(kNavHeight + 20, 0, 0, 0));
     }];
     [super updateConstraints];
 }
@@ -68,7 +70,7 @@
                 [self.mainTableView.mj_header endRefreshing];
                 
                 if (self.mainTableView.mj_footer == nil) {
-                    self.mainTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+                    self.mainTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
                         @strongify(self);
                         [self.viewModel.nextPageCommand execute:nil];
                     }];
@@ -136,10 +138,12 @@
             
             [weakSelf.viewModel.refreshDataCommand execute:nil];
         }];
-        _mainTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        _mainTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
 
             [weakSelf.viewModel.nextPageCommand execute:nil];
         }];
+        
+        self.tempCell = [[ZHomeListTableViewCell alloc] initWithStyle:0 reuseIdentifier:[NSString stringWithUTF8String:object_getClassName([ZHomeListTableViewCell class])]];
     }
     
     return _mainTableView;
@@ -166,7 +170,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 100;
+    ZHomeListTableViewCellViewModel *viewModel = self.viewModel.dataArray[indexPath.row];
+    if (viewModel.cellHeight == 0) {
+        CGFloat cellHeight = [self.tempCell cellHeightForViewModel:viewModel];
+        
+        // 缓存给model
+        viewModel.cellHeight = cellHeight;
+        
+        return cellHeight;
+    } else {
+        return viewModel.cellHeight;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

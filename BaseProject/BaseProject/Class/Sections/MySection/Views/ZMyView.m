@@ -73,7 +73,7 @@
 {
     if (!_headerView) {
         _headerView = [[ZView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300)];
-        _headerView.backgroundColor = blue_color;
+        _headerView.backgroundColor = MAINCOLOR;
         
         //用户头像
         UIImageView *header = [[UIImageView alloc] init];

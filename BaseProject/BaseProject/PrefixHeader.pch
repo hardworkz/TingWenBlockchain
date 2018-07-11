@@ -30,6 +30,22 @@
 #import "MarketSectionHeader.h"
 #import "MySectionHeader.h"
 
+//第三方头文件
+#import "WXApi.h"
+#import "MiPushSDK.h"
+#include <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WeiboSDK.h"
+
+//第三方管理类
+#import "AlipaySDKManager.h"
+#import "WeChatSDKManager.h"
+#import "QQSDKManager.h"
+#import "WeBoSDKManager.h"
+#import "MiPushSDKManager.h"
+
+
 //自定义类
 #import "CMRequest.h"//网络请求工具类
 #import "LSCoreToolCenter.h"//网络请求过程弹窗提示

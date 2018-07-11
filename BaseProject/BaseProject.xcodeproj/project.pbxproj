@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6988F19B20BBD9A700414C5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F19A20BBD9A700414C5B /* AppDelegate.m */; };
-		6988F19E20BBD9A800414C5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F19D20BBD9A800414C5B /* ViewController.m */; };
 		6988F1A320BBD9A900414C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6988F1A220BBD9A900414C5B /* Assets.xcassets */; };
 		6988F1A620BBD9A900414C5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6988F1A420BBD9A900414C5B /* LaunchScreen.storyboard */; };
 		6988F1A920BBD9A900414C5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6988F1A820BBD9A900414C5B /* main.m */; };
@@ -122,11 +121,31 @@
 		69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE120DB9505004EBC33 /* ZNewsListViewModel.m */; };
 		69D97AE520DB954E004EBC33 /* ZNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */; };
 		69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */; };
+		69E3528E20F34255000E8CFD /* 方正颜宋简体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E3528C20F34254000E8CFD /* 方正颜宋简体.ttf */; };
+		69E3528F20F34255000E8CFD /* SimHei.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E3528D20F34255000E8CFD /* SimHei.ttf */; };
 		69EE855F20EDF33600803AC0 /* UIView+FYAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE855E20EDF33600803AC0 /* UIView+FYAnimations.m */; };
 		69EE856220EDF50E00803AC0 /* ZNewsProgramTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856120EDF50D00803AC0 /* ZNewsProgramTableViewCell.m */; };
 		69EE856520EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856420EDF60800803AC0 /* ZNewsProgramTableViewCellViewModel.m */; };
 		69EE856820EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856720EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m */; };
 		69EE856B20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856A20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m */; };
+		69EE856E20EF02CC00803AC0 /* WeChatSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE856D20EF02CC00803AC0 /* WeChatSDKManager.m */; };
+		69EE857120EF02DA00803AC0 /* QQSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE857020EF02DA00803AC0 /* QQSDKManager.m */; };
+		69EE857420EF02EC00803AC0 /* WeBoSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE857320EF02EC00803AC0 /* WeBoSDKManager.m */; };
+		69EE857720EF05F000803AC0 /* AlipaySDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE857620EF05F000803AC0 /* AlipaySDKManager.m */; };
+		69EE85AD20EF49B000803AC0 /* MiPushSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE85AC20EF49B000803AC0 /* MiPushSDKManager.m */; };
+		69EE85B120EF4AC300803AC0 /* libMiPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85AF20EF4AC300803AC0 /* libMiPushSDK.a */; };
+		69EE85B320EF4B0100803AC0 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85B220EF4B0100803AC0 /* UserNotifications.framework */; };
+		69EE85B520EF4B0D00803AC0 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85B420EF4B0D00803AC0 /* libresolv.tbd */; };
+		69EE85B720EF4B1800803AC0 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85B620EF4B1800803AC0 /* libxml2.tbd */; };
+		69EE85B920EF4B2400803AC0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85B820EF4B2400803AC0 /* libz.tbd */; };
+		69EE85BB20EF4B2F00803AC0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85BA20EF4B2F00803AC0 /* SystemConfiguration.framework */; };
+		69EE85BD20EF4B3900803AC0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85BC20EF4B3900803AC0 /* MobileCoreServices.framework */; };
+		69EE85BF20EF4B4400803AC0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85BE20EF4B4400803AC0 /* CFNetwork.framework */; };
+		69EE85C120EF4B5300803AC0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85C020EF4B5300803AC0 /* CoreTelephony.framework */; };
+		69EE85D720EF660100803AC0 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85D620EF660100803AC0 /* TencentOpenAPI.framework */; };
+		69EE85D920EF670A00803AC0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85D820EF670A00803AC0 /* Security.framework */; };
+		69EE85DB20EF672100803AC0 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85DA20EF672100803AC0 /* libiconv.tbd */; };
+		69EE85DD20EF673100803AC0 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EE85DC20EF673100803AC0 /* libstdc++.tbd */; };
 		9C8407230ED2F153B342999D /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E78981CD69131A35472C1677 /* libPods-BaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -152,8 +171,6 @@
 		6988F19620BBD9A700414C5B /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6988F19920BBD9A700414C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6988F19A20BBD9A700414C5B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6988F19C20BBD9A700414C5B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6988F19D20BBD9A800414C5B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6988F1A220BBD9A900414C5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6988F1A520BBD9A900414C5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6988F1A720BBD9A900414C5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -398,6 +415,8 @@
 		69D97AE420DB954E004EBC33 /* ZNewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCell.m; sourceTree = "<group>"; };
 		69D97AE620DB9561004EBC33 /* ZNewsTableViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsTableViewCellViewModel.h; sourceTree = "<group>"; };
 		69D97AE720DB9561004EBC33 /* ZNewsTableViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsTableViewCellViewModel.m; sourceTree = "<group>"; };
+		69E3528C20F34254000E8CFD /* 方正颜宋简体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正颜宋简体.ttf"; sourceTree = "<group>"; };
+		69E3528D20F34255000E8CFD /* SimHei.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimHei.ttf; sourceTree = "<group>"; };
 		69EE855D20EDF33500803AC0 /* UIView+FYAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FYAnimations.h"; sourceTree = "<group>"; };
 		69EE855E20EDF33600803AC0 /* UIView+FYAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FYAnimations.m"; sourceTree = "<group>"; };
 		69EE856020EDF50D00803AC0 /* ZNewsProgramTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramTableViewCell.h; sourceTree = "<group>"; };
@@ -408,6 +427,30 @@
 		69EE856720EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramCollectionViewCell.m; sourceTree = "<group>"; };
 		69EE856920EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZNewsProgramCollectionViewCellViewModel.h; sourceTree = "<group>"; };
 		69EE856A20EDF7E200803AC0 /* ZNewsProgramCollectionViewCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZNewsProgramCollectionViewCellViewModel.m; sourceTree = "<group>"; };
+		69EE856C20EF02CC00803AC0 /* WeChatSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeChatSDKManager.h; sourceTree = "<group>"; };
+		69EE856D20EF02CC00803AC0 /* WeChatSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeChatSDKManager.m; sourceTree = "<group>"; };
+		69EE856F20EF02DA00803AC0 /* QQSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQSDKManager.h; sourceTree = "<group>"; };
+		69EE857020EF02DA00803AC0 /* QQSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQSDKManager.m; sourceTree = "<group>"; };
+		69EE857220EF02EC00803AC0 /* WeBoSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeBoSDKManager.h; sourceTree = "<group>"; };
+		69EE857320EF02EC00803AC0 /* WeBoSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeBoSDKManager.m; sourceTree = "<group>"; };
+		69EE857520EF05F000803AC0 /* AlipaySDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlipaySDKManager.h; sourceTree = "<group>"; };
+		69EE857620EF05F000803AC0 /* AlipaySDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlipaySDKManager.m; sourceTree = "<group>"; };
+		69EE85AB20EF49B000803AC0 /* MiPushSDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiPushSDKManager.h; sourceTree = "<group>"; };
+		69EE85AC20EF49B000803AC0 /* MiPushSDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiPushSDKManager.m; sourceTree = "<group>"; };
+		69EE85AF20EF4AC300803AC0 /* libMiPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMiPushSDK.a; sourceTree = "<group>"; };
+		69EE85B020EF4AC300803AC0 /* MiPushSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiPushSDK.h; sourceTree = "<group>"; };
+		69EE85B220EF4B0100803AC0 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		69EE85B420EF4B0D00803AC0 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		69EE85B620EF4B1800803AC0 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		69EE85B820EF4B2400803AC0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		69EE85BA20EF4B2F00803AC0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		69EE85BC20EF4B3900803AC0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		69EE85BE20EF4B4400803AC0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		69EE85C020EF4B5300803AC0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		69EE85D620EF660100803AC0 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		69EE85D820EF670A00803AC0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		69EE85DA20EF672100803AC0 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		69EE85DC20EF673100803AC0 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		B6819A1FA9B15357E498A328 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		E78981CD69131A35472C1677 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -417,6 +460,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69EE85DD20EF673100803AC0 /* libstdc++.tbd in Frameworks */,
+				69EE85DB20EF672100803AC0 /* libiconv.tbd in Frameworks */,
+				69EE85C120EF4B5300803AC0 /* CoreTelephony.framework in Frameworks */,
+				69EE85D920EF670A00803AC0 /* Security.framework in Frameworks */,
+				69EE85BF20EF4B4400803AC0 /* CFNetwork.framework in Frameworks */,
+				69EE85BD20EF4B3900803AC0 /* MobileCoreServices.framework in Frameworks */,
+				69EE85BB20EF4B2F00803AC0 /* SystemConfiguration.framework in Frameworks */,
+				69EE85B920EF4B2400803AC0 /* libz.tbd in Frameworks */,
+				69EE85B720EF4B1800803AC0 /* libxml2.tbd in Frameworks */,
+				69EE85B520EF4B0D00803AC0 /* libresolv.tbd in Frameworks */,
+				69EE85B320EF4B0100803AC0 /* UserNotifications.framework in Frameworks */,
+				69EE85D720EF660100803AC0 /* TencentOpenAPI.framework in Frameworks */,
+				69EE85B120EF4AC300803AC0 /* libMiPushSDK.a in Frameworks */,
 				9C8407230ED2F153B342999D /* libPods-BaseProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +497,17 @@
 		103D4E7BF292AF35E4FB8309 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69EE85DC20EF673100803AC0 /* libstdc++.tbd */,
+				69EE85DA20EF672100803AC0 /* libiconv.tbd */,
+				69EE85D820EF670A00803AC0 /* Security.framework */,
+				69EE85C020EF4B5300803AC0 /* CoreTelephony.framework */,
+				69EE85BE20EF4B4400803AC0 /* CFNetwork.framework */,
+				69EE85BC20EF4B3900803AC0 /* MobileCoreServices.framework */,
+				69EE85BA20EF4B2F00803AC0 /* SystemConfiguration.framework */,
+				69EE85B820EF4B2400803AC0 /* libz.tbd */,
+				69EE85B620EF4B1800803AC0 /* libxml2.tbd */,
+				69EE85B420EF4B0D00803AC0 /* libresolv.tbd */,
+				69EE85B220EF4B0100803AC0 /* UserNotifications.framework */,
 				E78981CD69131A35472C1677 /* libPods-BaseProject.a */,
 			);
 			name = Frameworks;
@@ -475,8 +542,6 @@
 				6988F1EA20BBE0D600414C5B /* APPDelegate */,
 				6988F1CE20BBE0D600414C5B /* Class */,
 				6988F1E520BBE0D600414C5B /* Resource */,
-				6988F19C20BBD9A700414C5B /* ViewController.h */,
-				6988F19D20BBD9A800414C5B /* ViewController.m */,
 				6988F1A220BBD9A900414C5B /* Assets.xcassets */,
 				6988F1CD20BBDFF800414C5B /* Supporting Files */,
 			);
@@ -661,6 +726,8 @@
 		6988F1E320BBE0D600414C5B /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				69EE85D520EF660100803AC0 /* QQSDK */,
+				69EE85AE20EF4AC300803AC0 /* MiPushSDK */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -690,6 +757,8 @@
 		6988F1E620BBE0D600414C5B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				69E3528C20F34254000E8CFD /* 方正颜宋简体.ttf */,
+				69E3528D20F34255000E8CFD /* SimHei.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1219,6 +1288,16 @@
 				698FDEA320C8CAAC000384D2 /* Model */,
 				698FDEC420CA5564000384D2 /* UserLoginManager.h */,
 				698FDEC520CA5564000384D2 /* UserLoginManager.m */,
+				69EE856C20EF02CC00803AC0 /* WeChatSDKManager.h */,
+				69EE856D20EF02CC00803AC0 /* WeChatSDKManager.m */,
+				69EE856F20EF02DA00803AC0 /* QQSDKManager.h */,
+				69EE857020EF02DA00803AC0 /* QQSDKManager.m */,
+				69EE857220EF02EC00803AC0 /* WeBoSDKManager.h */,
+				69EE857320EF02EC00803AC0 /* WeBoSDKManager.m */,
+				69EE857520EF05F000803AC0 /* AlipaySDKManager.h */,
+				69EE857620EF05F000803AC0 /* AlipaySDKManager.m */,
+				69EE85AB20EF49B000803AC0 /* MiPushSDKManager.h */,
+				69EE85AC20EF49B000803AC0 /* MiPushSDKManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1401,6 +1480,23 @@
 			path = XWAlerLoginView;
 			sourceTree = "<group>";
 		};
+		69EE85AE20EF4AC300803AC0 /* MiPushSDK */ = {
+			isa = PBXGroup;
+			children = (
+				69EE85AF20EF4AC300803AC0 /* libMiPushSDK.a */,
+				69EE85B020EF4AC300803AC0 /* MiPushSDK.h */,
+			);
+			path = MiPushSDK;
+			sourceTree = "<group>";
+		};
+		69EE85D520EF660100803AC0 /* QQSDK */ = {
+			isa = PBXGroup;
+			children = (
+				69EE85D620EF660100803AC0 /* TencentOpenAPI.framework */,
+			);
+			path = QQSDK;
+			sourceTree = "<group>";
+		};
 		95406202EC33A947676D6A63 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1524,10 +1620,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E3528F20F34255000E8CFD /* SimHei.ttf in Resources */,
 				6988F42120BD579300414C5B /* no_data.png in Resources */,
 				6988F1A620BBD9A900414C5B /* LaunchScreen.storyboard in Resources */,
 				6988F1A320BBD9A900414C5B /* Assets.xcassets in Resources */,
 				6988F42320BD579300414C5B /* no_data@3x.png in Resources */,
+				69E3528E20F34255000E8CFD /* 方正颜宋简体.ttf in Resources */,
 				6988F42220BD579300414C5B /* no_data@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1561,6 +1659,7 @@
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1569,6 +1668,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1616,6 +1716,7 @@
 				6988F42C20BE4B4F00414C5B /* ZHomeScreenSwitchListView.m in Sources */,
 				6988F25F20BD24B000414C5B /* Z_AvoidCrashTool.m in Sources */,
 				69A2CF4720CFAF16000CA771 /* ZMarketSortEditViewController.m in Sources */,
+				69EE856E20EF02CC00803AC0 /* WeChatSDKManager.m in Sources */,
 				6988F44B20BFA01E00414C5B /* ZMarketViewController.m in Sources */,
 				69A2CF4A20CFAF3F000CA771 /* ZSortEditView.m in Sources */,
 				6988F3EB20BD371F00414C5B /* UINavigationController+Cloudox.m in Sources */,
@@ -1632,6 +1733,7 @@
 				6988F23320BC056E00414C5B /* UIButton+Extension.m in Sources */,
 				69AD539A20E363E600B3624E /* ZPlayerViewContentTextTableViewCell.m in Sources */,
 				6988F47D20C0F2B200414C5B /* ZMarketSegmentController.m in Sources */,
+				69EE857420EF02EC00803AC0 /* WeBoSDKManager.m in Sources */,
 				6988F47120C0EE1800414C5B /* ZSegmentListView.m in Sources */,
 				698FDEC620CA5564000384D2 /* UserLoginManager.m in Sources */,
 				6988F43520BE4F1500414C5B /* ZHomeScreenSwitchListViewModel.m in Sources */,
@@ -1656,10 +1758,10 @@
 				69D97AE220DB9505004EBC33 /* ZNewsListViewModel.m in Sources */,
 				69AD53DB20E62E1B00B3624E /* ZRootTabbarController.m in Sources */,
 				6988F20220BBEDBC00414C5B /* Z_ThirdPartLoadService.m in Sources */,
-				6988F19E20BBD9A800414C5B /* ViewController.m in Sources */,
 				6988F46A20C0EDB200414C5B /* PSSSegmentVCConst.m in Sources */,
 				6988F1A920BBD9A900414C5B /* main.m in Sources */,
 				6988F47720C0EE6900414C5B /* ZSegmentListTableViewCell.m in Sources */,
+				69EE85AD20EF49B000803AC0 /* MiPushSDKManager.m in Sources */,
 				6988F45420BFD3E200414C5B /* ZHomeListTableViewCell.m in Sources */,
 				6988F22420BBFFED00414C5B /* NSData+Initialize.m in Sources */,
 				6988F41C20BD579300414C5B /* AutoImageViewHeightFrameModel.m in Sources */,
@@ -1688,6 +1790,7 @@
 				6988F3EE20BD376400414C5B /* UIViewController+Cloudox.m in Sources */,
 				69AD537820E2478600B3624E /* NSDateFormatter+Category.m in Sources */,
 				69A2CF3B20CE5552000CA771 /* ZHomeCommentListTableViewCellViewModel.m in Sources */,
+				69EE857720EF05F000803AC0 /* AlipaySDKManager.m in Sources */,
 				69A592FB20C6825700F1CC4C /* ACFloatingTextField.m in Sources */,
 				6988F24920BCE3E700414C5B /* UIView+Extension.m in Sources */,
 				6988F24020BC098100414C5B /* UIImage+Resize.m in Sources */,
@@ -1701,6 +1804,7 @@
 				69D97AE820DB9561004EBC33 /* ZNewsTableViewCellViewModel.m in Sources */,
 				69EE856820EDF7B500803AC0 /* ZNewsProgramCollectionViewCell.m in Sources */,
 				69AD53A020E363EC00B3624E /* ZPlayerViewContentTextTableViewCellViewModel.m in Sources */,
+				69EE857120EF02DA00803AC0 /* QQSDKManager.m in Sources */,
 				69EE856220EDF50E00803AC0 /* ZNewsProgramTableViewCell.m in Sources */,
 				69A592F320C66FE300F1CC4C /* ZLoginViewController.m in Sources */,
 				69A2CF3220CE530D000CA771 /* ZHomeCommentListView.m in Sources */,
@@ -1878,6 +1982,10 @@
 				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JA62234AND;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaseProject/Class/Vendors/QQSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BaseProject/PrefixHeader.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
@@ -1886,6 +1994,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaseProject/Class/Vendors/MiPushSDK",
+				);
+				MiSDKRun = Debug;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tingwen.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1901,6 +2014,10 @@
 				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JA62234AND;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaseProject/Class/Vendors/QQSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BaseProject/PrefixHeader.pch;
 				INFOPLIST_FILE = BaseProject/Info.plist;
@@ -1909,6 +2026,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BaseProject/Class/Vendors/MiPushSDK",
+				);
+				MiSDKRun = Online;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tingwen.blockchain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

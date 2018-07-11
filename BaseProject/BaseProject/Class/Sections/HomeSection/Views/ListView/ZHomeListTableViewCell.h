@@ -12,5 +12,9 @@
 @interface ZHomeListTableViewCell : ZTableViewCell
 
 @property (strong, nonatomic) ZHomeListTableViewCellViewModel *viewModel;
-
+/**
+ 根绝重复计算cell的高度
+ @return cell的高度
+ */
+//- (CGFloat)cellHeightForViewModel:(ZHomeListTableViewCellViewModel *)viewModel;
 @end

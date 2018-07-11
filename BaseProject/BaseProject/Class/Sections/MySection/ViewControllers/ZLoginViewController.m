@@ -82,13 +82,14 @@
         
         _account = [[ACFloatingTextField alloc] init];
         _account.delegate = self;
-        _account.lineColor = gray_color;
-        _account.selectedLineColor = black_color;
+        _account.lineColor = lightGray_color;
+        _account.selectedLineColor = MAINCOLOR;
         _account.placeHolderColor = lightGray_color;
         _account.selectedPlaceHolderColor = gray_color;
         _account.errorTextColor = red_color;
         _account.errorLineColor = red_color;
         _account.textColor = black_color;
+        _account.tintColor = MAINCOLOR;
         _account.placeholder = @"请输入手机号码";
         _account.disableFloatingLabel = YES;
         [_inputView addSubview:_account];
@@ -101,13 +102,14 @@
         _password = [[ACFloatingTextField alloc] init];
         _password.delegate = self;
         _password.secureTextEntry = YES;
-        _password.lineColor = gray_color;
-        _password.selectedLineColor = black_color;
+        _password.lineColor = lightGray_color;
+        _password.selectedLineColor = MAINCOLOR;
         _password.placeHolderColor = lightGray_color;
         _password.selectedPlaceHolderColor = gray_color;
         _password.errorTextColor = red_color;
         _password.errorLineColor = red_color;
         _password.textColor = black_color;
+        _password.tintColor = MAINCOLOR;
         _password.placeholder = @"请输入密码";
         _password.disableFloatingLabel = YES;
         [_inputView addSubview:_password];
@@ -147,23 +149,21 @@
         
         UIButton *registerBtn = [[UIButton alloc] init];
         [registerBtn setTitle:@"立即注册" forState:UIControlStateNormal];
-        [registerBtn setTitleColor:purple_color forState:UIControlStateNormal];
+        [registerBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
         registerBtn.titleLabel.font = FONT(15);
-        registerBtn.titleLabel.textColor = purple_color;
         [registerBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         registerBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
         [registerBtn addTarget:self action:@selector(registerClicked)];
         [_bottomView addSubview:registerBtn];
         
         UIView *devider = [[UIView alloc] init];
-        devider.backgroundColor = purple_color;
+        devider.backgroundColor = MAINCOLOR;
         [_bottomView addSubview:devider];
         
         UIButton *forgetPasswordBtn = [[UIButton alloc] init];
         [forgetPasswordBtn setTitle:@"忘记密码?" forState:UIControlStateNormal];
-        [forgetPasswordBtn setTitleColor:purple_color forState:UIControlStateNormal];
+        [forgetPasswordBtn setTitleColor:MAINCOLOR forState:UIControlStateNormal];
         forgetPasswordBtn.titleLabel.font = FONT(15);
-        forgetPasswordBtn.titleLabel.textColor = purple_color;
         [forgetPasswordBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         forgetPasswordBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [forgetPasswordBtn addTarget:self action:@selector(forgetPasswordBtnClicked)];
@@ -173,7 +173,7 @@
         loginTipLabel.text = @"使用社交账号";
         loginTipLabel.font = FONT(15.0);
         loginTipLabel.textAlignment = NSTextAlignmentCenter;
-        loginTipLabel.textColor = purple_color;
+        loginTipLabel.textColor = MAINCOLOR;
         [_bottomView addSubview:loginTipLabel];
         
         UIButton *QQLogin = [[UIButton alloc] init];
@@ -228,7 +228,7 @@
         _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
         _loginButton.titleLabel.font = FONT(15);
-        _loginButton.backgroundColor = purple_color;
+        _loginButton.backgroundColor = MAINCOLOR;
         _loginButton.layer.cornerRadius = 20;
         [_loginButton addTarget:self action:@selector(login:)];
     }

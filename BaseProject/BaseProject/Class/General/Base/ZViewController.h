@@ -6,10 +6,9 @@
 //  Copyright © 2018年 com.general.*. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "ZViewControllerProtocol.h"
 
-@interface ZViewController : ViewController<ZViewControllerProtocol>
+@interface ZViewController : UIViewController<ZViewControllerProtocol>
 
 /**
  *  VIEW是否渗透导航栏

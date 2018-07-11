@@ -97,5 +97,14 @@
     
     return _cellClickSubject;
 }
+- (RACSubject *)scrollSubject {
+    
+    if (!_scrollSubject) {
+        
+        _scrollSubject = [RACSubject subject];
+    }
+    
+    return _scrollSubject;
+}
 
 @end

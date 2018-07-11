@@ -94,7 +94,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = MAIN_TEXT_COLOR;
-        _titleLabel.font = BOLDSYSTEMFONT(20);
+        _titleLabel.font = FZYANS_JW_FONT_TYPE_FZYANS(22);
         _titleLabel.numberOfLines = 0;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         //设置该属性，让label撑开cell的高度，否则只会计算一行高度
@@ -107,7 +107,7 @@
     if (!_timeAndFrom) {
         _timeAndFrom = [[UILabel alloc] init];
         _timeAndFrom.textColor = MAIN_TEXT_COLOR;
-        _timeAndFrom.font = BOLDSYSTEMFONT(15);
+        _timeAndFrom.font = FZYANS_JW_FONT_TYPE_FZYANS(17);
         _timeAndFrom.numberOfLines = 0;
         _timeAndFrom.textAlignment = NSTextAlignmentCenter;
         //设置该属性，让label撑开cell的高度，否则只会计算一行高度
@@ -120,7 +120,7 @@
     if (!_content) {
         _content = [[UILabel alloc] init];
         _content.textColor = MAIN_TEXT_COLOR;
-        _content.font = BOLDSYSTEMFONT(15);
+        _content.font = FZYANS_JW_FONT_TYPE_FZYANS(17);
         _content.numberOfLines = 0;
         _content.textAlignment = NSTextAlignmentCenter;
         //设置该属性，让label撑开cell的高度，否则只会计算一行高度

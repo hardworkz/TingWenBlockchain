@@ -53,11 +53,11 @@
         make.top.equalTo(weakSelf.view);
         make.right.equalTo(weakSelf.view);
         make.left.equalTo(weakSelf.view);
-        if (iPhoneX) {
-            make.bottom.equalTo(weakSelf.view).offset(- IPHONEX_BOTTOM_BACK_BAR_H);
-        }else{
+//        if (iPhoneX) {
+//            make.bottom.equalTo(weakSelf.view).offset(- IPHONEX_BOTTOM_BACK_BAR_H);
+//        }else{
             make.bottom.equalTo(weakSelf.view);
-        }
+//        }
     }];
     [self.headerSwitchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.view).offset(iPhoneX?IPHONEX_TOP_STATUS_BAR_H + 10:30);

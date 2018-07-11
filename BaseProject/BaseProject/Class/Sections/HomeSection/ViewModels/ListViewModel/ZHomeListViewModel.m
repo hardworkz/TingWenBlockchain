@@ -9,6 +9,13 @@
 #import "ZHomeListViewModel.h"
 #import "ZHomeListTableViewCellViewModel.h"
 
+@interface ZHomeListViewModel()
+
+@property (nonatomic, copy) NSString *maxId;
+
+@property (nonatomic, copy) NSString *minId;
+
+@end
 @implementation ZHomeListViewModel
 
 - (void)z_initialize {
@@ -17,16 +24,14 @@
     [self.refreshDataCommand.executionSignals.switchToLatest subscribeNext:^(NSDictionary *dict) {
         
         @strongify(self);
-        NSMutableArray *reArray = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 8; i++) {
-            
-            ZHomeListTableViewCellViewModel *viewModel = [[ZHomeListTableViewCellViewModel alloc] init];
-            viewModel.title = [NSString stringWithFormat:@"index:%d",i];
-            [reArray addObject:viewModel];
-        }
+        self.dataArray = [ZHomeListTableViewCellViewModel mj_objectArrayWithKeyValuesArray:dict[results]];
         
-        self.dataArray = reArray;
+        ZHomeListTableViewCellViewModel *first = [self.dataArray firstObject];
+        ZHomeListTableViewCellViewModel *last = [self.dataArray lastObject];
+        self.maxId = first.Id;
+        self.minId = last.Id;
         
+        [self.refreshUI sendNext:nil];
         [self.refreshEndSubject sendNext:@(LSFooterRefresh_HasMoreData)];
         DismissHud();
     }];
@@ -36,14 +41,16 @@
         @strongify(self);
         
         NSMutableArray *reArray = [[NSMutableArray alloc] initWithArray:self.dataArray];
-        for (int i = 0; i < 8; i++) {
-            
-            ZHomeListTableViewCellViewModel *viewModel = [[ZHomeListTableViewCellViewModel alloc] init];
-            viewModel.title = [NSString stringWithFormat:@"index:%ld",i+self.dataArray.count];
-            [reArray addObject:viewModel];
-        }
+        
+        [reArray addObjectsFromArray:[ZHomeListTableViewCellViewModel mj_objectArrayWithKeyValuesArray:dict[results]]];
         
         self.dataArray = reArray;
+        
+        ZHomeListTableViewCellViewModel *first = [self.dataArray firstObject];
+        ZHomeListTableViewCellViewModel *last = [self.dataArray lastObject];
+        self.maxId = first.Id;
+        self.minId = last.Id;
+        
         [self.refreshEndSubject sendNext:@(LSFooterRefresh_HasMoreData)];
         DismissHud();
     }];
@@ -81,17 +88,21 @@
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 
                 @strongify(self);
-                //                [self.request POST:REQUEST_URL parameters:nil success:^(CMRequest *request, id responseObject) {
-                //
-                //                    NSDictionary *dict = responseObject;
-                [subscriber sendNext:nil];
-                [subscriber sendCompleted];
-                //
-                //                } failure:^(CMRequest *request, NSError *error) {
-                //
-                //                    ShowErrorStatus(@"网络连接失败");
-                //                    [subscriber sendCompleted];
-                //                }];
+                NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+                if (self.dataArray.count != 0) {
+                    [parameter setObject:self.maxId forKey:@"max_id"];
+                }
+                [self.request POST:FLASH_ALL_LIST parameters:parameter success:^(CMRequest *request, id responseObject) {
+                    
+                    NSDictionary *dict = responseObject;
+                    [subscriber sendNext:dict];
+                    [subscriber sendCompleted];
+                    
+                } failure:^(CMRequest *request, NSError *error) {
+                    
+                    ShowErrorStatus(@"网络连接失败");
+                    [subscriber sendCompleted];
+                }];
                 return nil;
             }];
         }];
@@ -111,17 +122,19 @@
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 
                 @strongify(self);
-                //                [self.request POST:REQUEST_URL parameters:nil success:^(CMRequest *request, id responseObject) {
-                //
-                //                    NSDictionary *dict = responseObject;
-                [subscriber sendNext:nil];
-                [subscriber sendCompleted];
-                //
-                //                } failure:^(CMRequest *request, NSError *error) {
-                //
-                //                    ShowErrorStatus(@"网络连接失败");
-                //                    [subscriber sendCompleted];
-                //                }];
+                NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+                [parameter setObject:self.minId forKey:@"min_id"];
+                [self.request POST:FLASH_ALL_LIST parameters:parameter success:^(CMRequest *request, id responseObject) {
+                    
+                    NSDictionary *dict = responseObject;
+                    [subscriber sendNext:dict];
+                    [subscriber sendCompleted];
+                    
+                } failure:^(CMRequest *request, NSError *error) {
+                    
+                    ShowErrorStatus(@"网络连接失败");
+                    [subscriber sendCompleted];
+                }];
                 return nil;
             }];
         }];

@@ -14,6 +14,7 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // 注册APNS成功, 注册deviceToken
+    [MiPushSDK bindDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -25,18 +26,25 @@
 //接收到通知调用
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    
+    [MiPushSDK handleReceiveRemoteNotification :userInfo];
+    [[MiPushSDKManager sharedManager] miPushDidClickNotification:userInfo];
 }
 // 点击通知进入应用iOS7+
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    
+    [MiPushSDK handleReceiveRemoteNotification :userInfo];
+    [[MiPushSDKManager sharedManager] miPushDidClickNotification:userInfo];
 }
 // 点击通知进入应用iOS10+
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler
-{
-    
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
+API_AVAILABLE(ios(10.0)) API_AVAILABLE(ios(10.0)){
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [MiPushSDK handleReceiveRemoteNotification :userInfo];
+        [[MiPushSDKManager sharedManager] miPushDidClickNotification:userInfo];
+    }
+    completionHandler();
 }
 @end

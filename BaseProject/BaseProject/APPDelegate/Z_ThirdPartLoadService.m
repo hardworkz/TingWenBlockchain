@@ -28,6 +28,14 @@
 #pragma mark - 初始化coredata
 + (void)initCoredata {
     
+    //注册QQ
+    [QQSDKManager registerQQ];
+    //注册微信
+    [WeChatSDKManager registerWeChat];
+    //注册微博
+    [WeBoSDKManager registerWeiBo];
+    //注册小米推送
+    [MiPushSDKManager registerMIPush];
 }
 
 #pragma mark - 键盘回收相关

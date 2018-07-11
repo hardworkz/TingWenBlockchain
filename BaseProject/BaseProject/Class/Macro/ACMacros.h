@@ -146,6 +146,10 @@
 #define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
 #define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]
 
+//更换字体
+#define PingFangSC_FONT_TYPE(a) [UIFont fontWithName:@"PingFangSC-Semibold" size:(a)]//苹方粗
+#define FZYANS_JW_FONT_TYPE_FZYANS(a) [UIFont fontWithName:@"FZYANS_JW--GB1-0" size:(a)]//方正颜太字体
+
 // 微软雅黑
 #define YC_YAHEI_FONT(FONTSIZE) [UIFont fontWithName:@"MicrosoftYaHei" size:(FONTSIZE)]
 // 英文 和 数字

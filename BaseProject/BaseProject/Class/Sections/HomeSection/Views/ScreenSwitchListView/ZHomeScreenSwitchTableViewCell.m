@@ -16,9 +16,9 @@
 
 @property (nonatomic, strong) UILabel *content;
 
-@property (nonatomic, strong) UILabel *goodLabel;
-
-@property (nonatomic, strong) UILabel *badLabel;
+//@property (nonatomic, strong) UILabel *goodLabel;
+//
+//@property (nonatomic, strong) UILabel *badLabel;
 
 @end
 @implementation ZHomeScreenSwitchTableViewCell
@@ -28,9 +28,9 @@
     [self.bgImage addSubview:self.titleLabel];
     [self.bgImage addSubview:self.content];
     [self.bgImage addSubview:self.good];
-    [self.bgImage addSubview:self.goodLabel];
+//    [self.bgImage addSubview:self.goodLabel];
     [self.bgImage addSubview:self.bad];
-    [self.bgImage addSubview:self.badLabel];
+//    [self.bgImage addSubview:self.badLabel];
     [self.bgImage addSubview:self.comment];
     [self.bgImage addSubview:self.share];
     
@@ -50,42 +50,42 @@
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.bgImage).offset(kNavHeight + 30);
-        make.leading.equalTo(MARGIN_15 * 2);
-        make.trailing.equalTo(-MARGIN_15 * 2);
+        make.leading.equalTo(width);
+        make.trailing.equalTo(-width);
     }];
     [self.content mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.titleLabel.mas_bottom).offset(30);
-        make.leading.equalTo(MARGIN_15);
-        make.trailing.equalTo(-width-MARGIN_10);
+        make.leading.equalTo(width);
+        make.trailing.equalTo(-width);
     }];
     [self.share mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(- paddingEdge);
+        make.right.equalTo(- MARGIN_5);
         make.bottom.equalTo(weakSelf.bgImage).offset(-100);
         make.size.equalTo(CGSizeMake(width, height));
     }];
     [self.comment mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(- paddingEdge);
+        make.right.equalTo(- MARGIN_5);
         make.bottom.equalTo(weakSelf.share).offset(- paddingEdge - height);
         make.size.equalTo(CGSizeMake(width, height));
     }];
-    [self.badLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo( - paddingEdge);
-        make.bottom.equalTo(weakSelf.comment).offset(- paddingEdge - height);
-        make.size.equalTo(CGSizeMake(width, height));
-    }];
+//    [self.badLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo( - paddingEdge);
+//        make.bottom.equalTo(weakSelf.comment).offset(- paddingEdge - height);
+//        make.size.equalTo(CGSizeMake(width, height));
+//    }];
     [self.bad mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(- paddingEdge);
-        make.bottom.equalTo(weakSelf.badLabel).offset( - height);
+        make.right.equalTo(- MARGIN_5);
+        make.bottom.equalTo(weakSelf.comment).offset( - paddingEdge- height);
         make.size.equalTo(CGSizeMake(width, height));
     }];
-    [self.goodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo( - paddingEdge);
-        make.bottom.equalTo(weakSelf.bad).offset(- paddingEdge - height);
-        make.size.equalTo(CGSizeMake(width, height));
-    }];
+//    [self.goodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo( - paddingEdge);
+//        make.bottom.equalTo(weakSelf.bad).offset(- paddingEdge - height);
+//        make.size.equalTo(CGSizeMake(width, height));
+//    }];
     [self.good mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(- paddingEdge);
-        make.bottom.equalTo(weakSelf.goodLabel).offset( - height);
+        make.right.equalTo(- MARGIN_5);
+        make.bottom.equalTo(weakSelf.bad).offset( - paddingEdge- height);
         make.size.equalTo(CGSizeMake(width, height));
     }];
     
@@ -121,7 +121,7 @@
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = MAIN_BLACK_TEXT_COLOR;
-        _titleLabel.font = BOLDSYSTEMFONT(20);
+        _titleLabel.font = FZYANS_JW_FONT_TYPE_FZYANS(20);
         _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
@@ -132,43 +132,48 @@
         
         _content = [[UILabel alloc] init];
         _content.textColor = MAIN_BLACK_TEXT_COLOR;
-        _content.font = SYSTEMFONT(16);
+        _content.font = FZYANS_JW_FONT_TYPE_FZYANS(16);
         _content.numberOfLines = 0;
     }
     return _content;
 }
-- (UILabel *)goodLabel
-{
-    if (!_goodLabel) {
-        
-        _goodLabel = [[UILabel alloc] init];
-        _goodLabel.textColor = MAIN_BLACK_TEXT_COLOR;
-        _goodLabel.font = SYSTEMFONT(14);
-        _goodLabel.text = @"利好\n100";
-        _goodLabel.numberOfLines = 2;
-        _goodLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _goodLabel;
-}
-- (UILabel *)badLabel
-{
-    if (!_badLabel) {
-        
-        _badLabel = [[UILabel alloc] init];
-        _badLabel.textColor = MAIN_BLACK_TEXT_COLOR;
-        _badLabel.font = SYSTEMFONT(14);
-        _badLabel.text = @"利空\n100";
-        _badLabel.numberOfLines = 2;
-        _badLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _badLabel;
-}
+//- (UILabel *)goodLabel
+//{
+//    if (!_goodLabel) {
+//
+//        _goodLabel = [[UILabel alloc] init];
+//        _goodLabel.textColor = MAIN_BLACK_TEXT_COLOR;
+//        _goodLabel.font = SYSTEMFONT(14);
+//        _goodLabel.text = @"利好\n100";
+//        _goodLabel.numberOfLines = 2;
+//        _goodLabel.textAlignment = NSTextAlignmentCenter;
+//
+//    }
+//    return _goodLabel;
+//}
+//- (UILabel *)badLabel
+//{
+//    if (!_badLabel) {
+//
+//        _badLabel = [[UILabel alloc] init];
+//        _badLabel.textColor = MAIN_BLACK_TEXT_COLOR;
+//        _badLabel.font = SYSTEMFONT(14);
+//        _badLabel.text = @"利空\n100";
+//        _badLabel.numberOfLines = 2;
+//        _badLabel.textAlignment = NSTextAlignmentCenter;
+//    }
+//    return _badLabel;
+//}
 - (UIButton *)good
 {
     if (!_good) {
         _good = [[UIButton alloc] init];
         [_good setImage:ImageNamed(@"LH") forState:UIControlStateNormal];
         [_good setImage:ImageNamed(@"LH0") forState:UIControlStateSelected];
+        WS(weakSelf)
+        [[_good rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            weakSelf.good.selected = YES;
+        }];
     }
     return _good;
 }
@@ -178,6 +183,10 @@
         _bad = [[UIButton alloc] init];
         [_bad setImage:ImageNamed(@"LK") forState:UIControlStateNormal];
         [_bad setImage:ImageNamed(@"LK0") forState:UIControlStateSelected];
+        WS(weakSelf)
+        [[_bad rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            weakSelf.bad.selected = YES;
+        }];
     }
     return _bad;
 }

@@ -34,10 +34,11 @@
 - (void)z_setupViews{}
 
 - (void)z_bindViewModel{}
+
 /**
  根绝数据计算cell的高度
  */
-- (CGFloat)cellHeight {
+- (CGFloat)cellHeightForViewModel:(ZViewModel *)viewModel {
     [self layoutIfNeeded];
     
     CGFloat cellHeight = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;

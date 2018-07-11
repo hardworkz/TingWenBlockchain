@@ -133,6 +133,9 @@
         }
     };
     
+    //播放器状态改变
+    RegisterNotify(SONGPLAYSTATUSCHANGE, @selector(playStatusChange:))
+    
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
 }
@@ -209,6 +212,10 @@
         _mainTableView.dataSource = self;
         _mainTableView.backgroundColor = white_color;
         _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        //解决详情页面切换时候导致底部出现空白
+        _mainTableView.estimatedRowHeight = 0;
+        _mainTableView.estimatedSectionHeaderHeight = 0;
+        _mainTableView.estimatedSectionFooterHeight = 0;
         //tableView页面无导航栏时，顶部出现44高度的空白解决方法
         if (@available(iOS 11.0, *)) {
             _mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -511,14 +518,8 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    //设置置顶按钮alpha
-//    float alpha = scrollView.contentOffset.y/(SCREEN_HEIGHT * 1.5);
-//    if (alpha >= 0.75) {
-//        alpha = 0.75;
-//    }else{
-//        alpha = alpha;
-//    }
-//    _scrollTopBtn.alpha = alpha;
+    
+    [self.viewModel.scrollSubject sendNext:[NSNumber numberWithFloat:scrollView.contentOffset.y]];
     
     //播放控制器显示隐藏
     if (scrollView.contentOffset.y < 0) {
@@ -783,7 +784,6 @@
         case ZRTPlayStatusPlay:
             _bofangCenterBtn.selected = YES;
             break;
-            
         case ZRTPlayStatusPause:
             _bofangCenterBtn.selected = NO;
             break;

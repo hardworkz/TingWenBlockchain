@@ -9,5 +9,9 @@
 #import "ZHomeListTableViewCellViewModel.h"
 
 @implementation ZHomeListTableViewCellViewModel
-
++ (void)load {
+    [ZHomeListTableViewCellViewModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"Id":@"id"};
+    }];
+}
 @end

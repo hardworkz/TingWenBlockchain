@@ -23,4 +23,6 @@
 
 @property (nonatomic, strong) RACSubject *cellClickSubject;
 
+@property (nonatomic, strong) RACSubject *scrollSubject;
+
 @end

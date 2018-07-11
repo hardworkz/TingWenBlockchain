@@ -24,9 +24,14 @@
     
     [APPDELEGATE setRootViewController];
     
+    //推送唤醒APP处理
+    NSDictionary *userInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (userInfo) {
+        [[MiPushSDKManager sharedManager] miPushDidClickNotification:userInfo];
+    }
+    
     return YES;
 }
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.

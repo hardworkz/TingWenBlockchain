@@ -11,4 +11,6 @@
 
 @interface ZViewModel : NSObject <ZViewModelProtocol>
 
+@property (assign, nonatomic) CGFloat cellHeight;
+
 @end
